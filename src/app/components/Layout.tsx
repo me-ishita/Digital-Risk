@@ -1,12 +1,28 @@
 import { Outlet, Link, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import brandLogo from "@/assets/b402c8efd70b38e0d5cb2eef9fe01649b01c6575.png";
 
 export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const academyRef = useRef<HTMLDivElement>(null);
+  const labsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        academyRef.current && !academyRef.current.contains(event.target as Node) &&
+        labsRef.current && !labsRef.current.contains(event.target as Node)
+      ) {
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   const location = useLocation();
   const getBrandName = () => {
     if (location.pathname.startsWith("/academy")) {
@@ -123,7 +139,6 @@ const isLab = location.pathname.startsWith("/lab");
               ? "bg-slate-950/80 backdrop-blur-lg"
               : "bg-transparent"
           }`}
-        style={{ backgroundColor: "transparent" }}  
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
@@ -154,27 +169,33 @@ const isLab = location.pathname.startsWith("/lab");
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-2 text-sm font-medium font-display">
 
-              <div className="relative group">
-                <button className="flex items-center gap-1 px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
-                  Academy <ChevronDown className="w-3.5 h-3.5" />
+              <div className="relative group" ref={academyRef}>
+                <button 
+                  onClick={() => setActiveDropdown(activeDropdown === "academy" ? null : "academy")}
+                  className="flex items-center gap-1 px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm"
+                >
+                  Academy <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "academy" ? "rotate-180" : ""}`} />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-slate-800 overflow-hidden">
-                  <Link to="/academy" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Academy Home</Link>
-                  <Link to="/academy/programs" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
-                  <Link to="/academy/certifications" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Certifications</Link>
-                  <Link to="/academy/resources" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Resources</Link>
+                <div className={`absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl transition-all duration-200 border border-slate-800 overflow-hidden ${activeDropdown === "academy" ? "opacity-100 visible" : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"}`}>
+                  <Link to="/academy" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Academy Home</Link>
+                  <Link to="/academy/programs" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
+                  <Link to="/academy/certifications" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Certifications</Link>
+                  <Link to="/academy/resources" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Resources</Link>
                 </div>
               </div>
 
-              <div className="relative group">
-                <button className="flex items-center gap-1 px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
-                  Labs <ChevronDown className="w-3.5 h-3.5" />
+              <div className="relative group" ref={labsRef}>
+                <button 
+                  onClick={() => setActiveDropdown(activeDropdown === "labs" ? null : "labs")}
+                  className="flex items-center gap-1 px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm"
+                >
+                  Labs <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "labs" ? "rotate-180" : ""}`} />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-slate-800 overflow-hidden">
-                  <Link to="/advisory" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Labs Home</Link>
-                  <Link to="/advisory/services" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Services</Link>
-                  <Link to="/advisory/how-we-work" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">How We Work</Link>
-                  <Link to="/advisory/case-studies" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Case Studies</Link>
+                <div className={`absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl transition-all duration-200 border border-slate-800 overflow-hidden ${activeDropdown === "labs" ? "opacity-100 visible" : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"}`}>
+                  <Link to="/advisory" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Labs Home</Link>
+                  <Link to="/advisory/services" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Services</Link>
+                  <Link to="/advisory/how-we-work" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">How We Work</Link>
+                  <Link to="/advisory/case-studies" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Case Studies</Link>
                 </div>
               </div>
 
@@ -414,7 +435,7 @@ function Footer() {
 
           <div>
             <h3 className="font-semibold mb-4 text-blue-500">
-              Advisory
+              Accelerator
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -422,7 +443,7 @@ function Footer() {
                   to="/advisory"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
-                  Advisory Home
+                  Accelerator Home
                 </Link>
               </li>
               <li>
