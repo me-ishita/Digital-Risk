@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { useState, useEffect, useRef, useCallback } from "react";
 import type { ReactNode } from "react";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom"; 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
@@ -460,6 +461,7 @@ function HeroBg() {
 }
 
 export function HomePage() {
+  const navigate = useNavigate(); 
   return (
     <div className="bg-white">
 
@@ -510,9 +512,19 @@ export function HomePage() {
             <Link to="/academy" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:-translate-y-0.5">
               Explore Academy <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/advisory" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-transparent border-2 border-white/60 text-white font-semibold rounded-full hover:bg-white/10 hover:border-white transition-all duration-300 hover:-translate-y-0.5">
-              Advisory Services <ArrowRight className="w-4 h-4" />
-            </Link>
+            <button
+      onClick={() => navigate("/advisory")} 
+      className="group inline-flex items-center justify-center gap-2 
+                 w-full sm:w-auto px-8 py-3.5 
+                 bg-transparent border-2 border-white/60 text-white 
+                 font-semibold rounded-full 
+                 hover:bg-white/10 hover:border-white 
+                 transition-all duration-300 ease-out 
+                 hover:-translate-y-0.5"
+    >
+      Explore Labs
+      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+    </button>
           </motion.div>
         </div>
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse" />

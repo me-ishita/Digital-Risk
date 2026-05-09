@@ -1,7 +1,8 @@
-import { Outlet, Link, useLocation } from "react-router";
+import { Outlet, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import brandLogo from "@/assets/b402c8efd70b38e0d5cb2eef9fe01649b01c6575.png";
 
 export function Layout() {

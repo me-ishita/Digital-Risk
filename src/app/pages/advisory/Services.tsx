@@ -1,264 +1,296 @@
-import { motion } from "motion/react";
-import { Link } from "react-router";
-import {
-  Shield,
-  FileCheck,
-  Lock,
-  Brain,
-  Users,
-  School,
-  CheckCircle,
-  ArrowRight,
-} from "lucide-react";
-
-const services = [
-  {
-    icon: <Shield className="w-12 h-12" />,
-    title: "Cyber Risk & Resilience",
-    image:
-      "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=55&w=720",
-    description:
-      "Strengthen your organization's cyber posture and resilience capabilities",
-    offerings: [
-      "Cyber posture reviews and assessments",
-      "Resilience planning and strategy",
-      "Incident readiness preparation",
-      "Security maturity support and roadmapping",
-    ],
-    outcomes: [
-      "Enhanced security posture",
-      "Improved incident response",
-      "Resilient operations",
-    ],
-  },
-  {
-    icon: <FileCheck className="w-12 h-12" />,
-    title: "Governance, Risk & Compliance",
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=55&w=720",
-    description:
-      "Build robust governance frameworks and risk oversight mechanisms",
-    offerings: [
-      "Governance framework design",
-      "Internal controls development",
-      "Risk oversight and management",
-      "Compliance readiness support",
-    ],
-    outcomes: [
-      "Effective governance",
-      "Strong risk oversight",
-      "Audit readiness",
-    ],
-  },
-  {
-    icon: <Lock className="w-12 h-12" />,
-    title: "Digital Trust & Privacy",
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=55&w=720",
-    description:
-      "Establish trust architecture and privacy accountability frameworks",
-    offerings: [
-      "Trust architecture design",
-      "Privacy readiness assessments",
-      "Accountability frameworks",
-      "Data trust considerations",
-    ],
-    outcomes: [
-      "Enhanced customer trust",
-      "Privacy compliance",
-      "Data accountability",
-    ],
-  },
-  {
-    icon: <Brain className="w-12 h-12" />,
-    title: "AI Risk & Responsible Innovation",
-    image:
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=55&w=720",
-    description:
-      "Navigate AI governance and responsible AI deployment",
-    offerings: [
-      "AI governance frameworks",
-      "AI policy development",
-      "Risk oversight for AI systems",
-      "Responsible AI readiness",
-    ],
-    outcomes: [
-      "AI governance maturity",
-      "Responsible innovation",
-      "Risk-aware AI deployment",
-    ],
-  },
-  {
-    icon: <Users className="w-12 h-12" />,
-    title: "Security Awareness & Human Risk",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=55&w=720",
-    description:
-      "Build risk-aware culture and workforce capability",
-    offerings: [
-      "Workforce awareness programs",
-      "Leadership awareness initiatives",
-      "Role-based risk awareness",
-      "Culture building and change management",
-    ],
-    outcomes: [
-      "Security-aware workforce",
-      "Risk-conscious culture",
-      "Reduced human risk",
-    ],
-  },
-  {
-    icon: <School className="w-12 h-12" />,
-    title: "Institutional / Academic Advisory",
-    image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=55&w=720",
-    description:
-      "Support educational institutions with digital risk strategy",
-    offerings: [
-      "Policy and safety advisory",
-      "Digital literacy and risk strategy",
-      "Academic program enablement",
-      "Institution readiness assessments",
-    ],
-    outcomes: [
-      "Enhanced digital safety",
-      "Academic excellence",
-      "Institutional readiness",
-    ],
-  },
-];
+import { motion } from 'motion/react';
+import { Shield, RefreshCw, Brain, GraduationCap, FileCheck, Building2, Heart, Code, Briefcase, ShoppingCart } from 'lucide-react';
+import { Card } from '@/app/components/ui/card';
+import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export function Services() {
+  const services = [
+    {
+      icon: Shield,
+      title: 'Digital Risk Advisory',
+      image:
+        'https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTEwfHxjb2Rpbmd8ZW58MHwwfDB8fHww',
+      description: 'We help organizations manage digital risk at a strategic level. We align cybersecurity, compliance, and business goals into a unified risk posture.',
+      gradient: 'from-gray-200 via-gray-300 to-gray-200',
+      offerings: [
+        'Enterprise risk assessments',
+        'Regulatory compliance (ISO, NIST, GDPR, etc.)',
+        'Risk quantification & reporting',
+        'Board-level risk strategy'
+      ]
+    },
+    {
+      icon: RefreshCw,
+      title: 'Cyber Resilience',
+      image:
+        'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA2fHxjb2Rpbmd8ZW58MHwwfDB8fHww',
+      description: 'Build systems that don’t just defend—but recover, adapt, and evolve under pressure. Strengthen resilience across infrastructure and operations.',
+      gradient: 'from-gray-200 via-gray-300 to-gray-200',
+      offerings: [
+        'Incident response planning',
+        'Threat modeling & simulation',
+        'Business continuity & disaster recovery',
+        'Security architecture design'
+      ]
+    },
+    {
+      icon: Brain,
+      title: 'AI Risk & Governance',
+      image:
+        'https://images.unsplash.com/photo-1694903089438-bf28d4697d9a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFpfGVufDB8MHwwfHx8MA%3D%3D',
+      description: 'AI adoption introduces risks like bias and compliance failures. We ensure safe, ethical, and compliant AI systems.',
+      gradient: 'from-slate-200 via-slate-300 to-slate-200',
+      offerings: [
+        'AI model risk assessment',
+        'Responsible AI frameworks',
+        'Bias detection & mitigation',
+        'AI governance & policy design'
+      ]
+    },
+    {
+      icon: GraduationCap,
+      title: 'Professional Development',
+      image:
+        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=60',
+      description: 'Empower teams with the skills to manage modern digital risks effectively. Deliver structured learning for cybersecurity and AI readiness.',
+      gradient: 'from-slate-200 via-slate-300 to-slate-200',
+      offerings: [
+        'Cybersecurity training programs',
+        'AI risk awareness workshops',
+        'Executive leadership training',
+        'Certification-focused learning'
+      ]
+    },
+    {
+      icon: FileCheck,
+      title: 'Audit & Assurance',
+      image:
+        'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&auto=format&fit=crop&q=60',
+      description: 'Independent validation of your security and compliance posture to build trust with stakeholders. Identify gaps and strengthen controls.',
+      gradient: 'from-gray-300 via-gray-400 to-gray-300',
+      offerings: [
+        'Security audits & gap analysis',
+        'Compliance audits',
+        'Third-party risk assessments',
+        'Continuous monitoring frameworks'
+      ]
+    },
+    {
+      icon: Building2,
+      title: 'Academic Advisory',
+      image:
+        'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=60',
+      description:
+        'We partner with academic and public institutions to strengthen digital capability and governance. Enable structured risk and resilience programs.',
+      gradient: 'from-gray-200 via-gray-400 to-gray-200',
+      offerings: [
+        'Policy and safety advisory',
+        'Digital literacy and risk strategy',
+        'Academic program enablement',
+        'Institution readiness assessments'
+      ]
+    }
+  ];
+
+  const industries = [
+    {
+      icon: Building2,
+      name: 'Financial Services',
+      description: 'Fraud prevention, regulatory compliance',
+      gradient: 'from-zinc-200 via-zinc-300 to-zinc-200'
+    },
+    {
+      icon: Heart,
+      name: 'Healthcare',
+      description: 'Patient data security, HIPAA compliance',
+      gradient: 'from-gray-200 via-gray-300 to-gray-200'
+    },
+    {
+      icon: Briefcase,
+      name: 'Government & Public Sector',
+      description: 'Critical infrastructure protection',
+      gradient: 'from-gray-200 via-gray-300 to-gray-200'
+    },
+    {
+      icon: ShoppingCart,
+      name: 'Retail & E-commerce',
+      description: 'Payment security, fraud detection, data protection',
+      gradient: 'from-zinc-200 via-zinc-300 to-zinc-200'
+    },
+  ];
+  const navigate = useNavigate();
+
   return (
-    <div className="pt-20">
-      <section className="relative py-24 bg-gradient-to-br from-slate-950 via-blue-950/20 to-slate-900">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Advisory Services
-            </h1>
-            <p className="text-xl text-slate-300">
-              Comprehensive digital risk solutions tailored to
-              your organization's needs
-            </p>
-          </motion.div>
-        </div>
+    <div className="min-h-screen pt-24">
+      {/* Hero Section */}
+            <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800/70 to-transparent"></div>
+
+      <section className="py-10 bg-linear-to-br from-background via-card to-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-primary/5 bg-size-[50px_50px]"></div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="container mx-auto px-6 text-center relative z-10"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+            Our Services
+          </h1>
+          <p className="text-2xl md:text-xl font-semibold text-primary uppercase tracking-widest text-center max-w-4xl mx-auto leading-relaxed px-4 whitespace-normal">
+            Strategic digital risk solutions aligned with your goals
+          </p>
+        </motion.div>
       </section>
 
-      <section className="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
+      {/* Services Grid */}
+      <div className="h-px w-full bg-linear-to-r from-transparent via-amber-600/70 to-transparent"></div>
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
-          <div className="space-y-16">
+          <div className="grid md:grid-cols-3 gap-10 max-w-9xl mx-auto">
             {services.map((service, index) => (
-              <ServiceDetail
+              <motion.div
                 key={index}
-                service={service}
-                index={index}
-              />
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+
+                <Card className="p-0 h-full group relative overflow-hidden rounded-3xl backdrop-blur-xl bg-card/60 border border-border shadow-xl hover:shadow-2xl transition-all duration-500">
+
+                  {/* GLASS GRADIENT OVERLAY */}
+                  <div className={`absolute inset-0 bg-linear-to-br ${service.gradient} opacity-10 group-hover:opacity-20 transition`} />
+
+                  {/* ✨ METALLIC SHINE */}
+                  <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
+                    <div className="shine absolute top-0 left-[-120%] h-full w-[60%]" />
+                  </div>
+
+                  {/* IMAGE */}
+                  <div className="h-60 w-full overflow-hidden">
+                    <img
+                      src={service.image}
+                      className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                    />
+                  </div>
+
+                  {/* CONTENT */}
+                  <div className="p-8 relative z-10">
+
+                    {/* ICON + TITLE */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${service.gradient} p-2 shadow-lg`}>
+                        <service.icon className="w-full h-full text-white" />
+                      </div>
+
+                      <h3 className="text-2xl font-extrabold text-foreground tracking-tight">
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    {/* DESCRIPTION */}
+                    <p className="text-[15px] md:text-[16px] font-medium text-foreground/80 leading-relaxed mb-5">
+                      {service.description}
+                    </p>
+
+                    {/* KEY OFFERINGS */}
+                    <div className="mb-6">
+                      <h4 className="text-xs font-semibold uppercase tracking-widest text-gray-600 mb-3">
+                        Key Offerings
+                      </h4>
+                      <div className={`relative p-px rounded-2xl bg-linear-to-r ${service.gradient}`}>
+
+                        <div className="bg-card/70 backdrop-blur-md rounded-2xl p-4">
+
+                          <ul className="space-y-2">
+                            {service.offerings.map((offering, idx) => (
+                              <li
+                                key={idx}
+                                className="flex items-start gap-2 text-sm text-foreground/90"
+                              >
+                                <span className={`w-2 h-2 mt-2 rounded-full bg-linear-to-r ${service.gradient}`} />
+                                <span className="leading-relaxed font-medium">
+                                  {offering}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* CTA BUTTON (FIXED GAP) */}
+                    <div className="mt-6">
+                      <button
+                        onClick={() => navigate('/contact')}
+                        className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-white font-medium
+    bg-linear-to-r from-slate-700 via-gray-500 to-slate-700
+    hover:opacity-90 transition"
+                      >
+                        Book an Adviser
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                  </div>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-r from-blue-500 to-orange-600">
+      {/* Industries Section */}
+      <div className="h-px w-full bg-linear-to-r from-transparent via-amber-600/70 to-transparent"></div>
+
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">
-              Ready to Get Started?
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Industries We Serve
             </h2>
-            <p className="text-xl mb-8 text-white/90">
-              Let's discuss how we can support your digital risk
-              objectives.
+            <p className="text-2xl md:text-xl font-semibold text-primary uppercase tracking-widest text-center max-w-4xl mx-auto leading-relaxed px-4 whitespace-normal">
+              Tailored to your specific risk landscape
             </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-slate-100 transition-all"
-            >
-              <span>Schedule Consultation</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {industries.map((industry, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="p-6 hover:shadow-2xl transition-all duration-300 group border-gray-300 hover:border-gray-400 relative overflow-hidden bg-card/50 backdrop-blur-sm">
+                  <div className={`absolute inset-0 bg-linear-to-br ${industry.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+
+                  <div className="relative z-10">
+                    <div className="mb-4">
+                      <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${industry.gradient} p-3 group-hover:scale-110 transition-transform duration-300`}>
+                        <industry.icon className="w-full h-full text-white" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl mb-2">{industry.name}</h3>
+                    <p className="text-gray-600 text-sm">{industry.description}</p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
+      <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800/70 to-transparent"></div>
+
+
+
     </div>
-  );
-}
-
-function ServiceDetail({ service, index }: any) {
-  return (
-    <motion.div
-      className="relative bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-    >
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src={service.image}
-          alt={service.title}
-          className="w-full h-full object-cover opacity-70 scale-105 blur-[1px] brightness-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-900/60 to-slate-900/70" />{" "}
-      </div>
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8 p-8 lg:p-12">
-        {" "}
-        <div className="lg:col-span-1">
-          <div className="text-blue-500 mb-6">
-            {service.icon}
-          </div>
-          <h2 className="text-3xl font-bold mb-4">
-            {service.title}
-          </h2>
-          <p className="text-slate-400">
-            {service.description}
-          </p>
-        </div>
-        <div className="lg:col-span-2">
-          <div className="mb-8">
-            <h3 className="text-xl font-bold mb-4">
-              What We Offer
-            </h3>
-            <ul className="space-y-3">
-              {service.offerings.map(
-                (offering: string, i: number) => (
-                  <li
-                    key={i}
-                    className="flex items-start space-x-3"
-                  >
-                    <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-300">
-                      {offering}
-                    </span>
-                  </li>
-                ),
-              )}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-4">
-              Outcomes You Can Expect
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {service.outcomes.map(
-                (outcome: string, i: number) => (
-                  <span
-                    key={i}
-                    className="px-4 py-2 bg-blue-500/10 text-blue-400 rounded-lg text-sm font-medium"
-                  >
-                    {outcome}
-                  </span>
-                ),
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
   );
 }

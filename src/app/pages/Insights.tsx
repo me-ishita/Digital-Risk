@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { BookOpen, FileText, TrendingUp, Brain, Shield, Lock, ArrowRight } from "lucide-react";
 
 const insights = [
