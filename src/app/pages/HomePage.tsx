@@ -501,7 +501,7 @@ export function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.7 }}
           >
-            Capability Building and Strategic Innovation in Digital Risk-empowering organizations and professionals to navigate complexity with confidence.
+            The Core of Digital Confidence, Capability Building and Strategic Innovation in Digital Risk-empowering organizations and professionals to navigate complexity with confidence.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center"
@@ -510,9 +510,8 @@ export function HomePage() {
             transition={{ delay: 1.1, duration: 0.6 }}
           >
             <Link to="/academy" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:-translate-y-0.5">
-              Academy <ArrowRight className="w-4 h-4" />
+              Explore Academy <ArrowRight className="w-4 h-4" />
             </Link>
-<<<<<<< HEAD
             <button
       onClick={() => navigate("/advisory")} 
       className="group inline-flex items-center justify-center gap-2 
@@ -526,11 +525,6 @@ export function HomePage() {
       Explore Labs
       <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
     </button>
-=======
-            <Link to="/advisory" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-transparent border-2 border-white/60 text-white font-semibold rounded-full hover:bg-white/10 hover:border-white transition-all duration-300 hover:-translate-y-0.5">
-              Labs <ArrowRight className="w-4 h-4" />
-            </Link>
->>>>>>> 0cffab75ca35d65e40beb4daf9099ed6838d9824
           </motion.div>
         </div>
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse" />
@@ -584,7 +578,7 @@ export function HomePage() {
               link="/advisory"
             />
             <MandateCard
-              title="Accelerator"
+              title="Advisory"
               description="Strategic extension of your leadership team through tailored risk programmes and bespoke talent pipelining."
               image="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=55&w=720&auto=format&fit=crop"
               link="/advisory"
@@ -670,7 +664,7 @@ export function HomePage() {
             transition={{ duration: 0.6 }}
           >
             <span className="logo-shine inline-block text-xl sm:text-2xl md:text-4xl font-black tracking-[0.08em] uppercase mb-4 leading-none">Digital Risk Labs</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Innovations and Accelerator</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Innovations and Advisory</h2>
             <p className="text-slate-300 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
               PRISM turns complex regulatory obligations into accurate, traceable, and audit-ready reporting with minimal manual effort.
             </p>
