@@ -18,7 +18,7 @@ export default function InfoBar() {
                             Starts On
                         </p>
                         <p className="text-lg font-semibold">
-                            25 June 2026
+                            3 August 2026
                         </p>
                     </div>
 
@@ -42,7 +42,7 @@ export default function InfoBar() {
                         </p>
 
                         <p className="text-2xl font-bold tracking-tight">
-                            £375
+                            £270
                         </p>
 
                         <p className="text-xs bg-blue-400/20 text-blue-200 px-3 py-1 rounded-full inline-block mt-1">

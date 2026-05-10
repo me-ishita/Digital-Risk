@@ -12,7 +12,7 @@ export function Services() {
       image:
         'https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTEwfHxjb2Rpbmd8ZW58MHwwfDB8fHww',
       description: 'We help organizations manage digital risk at a strategic level. We align cybersecurity, compliance, and business goals into a unified risk posture.',
-      gradient: 'from-gray-200 via-gray-300 to-gray-200',
+      gradient: 'from-gray-300 via-gray-400 to-gray-300',
       offerings: [
         'Enterprise risk assessments',
         'Regulatory compliance (ISO, NIST, GDPR, etc.)',
@@ -26,7 +26,7 @@ export function Services() {
       image:
         'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA2fHxjb2Rpbmd8ZW58MHwwfDB8fHww',
       description: 'Build systems that don’t just defend—but recover, adapt, and evolve under pressure. Strengthen resilience across infrastructure and operations.',
-      gradient: 'from-gray-200 via-gray-300 to-gray-200',
+      gradient: 'from-gray-300 via-gray-400 to-gray-300',
       offerings: [
         'Incident response planning',
         'Threat modeling & simulation',
@@ -40,7 +40,7 @@ export function Services() {
       image:
         'https://images.unsplash.com/photo-1694903089438-bf28d4697d9a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFpfGVufDB8MHwwfHx8MA%3D%3D',
       description: 'AI adoption introduces risks like bias and compliance failures. We ensure safe, ethical, and compliant AI systems.',
-      gradient: 'from-slate-200 via-slate-300 to-slate-200',
+      gradient: 'from-gray-300 via-gray-400 to-gray-300',
       offerings: [
         'AI model risk assessment',
         'Responsible AI frameworks',
@@ -54,7 +54,7 @@ export function Services() {
       image:
         'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=60',
       description: 'Empower teams with the skills to manage modern digital risks effectively. Deliver structured learning for cybersecurity and AI readiness.',
-      gradient: 'from-slate-200 via-slate-300 to-slate-200',
+      gradient: 'from-gray-300 via-gray-400 to-gray-300',
       offerings: [
         'Cybersecurity training programs',
         'AI risk awareness workshops',
@@ -83,7 +83,7 @@ export function Services() {
         'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=60',
       description:
         'We partner with academic and public institutions to strengthen digital capability and governance. Enable structured risk and resilience programs.',
-      gradient: 'from-gray-200 via-gray-400 to-gray-200',
+      gradient: 'from-gray-300 via-gray-400 to-gray-300',
       offerings: [
         'Policy and safety advisory',
         'Digital literacy and risk strategy',
@@ -98,25 +98,25 @@ export function Services() {
       icon: Building2,
       name: 'Financial Services',
       description: 'Fraud prevention, regulatory compliance',
-      gradient: 'from-zinc-200 via-zinc-300 to-zinc-200'
+      gradient: 'from-gray-300 via-gray-400 to-gray-300'
     },
     {
       icon: Heart,
       name: 'Healthcare',
       description: 'Patient data security, HIPAA compliance',
-      gradient: 'from-gray-200 via-gray-300 to-gray-200'
+      gradient: 'from-gray-300 via-gray-400 to-gray-300'
     },
     {
       icon: Briefcase,
       name: 'Government & Public Sector',
       description: 'Critical infrastructure protection',
-      gradient: 'from-gray-200 via-gray-300 to-gray-200'
+      gradient: 'from-gray-300 via-gray-400 to-gray-300'
     },
     {
       icon: ShoppingCart,
       name: 'Retail & E-commerce',
       description: 'Payment security, fraud detection, data protection',
-      gradient: 'from-zinc-200 via-zinc-300 to-zinc-200'
+      gradient: 'from-gray-300 via-gray-400 to-gray-300'
     },
   ];
   const navigate = useNavigate();
@@ -161,7 +161,7 @@ export function Services() {
                   {/* GLASS GRADIENT OVERLAY */}
                   <div className={`absolute inset-0 bg-linear-to-br ${service.gradient} opacity-10 group-hover:opacity-20 transition`} />
 
-                  {/* ✨ METALLIC SHINE */}
+                  {/*  METALLIC SHINE */}
                   <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
                     <div className="shine absolute top-0 left-[-120%] h-full w-[60%]" />
                   </div>
@@ -278,8 +278,8 @@ export function Services() {
                         <industry.icon className="w-full h-full text-white" />
                       </div>
                     </div>
-                    <h3 className="text-xl mb-2">{industry.name}</h3>
-                    <p className="text-gray-600 text-sm">{industry.description}</p>
+                    <h3 className="text-xl mb-2 text-foreground">{industry.name}</h3>
+                    <p className="text-primary text-sm">{industry.description}</p>
                   </div>
                 </Card>
               </motion.div>

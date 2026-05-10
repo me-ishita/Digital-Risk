@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import prismLogo from '../../../assets/Prism logo.png';
+import prismBG from '../../../assets/prism-bg.png';
 
 export function Innovation() {
 
@@ -181,15 +182,31 @@ export function Innovation() {
 
           {/* HEADER */}
           <div className="text-center mb-20">
-            <div className="flex justify-center items-center gap-4 mb-4">
-              <img src={prismLogo} alt="PRISM Logo" className="w-12 h-12" />
+            <div className="flex justify-center items-center gap-4 mb-6 flex-wrap">
 
-              <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
-                <span className="text-white">Live Innovation — </span>
-                <span className="bg-linear-to-r from-[#d4af37] to-[#f5d06f] bg-clip-text text-transparent text-5xl md:text-6xl font-extrabold mb-6">
-                  PRISM
+              {/* Small icon */}
+              <img
+                src={prismLogo}
+                alt="PRISM Logo"
+                className="w-12 h-12 object-contain"
+              />
+
+              {/* Title */}
+              <h2 className="flex items-center gap-3 text-5xl md:text-6xl font-extrabold leading-tight">
+
+                <span className="text-white whitespace-nowrap">
+                  Live Innovation —
                 </span>
+
+                {/* PRISM TEXT IMAGE */}
+                <img
+                  src={prismBG}
+                  alt="PRISM"
+                  className="h-10 md:h-12 w-auto object-contain"
+                />
+
               </h2>
+
             </div>
 
             <p className="text-2xl md:text-xl font-semibold text-[#d4af37] uppercase tracking-widest text-center max-w-4xl mx-auto leading-relaxed px-4 whitespace-normal">
@@ -299,7 +316,7 @@ export function Innovation() {
           {/* CTA */}
           <div className="text-center mt-12">
             <a
-              href="https://innovation-prism.vercel.app/"
+              href="/Prism-Brochure/index.html"
               className="group inline-flex items-center gap-2 text-[#d4af37] font-semibold text-lg relative"
             >
               <span className="relative">

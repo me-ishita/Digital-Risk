@@ -38,7 +38,7 @@ import { ResearchPaperDetail } from "./pages/ResearchPaperDetail";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, // ✅ IMPORTANT
+    element: <Layout />, 
     children: [
       { index: true, element: <HomePage /> },
 
@@ -48,13 +48,13 @@ export const router = createBrowserRouter([
       { path: "academy/certifications", element: <Certifications /> },
       { path: "academy/resources", element: <Resources /> },
 
-      { path: "investment-banking", element: <InvestmentBankingProgram /> },
-      { path: "digital-risk-fundamentals", element: <DigitalRiskFundamentals /> },
-      { path: "cyber-resilience-practitioner", element: <CyberResiliencePractitioner /> },
-      { path: "ai-risk-governance", element: <AIRiskGovernance /> },
-      { path: "executive-leadership", element: <ExecutiveLeadership /> },
-      { path: "cniscc", element: <CNISCC /> },
-      { path: "data-risk-enterprise", element: <DataRiskEnterprise /> },
+      { path: "programs/investment-banking", element: <InvestmentBankingProgram /> },
+      { path: "programs/digital-risk-fundamentals", element: <DigitalRiskFundamentals /> },
+      { path: "programs/cyber-resilience-practitioner", element: <CyberResiliencePractitioner /> },
+      { path: "programs/ai-risk-governance", element: <AIRiskGovernance /> },
+      { path: "programs/executive-leadership", element: <ExecutiveLeadership /> },
+      { path: "programs/cniscc", element: <CNISCC /> },
+      { path: "programs/data-risk-enterprise", element: <DataRiskEnterprise /> },
       { path: ":id", element: <ProgramDetail /> },
 
       { path: "students", element: <StudentProgram /> },
