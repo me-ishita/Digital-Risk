@@ -94,8 +94,6 @@ export default function AdvisoryHome() {
     },
   ];
 
-
-
   const items = [
     {
       title: "Our Story",

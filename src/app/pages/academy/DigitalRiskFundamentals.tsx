@@ -28,7 +28,7 @@ export default function DigitalRiskFundamentals() {
           <div className="lg:col-span-8">
             <div className="w-full rounded-2xl overflow-hidden border border-orange-100 shadow-[0_4px_24px_rgb(234,88,12,0.1)]">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" 
+                src="https://images.pexels.com/photos/5833263/pexels-photo-5833263.jpeg" 
                 alt="Dashboard" 
                 className="w-full h-auto object-cover" 
               />

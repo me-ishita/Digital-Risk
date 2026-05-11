@@ -41,7 +41,7 @@ export function AcademyPrograms() {
               viewport={{ once: true }}
               className="relative rounded-2xl overflow-hidden group min-h-[440px] sm:min-h-[400px] md:min-h-[480px] w-full max-w-4xl"
             >
-              {/* Background Image */}
+              {/* Investment Banking Feature Card */}
               <div className="absolute inset-0">
                 <img
                   src="https://images.unsplash.com/photo-1630464373688-fb6a37ce89ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGludmVzdG1lbnQlMjBiYW5raW5nfGVufDB8fDB8fHww"
@@ -122,7 +122,7 @@ export function AcademyPrograms() {
                 {/* Image */}
                 <div className="w-full">
                   <img
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"
+                    src="https://images.pexels.com/photos/5833263/pexels-photo-5833263.jpeg"
                     alt="Dashboard"
                     className="w-full h-[220px] object-cover"
                   />
@@ -151,7 +151,7 @@ export function AcademyPrograms() {
                 {/* Image */}
                 <div className="w-full">
                   <img
-                    src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800"
+                    src="https://media.istockphoto.com/id/2174551157/photo/cyber-security-data-protection-business-technology-privacy-concept.jpg?b=1&s=612x612&w=0&k=20&c=C2ye6tSOAmDUhC4MGIAlhA8w2o65eP-Mkg8dDxBwCcI="
                     alt="Cyber SOC"
                     className="w-full h-[220px] object-cover"
                   />
@@ -180,7 +180,7 @@ export function AcademyPrograms() {
                 {/* Image */}
                 <div className="w-full">
                   <img
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800"
+                    src="https://media.istockphoto.com/id/2222990006/photo/artificial-intelligence-machine-learning-large-language-model-ai-technology.jpg?b=1&s=612x612&w=0&k=20&c=8hk3IlipRU48WifJU7rAF2QqZ1B6LhXYgggme52yFCA="
                     alt="AI Governance Boardroom"
                     className="w-full h-[220px] object-cover"
                   />
@@ -203,6 +203,7 @@ export function AcademyPrograms() {
                   </Link>
                 </div>
               </div>
+
               {/* EXECUTIVE LEADERSHIP PROGRAMME CARD */}
               <div className="bg-white rounded-[24px] border border-orange-200/80 shadow-[0_8px_30px_rgb(234,88,12,0.08)] flex flex-col overflow-hidden pb-8 transition-transform hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(234,88,12,0.12)]">
                 {/* Image */}

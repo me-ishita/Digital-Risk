@@ -6,8 +6,8 @@ import { AcademyPrograms } from "./pages/academy/AcademyPrograms";
 import { ProgramDetail } from "./pages/academy/ProgramDetail";
 import { Certifications } from "./pages/academy/Certifications";
 import { Resources } from "./pages/academy/Resources";
-import { Insights } from "./pages/Insights";
 import { About } from "./pages/About";
+import { Register } from "./pages/Register";
 
 import InvestmentBankingProgram from "./pages/academy/InvestmentBankingProgram";
 import DataRiskEnterprise from "./pages/academy/DataRiskEnterprise";
@@ -38,12 +38,12 @@ import { ResearchPaperDetail } from "./pages/ResearchPaperDetail";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, 
+    element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
 
       { path: "academy", element: <AcademyHome /> },
-      { path: "academy/programs", element: <AcademyPrograms /> },
+      { path: "programs", element: <AcademyPrograms /> },
       { path: "academy/programs/:id", element: <ProgramDetail /> },
       { path: "academy/certifications", element: <Certifications /> },
       { path: "academy/resources", element: <Resources /> },
@@ -72,13 +72,14 @@ export const router = createBrowserRouter([
 
       { path: "contact", element: <Contact /> },
       { path: "about", element: <About /> },
+      { path: "register", element: <Register /> },
+
       { path: "news", element: <News /> },
       { path: "news/:id", element: <NewsArticleDetail /> },
 
       { path: "research", element: <Research /> },
       { path: "research/:id", element: <ResearchPaperDetail /> },
 
-      { path: "insights", element: <Insights /> },
 
       { path: "*", element: <NotFound /> },
     ],

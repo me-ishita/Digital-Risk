@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef, useCallback } from "react";
 import type { ReactNode } from "react";
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
@@ -35,41 +35,82 @@ type StoryVisionSlide = {
   image: string;
 };
 
-const heroBackgroundVideo = "/Hero%20Background.mp4";
 
 const heroSlides = [
+  {
+    title: "Investment Banking Programme",
+    description:
+      "A 4-week live, high-intensity programme led by professionals working in top UK investment banks across digital risk, cyber risk, and financial services.",
+    audience: "Students & Early-career Professionals",
+    highlights: [
+      "Real-world banking scenarios",
+      "Career guidance & mentorship",
+      "Live cohort-based training",
+    ],
+    badge: "New Launch • August Cohort",
+    duration: "4 Weeks",
+    image:
+      "https://images.unsplash.com/photo-1630464373688-fb6a37ce89ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGludmVzdG1lbnQlMjBiYW5raW5nfGVufDB8fDB8fHww",
+    courseId: "investment-banking",
+    cta: "Enroll Now",
+    featured: true,
+  },
+
+  {
+    title: "Digital Risk Fundamentals",
+    description:
+      "Essential foundation for understanding digital risk landscape. Covers threat identification, risk assessment methodologies, and compliance frameworks for modern enterprises.",
+    audience: "New Professionals, Risk Managers, Board Members",
+    highlights: [
+      "Enterprise risk frameworks",
+      "Compliance & governance",
+      "Risk assessment methodologies",
+    ],
+    badge: "Foundation Programme",
+    duration: "2 Weeks",
+    image:
+      "https://images.pexels.com/photos/5833263/pexels-photo-5833263.jpeg",
+    courseId: "digital-risk-fundamentals",
+    cta: "View Course",
+    featured: false,
+  },
+
   {
     title: "Cyber Resilience Practitioner",
     description:
       "Master operational cybersecurity through live-fire training with enterprise-grade toolsets. Graduate Day 1 ready for Security Analyst and SOC leadership roles.",
     audience: "High-potential Graduates, Career Switchers",
-    tags: ["NIST CSF", "NCSC CAF", "ISO 27001"],
+    highlights: [
+      "SOC analyst readiness",
+      "Hands-on cyber simulations",
+      "Enterprise-grade tooling",
+    ],
+    badge: "Hands-on Cyber Training",
     duration: "2 Weeks",
     image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=55&w=1280&auto=format&fit=crop",
+      "https://media.istockphoto.com/id/2174551157/photo/cyber-security-data-protection-business-technology-privacy-concept.jpg?b=1&s=612x612&w=0&k=20&c=C2ye6tSOAmDUhC4MGIAlhA8w2o65eP-Mkg8dDxBwCcI=",
     courseId: "cyber-resilience-practitioner",
+    cta: "View Course",
+    featured: false,
   },
+
   {
     title: "AI Risk Governance",
     description:
-      "Governance frameworks for executive decision-makers navigating regulatory compliance and risk management.",
+      "Strategic AI deployment and governance frameworks for executive decision-makers navigating regulatory compliance and risk management.",
     audience: "C-Suite, Board Members, Risk Leaders",
-    tags: ["AI GOVERNANCE", "DORA", "ISO 27001"],
+    highlights: [
+      "AI governance frameworks",
+      "Executive-level strategy",
+      "Regulatory compliance focus",
+    ],
+    badge: "Executive Programme",
     duration: "2 Weeks",
     image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=55&w=1280&auto=format&fit=crop",
+      "https://media.istockphoto.com/id/2222990006/photo/artificial-intelligence-machine-learning-large-language-model-ai-technology.jpg?b=1&s=612x612&w=0&k=20&c=8hk3IlipRU48WifJU7rAF2QqZ1B6LhXYgggme52yFCA=",
     courseId: "ai-risk-governance",
-  },
-  {
-    title: "Executive Leadership Programme",
-    description:
-      "CISO-in-a-Box training covering crisis management, board communication, and legal defensibility for cyber leadership roles.",
-    audience: "Mid-to-Senior Professionals, Finance Leaders",
-    tags: ["NIST CSF", "CAF", "DORA"],
-    duration: "2 Weeks",
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=55&w=1280&auto=format&fit=crop",
-    courseId: "executive-leadership-programme",
+    cta: "View Course",
+    featured: false,
   },
 ];
 
@@ -96,6 +137,40 @@ const academyStorySlides: StoryVisionSlide[] = [
     image: "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=55&w=720&auto=format&fit=crop",
   },
 ];
+
+const academySliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
 
 const academyVisionSlides: StoryVisionSlide[] = [
   {
@@ -327,613 +402,140 @@ function HeroCourseSlider() {
   const slide = heroSlides[current];
 
   return (
-    <section className="relative w-[92%] max-w-6xl mx-auto h-[76svh] sm:h-[68vh] md:h-[560px] min-h-[620px] sm:min-h-0 overflow-hidden rounded-3xl border border-slate-200/20 shadow-2xl">
-      {/* Background Images */}
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={current}
-          className="absolute inset-0"
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.02 }}
-          transition={{ duration: 0.9, ease: "easeInOut" }}
-        >
-          <img
-            src={slide.image}
-            alt={slide.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
-        </motion.div>
-      </AnimatePresence>
+    <div className="w-full">
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6 pt-10 pb-14 sm:pt-0 sm:pb-0">
-        <AnimatePresence mode="wait">
+      <section className="relative w-[92%] max-w-7xl mx-auto min-h-[520px] md:min-h-[560px] overflow-hidden rounded-[32px] border border-orange-200/20 shadow-2xl">
+        {/* Background Images */}
+        <AnimatePresence mode="sync">
           <motion.div
             key={current}
-            className="max-w-3xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.6 }}
+            className="absolute inset-0"
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.02 }}
+            transition={{ duration: 0.9, ease: "easeInOut" }}
           >
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
-              {slide.title}
-            </h1>
-            <p className="text-xs sm:text-base md:text-lg text-slate-200 mb-2 max-w-2xl mx-auto leading-relaxed line-clamp-3 sm:line-clamp-none">
-              {slide.description}
-            </p>
-            <p className="text-xs sm:text-sm text-slate-300 mb-3 sm:mb-5 font-medium">
-              {slide.audience}
-            </p>
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
 
-            {/* Framework Tags */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-              {slide.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 sm:px-5 py-1.5 sm:py-2 bg-orange-500 text-white text-xs sm:text-sm font-semibold rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* Duration Badge */}
-            <div className="flex justify-center mb-4 sm:mb-8">
-              <span className="px-5 sm:px-6 py-2 bg-white text-blue-700 font-bold text-sm sm:text-base rounded-full shadow-lg">
-                {slide.duration}
-              </span>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
-              <Link
-                to={`/academy/programs/${slide.courseId}`}
-                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-orange-500/40 text-sm sm:text-base"
-              >
-                View Course Details
-              </Link>
-              <Link
-                to="/academy/programs"
-                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-white/10 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300 text-sm sm:text-base"
-              >
-                Browse All Courses
-              </Link>
-            </div>
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/35" />
           </motion.div>
         </AnimatePresence>
-      </div>
 
-      {/* Left / Right Arrows */}
-      <button
-        onClick={prev}
-        className="absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm border border-white/15 text-white/90 hover:text-white transition-all active:scale-95"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="w-5 h-5 sm:w-8 sm:h-8" strokeWidth={2} />
-      </button>
-      <button
-        onClick={next}
-        className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm border border-white/15 text-white/90 hover:text-white transition-all active:scale-95"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="w-5 h-5 sm:w-8 sm:h-8" strokeWidth={2} />
-      </button>
-
-      {/* Dot Indicators */}
-      <div className="absolute bottom-2 sm:bottom-8 left-0 right-0 z-20 flex justify-center">
-        <div className="flex gap-2 sm:gap-3">
-          {heroSlides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 ${i === current
-                ? "bg-orange-500 w-6"
-                : "bg-white/40 hover:bg-white/70"
-                }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HeroBg() {
-  return (
-    <div className="absolute inset-0">
-      <video
-        className="absolute inset-0 w-full h-full object-cover object-center brightness-125 contrast-105"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-      >
-        <source src={heroBackgroundVideo} type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-    </div>
-  );
-}
-
-export function HomePage() {
-  const navigate = useNavigate(); 
-  return (
-    <div className="bg-white">
-
-      {/* ════════════════════════════════════════
-          1. HERO
-      ════════════════════════════════════════ */}
-      <section className="relative min-h-[86svh] sm:min-h-[90svh] overflow-hidden">
-        <HeroBg />
-        {/* offset by navbar height (64px) so content sits in the visible area */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-5 sm:px-7 pt-32 sm:pt-40 pb-8 sm:pb-12 container mx-auto text-center">
-
-          <motion.h1
-            className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 leading-[1.12]"
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.span
-              className="block text-white whitespace-normal md:whitespace-nowrap"
-              initial={{ opacity: 0, y: 40 }}
+        {/* Main Content */}
+        <div className="relative z-10 flex items-center h-full px-5 sm:px-8 md:px-14 py-10 md:py-14">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, y: 35 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              Create Leaders. Build Resilience. Reduce Risk.
-            </motion.span>
-            <motion.span
-              className="block mt-3 logo-shine pb-1"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.24 }}
-            >
-              The Core of Digital Confidence
-            </motion.span>
-          </motion.h1>
-          <motion.p
-            className="text-base md:text-lg text-white/90 font-medium mb-5 max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.7 }}
-          >
-            The Core of Digital Confidence, Capability Building and Strategic Innovation in Digital Risk-empowering organizations and professionals to navigate complexity with confidence.
-          </motion.p>
-          <motion.div
-            className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.6 }}
-          >
-            <Link to="/academy" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:-translate-y-0.5">
-              Explore Academy <ArrowRight className="w-4 h-4" />
-            </Link>
-            <button
-      onClick={() => navigate("/advisory")} 
-      className="group inline-flex items-center justify-center gap-2 
-                 w-full sm:w-auto px-8 py-3.5 
-                 bg-transparent border-2 border-white/60 text-white 
-                 font-semibold rounded-full 
-                 hover:bg-white/10 hover:border-white 
-                 transition-all duration-300 ease-out 
-                 hover:-translate-y-0.5"
-    >
-      Explore Labs
-      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-    </button>
-          </motion.div>
-        </div>
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        {/* scroll hint */}
-        <motion.div
-          aria-hidden="true"
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity }}
-        >
-          <div className="w-0.5 h-10 bg-white/30 rounded-full" />
-        </motion.div>
-      </section>
-
-      {/* ════════════════════════════════════════
-          3. OUR MANDATE
-      ════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500 mb-3 block">What we stand for</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Mandate</h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-base leading-relaxed">
-              We operate across four integrated pillars, creating a closed-loop ecosystem of talent, strategy, innovation, and impact.
-            </p>
-          </motion.div>
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <MandateCard
-              title="Academy"
-              description="Rigorous live-fire programmes and AI-powered learning for the next generation of digital risk leaders."
-              image="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=55&w=720&auto=format&fit=crop"
-              link="/academy"
-            />
-            <MandateCard
-              title="Innovate"
-              description="Pioneering digital risk frameworks, AI governance tools, and next-generation security solutions for a complex world."
-              image="https://images.unsplash.com/photo-1518770660439-4636190af475?q=55&w=720&auto=format&fit=crop"
-              link="/advisory"
-            />
-            <MandateCard
-              title="Advisory"
-              description="Strategic extension of your leadership team through tailored risk programmes and bespoke talent pipelining."
-              image="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=55&w=720&auto=format&fit=crop"
-              link="/advisory"
-            />
-            <MandateCard
-              title="Social Impact"
-              description="Delivering measurable outcomes from governance to workforce capability across organisations and communities."
-              image="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=55&w=720&auto=format&fit=crop"
-              link="/advisory/case-studies"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════
-          OUR STORY & OUR VISION
-      ════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20 bg-slate-950">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="logo-shine inline-block text-xl sm:text-2xl md:text-4xl font-black tracking-[0.08em] uppercase mb-4 leading-none">Digital Risk Academy</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Our Story &amp; Vision</h2>
-          </motion.div>
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <StoryVisionPanel
-              slides={academyStorySlides}
-              label="Our Story"
-              accent="text-orange-400 border-orange-500/40 bg-orange-500/10"
-            />
-            <StoryVisionPanel
-              slides={academyVisionSlides}
-              label="Our Vision"
-              accent="text-blue-400 border-blue-500/40 bg-blue-500/10"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════
-          4. ELITE PROGRAMMES INTRO + COURSE SLIDER
-      ════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20 bg-white text-center">
-        <motion.div
-          className="container mx-auto px-4 sm:px-6"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="logo-shine inline-block text-sm sm:text-lg md:text-2xl font-black tracking-[0.14em] uppercase mb-3 leading-none">Digital Risk Academy</span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-slate-900">
-            Elite programmes for ambitious professionals
-          </h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-base">
-            Industry-aligned, practitioner-led courses that build real-world capability from day one.
-          </p>
-        </motion.div>
-      </section>
-      <HeroCourseSlider />
-
-      {/* ════════════════════════════════════════
-          6. INNOVATIONS & SOLUTIONS
-      ════════════════════════════════════════ */}
-      <section className="mt-16 sm:mt-24 py-16 sm:py-20 bg-slate-950 text-white overflow-hidden">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-12 sm:mb-16"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="logo-shine inline-block text-xl sm:text-2xl md:text-4xl font-black tracking-[0.08em] uppercase mb-4 leading-none">Digital Risk Labs</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Innovations and Advisory</h2>
-            <p className="text-slate-300 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
-              PRISM turns complex regulatory obligations into accurate, traceable, and audit-ready reporting with minimal manual effort.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-            <motion.div
-              className="group overflow-hidden rounded-3xl border border-slate-200 bg-white text-slate-900 shadow-2xl shadow-black/10 hover:-translate-y-1 transition-transform duration-300"
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop"
-                  alt="Regulatory documents and reporting"
-                  className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6 sm:p-7">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] mb-3">
-                  <span className="text-slate-500">01</span>{" "}
-                  <span className="logo-shine">Digital Risk Labs</span>
-                </p>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-tight mb-3">
-                  Regulatory reporting is still manual.
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  COREP C07 requires time-consuming interpretation, mapping, and validation with limited automation.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="group overflow-hidden rounded-3xl border border-slate-200 bg-white text-slate-900 shadow-2xl shadow-black/10 hover:-translate-y-1 transition-transform duration-300"
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=55&w=720&auto=format&fit=crop"
-                  alt="Automation and AI workflow"
-                  className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6 sm:p-7">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-500 mb-3">02 PRISM</p>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-tight mb-3">
-                  Here is how PRISM comes in.
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  It automates ingestion, cleaning, chunking, formula extraction, retrieval, and deterministic calculations with full traceability.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="group overflow-hidden rounded-3xl border border-slate-200 bg-white text-slate-900 shadow-2xl shadow-black/10 hover:-translate-y-1 transition-transform duration-300"
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=55&w=720&auto=format&fit=crop"
-                  alt="Audit-ready reporting dashboard"
-                  className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6 sm:p-7">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-500 mb-3">03 Solution</p>
-                <h3 className="text-xl sm:text-2xl font-bold leading-tight mb-3">
-                  Audit-ready output with clear lineage.
-                </h3>
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  The result is explainable reporting that scales to other COREP templates without changing the architecture.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════
-          9. SOCIAL IMPACT & INCLUSION
-      ════════════════════════════════════════ */}
-      <SocialImpactSection />
-      <EducationMissionSection />
-
-      {/* ════════════════════════════════════════
-          9. IMPACT STORIES
-      ════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-white text-slate-900">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-12 sm:mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500 mb-3 block">Client Outcomes</span>
-            <h2 className="logo-shine inline-block text-4xl md:text-5xl font-black tracking-wide uppercase mb-4 leading-tight">IMPACT STORIES</h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-base">
-              Real results from the organisations and professionals we've partnered with.
-            </p>
-          </motion.div>
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <CaseStudyCard title="University Digital Awareness" description="How a university strengthened digital risk awareness across student cohorts" metric="2,500+ Students Trained" image="https://images.unsplash.com/photo-1643199187247-b3b6009bf0bb?q=55&w=720&auto=format&fit=crop" />
-            <CaseStudyCard title="Startup Governance Readiness" description="How a fintech startup achieved governance readiness before scaling" metric="Series A Ready in 90 Days" image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop" />
-            <CaseStudyCard title="Team Cyber Risk Awareness" description="How an enterprise team built cyber risk awareness through role-based training" metric="95% Engagement Rate" image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=55&w=720&auto=format&fit=crop" />
-          </motion.div>
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <Link to="/advisory/case-studies" className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold group transition-colors">
-              View All Case Studies <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════
-          VALIDATED OUTCOMES
-        ════════════════════════════════════════ */}
-      <ValidatedOutcomeSlider />
-
-      {/* ════════════════════════════════════════
-          9. INSIGHTS & RESEARCH
-      ════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="container mx-auto px-6">
-            <motion.div
-              className="flex flex-col items-center justify-center text-center gap-4 mb-12 sm:mb-16"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              exit={{ opacity: 0, y: -25 }}
               transition={{ duration: 0.6 }}
+              className="w-full max-w-4xl text-white"
             >
-              <div>
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500 mb-2 block">
-                  Thought Leadership
-                </span>
+              {/* Badge */}
+              <span
+                className={`inline-block mb-4 px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full border ${slide.featured
+                  ? "bg-orange-500/20 text-orange-300 border-orange-400/40"
+                  : "bg-white/10 text-white border-white/20"
+                  }`}
+              >
+                {slide.badge}
+              </span>
 
-                <h2 className="logo-shine text-4xl md:text-5xl font-black tracking-wide uppercase mb-4 leading-tight">
-                  Insights & Research
-                </h2>
+              {/* Title */}
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight mb-4">
+                {slide.title}
+              </h1>
+
+              {/* Description */}
+              <p className="text-sm sm:text-base md:text-lg text-slate-200 leading-relaxed max-w-3xl mb-6">
+                {slide.description}
+              </p>
+
+              {/* Audience */}
+              <p className="text-sm md:text-base text-slate-300 font-medium mb-7">
+                {slide.audience}
+              </p>
+
+              {/* Highlights */}
+              <div className="grid sm:grid-cols-1 gap-3 mb-8">
+                {slide.highlights.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 text-slate-100"
+                  >
+                    <div className="w-2.5 h-2.5 rounded-full bg-orange-400 shrink-0" />
+                    <span className="text-sm sm:text-base">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom Actions */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <Link
+                  to={`/programs/${slide.courseId}`}
+                  className={`inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg text-sm sm:text-base ${slide.featured
+                    ? "bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-orange-500/40 hover:scale-[1.01] text-white"
+                    : "bg-white text-black hover:bg-orange-50"
+                    }`}
+                >
+                  {slide.cta} →
+                </Link>
               </div>
             </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Left Arrow */}
+        <button
+          onClick={prev}
+          className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-black/25 backdrop-blur-md border border-white/10 text-white hover:bg-black/40 transition-all active:scale-95"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-5 h-5 sm:w-7 sm:h-7" strokeWidth={2} />
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={next}
+          className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-black/25 backdrop-blur-md border border-white/10 text-white hover:bg-black/40 transition-all active:scale-95"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-5 h-5 sm:w-7 sm:h-7" strokeWidth={2} />
+        </button>
+
+        {/* Dot Indicators */}
+        <div className="absolute bottom-5 left-0 right-0 z-20 flex justify-center">
+          <div className="flex items-center gap-3">
+            {heroSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`transition-all duration-300 rounded-full ${i === current
+                  ? "w-8 h-2.5 bg-orange-500"
+                  : "w-2.5 h-2.5 bg-white/40 hover:bg-white/70"
+                  }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
           </div>
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <InsightCard type="Whitepaper" title="Digital Risk Trends 2026" description="Emerging patterns in cyber risk and digital resilience" icon={<TrendingUp className="w-5 h-5" />} image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=55&w=720" />
-            <InsightCard type="Framework Guide" title="AI Risk Governance Framework" description="Practical approaches to responsible AI implementation" icon={<BookOpen className="w-5 h-5" />} image="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=55&w=720" />
-            <InsightCard type="Research" title="Digital Trust in the Age of AI" description="Building accountability and trust in digital systems" icon={<BarChart3 className="w-5 h-5" />} image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=55&w=720" />
-          </motion.div>
-          <div className="w-full flex justify-center mt-8">
-            <Link
-              to="/insights"
-              className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold transition-colors group"
-            >
-              All Insights
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════
-          ACADEMIC PARTNERSHIPS
-      ════════════════════════════════════════ */}
-      <section className="py-20 sm:py-24 bg-slate-50 border-t border-slate-200">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="mb-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-500 mb-4">Academic Partnerships</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight max-w-xl">
-                World-class academic collaboration
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Card */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-10 flex flex-col items-center text-center shadow-sm">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/sco/a/ad/Imperial_College_London_crest.svg"
-                  alt="Imperial College London"
-                  className="h-40 w-auto object-contain mb-8"
-                />
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500 mb-2">Strategic Partner</p>
-                <h3 className="text-xl font-bold text-slate-900 mb-1">Imperial College London</h3>
-              </div>
-
-              {/* Text */}
-              <div>
-                <p className="text-slate-700 text-lg leading-relaxed mb-6">
-                  A strategic academic partner for curriculum design and research collaboration, Imperial College London plays a pivotal role in strengthening the academic and technical foundation of our programmes.
-                </p>
-                <p className="text-slate-600 text-base leading-relaxed mb-6">
-                  Through its globally recognised academic ecosystem and interdisciplinary expertise, Imperial provides access to world-class faculty insights, cutting-edge research, and industry-aligned academic rigour — ensuring our curriculum remains at the forefront of innovation.
-                </p>
-                <p className="text-slate-600 text-base leading-relaxed">
-                  This collaboration integrates the latest advancements in cybersecurity, AI governance, and digital risk directly into every programme we deliver.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════
-          10. CTA BANNER
-      ════════════════════════════════════════ */}
-      <section className="relative py-28 overflow-hidden bg-slate-950">
-        <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=55&w=1280&auto=format&fit=crop" alt="" className="w-full h-full object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-600/30 to-blue-700/30" />
-        </div>
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            className="max-w-3xl mx-auto text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-400 mb-4 block">Get started</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Ready to build your<br />digital risk capability?
-            </h2>
-            <p className="text-slate-300 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-              Whether you need advisory services or a world-class training programme, we're ready to help.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-orange-500/30 hover:-translate-y-0.5">
-                Schedule a Consultation
-              </Link>
-              <Link to="/academy/programs" className="px-8 py-4 border-2 border-white/50 text-white font-semibold rounded-full hover:bg-white/10 hover:border-white transition-all duration-300 hover:-translate-y-0.5">
-                Browse Programmes
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* OUTSIDE BUTTON */}
+      <div className="flex justify-center mt-8">
+        <Link
+          to="/academy/programs"
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#cd5c30] hover:bg-[#b04d27] text-white font-semibold text-base shadow-lg shadow-orange-500/20 transition-all duration-300"
+        >
+          Browse All Courses →
+        </Link>
+      </div>
 
     </div>
   );
@@ -978,7 +580,7 @@ function ValidatedOutcomeSlider() {
   ];
 
   return (
-    <section className="py-20 sm:py-24 bg-slate-950 text-white overflow-hidden">
+    <section className="py-20 sm:py-24 bg-slate-900 text-white overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-12 sm:mb-14"
@@ -1143,32 +745,68 @@ function StoryVisionPanel({ slides, label, accent }: { slides: StoryVisionSlide[
   );
 }
 
-function MandateCard({ title, description, image, link }: any) {
+function MandateCard({
+  title,
+  description,
+  image,
+  link,
+  index,
+}: any) {
   return (
     <motion.div
       variants={fadeInUp}
-      className="group relative h-[300px] sm:h-[340px] rounded-2xl overflow-hidden cursor-pointer"
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.35 }}
+      className="group relative h-[380px] rounded-[28px] overflow-hidden"
     >
+      {/* Background Image */}
       <img
         src={image}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-700"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-      {/* Title — always pinned at the same height from bottom */}
-      <div className="absolute bottom-[46px] sm:bottom-[52px] left-0 right-0 px-5">
-        <h3 className="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-orange-400 via-orange-300 to-blue-400 bg-clip-text text-transparent leading-tight">{title}</h3>
+
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/20" />
+
+      <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-500/10 transition-colors duration-500" />
+
+      {/* Glass Border */}
+      <div className="absolute inset-[1px] rounded-[28px] border border-white/10 pointer-events-none" />
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col justify-between h-full p-7">
+
+        {/* Top */}
+        <div className="flex items-start justify-between">
+          <span className="text-white/40 text-sm font-semibold tracking-[0.25em]">
+            {index}
+          </span>
+
+          <div className="w-11 h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-orange-500 transition-all duration-300">
+            <ArrowRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+          </div>
+        </div>
+
+        {/* Bottom Content */}
+        <div>
+          <h3 className="text-2xl font-bold text-white mb-4 leading-tight">
+            {title}
+          </h3>
+
+          <div className="w-14 h-[3px] rounded-full bg-gradient-to-r from-orange-400 to-orange-500 mb-5 group-hover:w-24 transition-all duration-500" />
+
+          <p className="text-sm leading-relaxed text-slate-200">
+            {description}
+          </p>
+        </div>
       </div>
-      {/* Description — fixed strip at the very bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[52px] px-5 flex items-start pt-1">
-        <p className="text-[11px] text-slate-300 leading-relaxed line-clamp-2">{description}</p>
-      </div>
-      <Link to={link} className="absolute inset-0" aria-label={title} />
+
+      {/* Click Area */}
+      <Link to={link} className="absolute inset-0 z-20" aria-label={title} />
     </motion.div>
   );
 }
-
-
 
 function AcademyCard({
   title,
@@ -1363,36 +1001,583 @@ function InsightCard({
   );
 }
 
-const academySliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        initialSlide: 2,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
+const heroBackgroundVideo = "/Hero%20Background.mp4";
+
+function HeroBg() {
+  return (
+    <div className="absolute inset-0">
+      <video
+        className="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-110 scale-[1.02]"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+      >
+        <source src={heroBackgroundVideo} type="video/mp4" />
+      </video>
+
+      {/* Softer cinematic overlay */}
+      <div className="absolute inset-0 bg-black/45" />
+
+      {/* Extra subtle depth gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55" />
+    </div>
+  );
+}
+
+export function HomePage() {
+  const navigate = useNavigate();
+  return (
+    <div className="bg-white">
+
+      {/* ════════════════════════════════════════
+          1. HERO
+          ════════════════════════════════════════ */}
+      <section className="relative min-h-screen overflow-hidden">
+        <HeroBg />
+        {/* offset by navbar height (64px) so content sits in the visible area */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-5 sm:px-7 pt-32 sm:pt-40 pb-8 sm:pb-12 container mx-auto text-center">
+
+          <motion.h1
+            className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 leading-[1.12]"
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.span
+              className="block text-white whitespace-normal md:whitespace-nowrap"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              Create Leaders. Build Resilience. Reduce Risk.
+            </motion.span>
+            <motion.span
+              className="block mt-3 logo-shine pb-1"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.24 }}
+            >
+              The Core of Digital Confidence
+            </motion.span>
+          </motion.h1>
+          <motion.p
+            className="text-[clamp(0.85rem,3.4vw,1rem)] sm:text-lg md:text-2xl text-slate-200 max-w-3xl mx-auto text-center px-2 leading-snug"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.7 }}
+          >
+            The Core of Digital Confidence, Capability Building and Strategic Innovation in Digital Risk-empowering organizations and professionals to navigate complexity with confidence.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1, duration: 0.6 }}
+          >
+            <Link to="/academy" className="inline-flex items-center justify-center gap-2 mt-10 w-full sm:w-auto px-6 py-3 bg-orange-400 hover:bg-white/10 hover:border-white  border-2 border-white/60 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:-translate-y-0.5">
+              Explore Academy <ArrowRight className="w-4 h-4" />
+            </Link>
+            <button
+              onClick={() => navigate("/advisory")}
+              className="group inline-flex items-center justify-center gap-2 
+                 w-full sm:w-auto px-8 py-3 mt-10
+                 bg-blue-900 border-2 border-white/60 text-white 
+                 font-semibold rounded-full 
+                 hover:bg-white/10 hover:border-white 
+                 transition-all duration-300 ease-out 
+                 hover:-translate-y-0.5"
+            >
+              Explore Labs
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          </motion.div>
+        </div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        {/* scroll hint */}
+        <motion.div
+          aria-hidden="true"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity }}
+        >
+          <div className="w-0.5 h-10 bg-white/30 rounded-full" />
+        </motion.div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          2. OUR MANDATE
+          ════════════════════════════════════════ */}
+      <section className="relative py-16 sm:py-16 overflow-hidden bg-gradient-to-b from-white via-orange-50/30 to-white">
+
+        {/* Background Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-orange-200/20 blur-3xl rounded-full pointer-events-none" />
+
+        <div className="relative container mx-auto px-6">
+
+          /* Section Header */
+          <motion.div
+            className="text-center mb-16 max-w-3xl mx-auto -mt-2"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 text-orange-600 text-[11px] font-bold uppercase tracking-[0.22em] mb-4">
+              Our Core Mandate
+            </span>
+
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-black text-slate-900 mb-3 whitespace-nowrap leading-tight">
+              Building the Infrastructure of{" "}
+              <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-blue-500 bg-clip-text text-transparent">
+                Digital Confidence
+              </span>
+            </h2>
+
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+              We operate through four interconnected pillars — developing talent,
+              advancing innovation, enabling transformation, and delivering measurable
+              strategic impact across organisations and society.
+            </p>
+          </motion.div>
+
+          {/* Mandate Grid */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <MandateCard
+              index="01"
+              title="Academy"
+              description="Rigorous live-fire programmes and AI-powered learning for the next generation of digital risk leaders."
+              image="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=55&w=720&auto=format&fit=crop"
+              link="/programs"
+            />
+
+            <MandateCard
+              index="02"
+              title="Innovate"
+              description="Pioneering digital risk frameworks, AI governance tools, and next-generation security solutions for a complex world."
+              image="https://images.unsplash.com/photo-1518770660439-4636190af475?q=55&w=720&auto=format&fit=crop"
+              link="/innovation"
+            />
+
+            <MandateCard
+              index="03"
+              title="Accelerator"
+              description="Strategic extension of your leadership team through tailored risk programmes and bespoke talent pipelining."
+              image="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=55&w=720&auto=format&fit=crop"
+              link="/advisory/services"
+            />
+
+            <MandateCard
+              index="04"
+              title="Social Impact"
+              description="Delivering measurable outcomes from governance to workforce capability across organisations and communities."
+              image="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=55&w=720&auto=format&fit=crop"
+              link="/advisory/case-studies"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          3. OUR STORY & OUR VISION
+          ════════════════════════════════════════ */}
+      <section className="py-16 sm:py-20 bg-slate-900">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="logo-shine inline-block text-xl sm:text-2xl md:text-4xl font-black tracking-[0.08em] uppercase mb-4 leading-none">Digital Risk Academy</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Our Story &amp; Vision</h2>
+          </motion.div>
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <StoryVisionPanel
+              slides={academyStorySlides}
+              label="Our Story"
+              accent="text-orange-400 border-orange-500/40 bg-orange-500/10"
+            />
+            <StoryVisionPanel
+              slides={academyVisionSlides}
+              label="Our Vision"
+              accent="text-blue-400 border-blue-500/40 bg-blue-500/10"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          4. ELITE PROGRAMMES INTRO + COURSE SLIDER
+          ════════════════════════════════════════ */}
+      <section className="py-16 sm:py-20 bg-white text-center">
+        <motion.div
+          className="container mx-auto px-4 sm:px-6"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="logo-shine inline-block text-sm sm:text-lg md:text-2xl font-black tracking-[0.14em] uppercase mb-3 leading-none">Digital Risk Academy</span>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-slate-900">
+            Elite programmes for ambitious professionals
+          </h2>
+          <p className="text-slate-500 max-w-xl mx-auto text-base">
+            Industry-aligned, practitioner-led courses that build real-world capability from day one.
+          </p>
+        </motion.div>
+      </section>
+      <HeroCourseSlider />
+
+      {/* ════════════════════════════════════════
+          5. INNOVATIONS & SOLUTIONS — DIGITAL RISK LABS
+          ════════════════════════════════════════ */}
+
+      <section className="mt-14 sm:mt-20 py-16 sm:py-20 bg-slate-900 text-white overflow-hidden">
+        <div className="container mx-auto px-6">
+
+          {/* HEADER */}
+          <motion.div
+            className="text-center mb-12 sm:mb-16"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="logo-shine inline-block text-xl sm:text-2xl md:text-4xl font-black tracking-[0.08em] uppercase mb-4 leading-none">
+              Digital Risk Labs
+            </span>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+              Innovations & Strategic Solutions
+            </h2>
+
+            <p className="text-slate-300 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
+              A structured innovation system that helps you build, validate, and scale digital ventures with clarity and execution focus.
+            </p>
+          </motion.div>
+
+          {/* CARDS */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+
+            {/* INNOVATION */}
+            <motion.a
+              href="/innovation"
+              className="group relative overflow-hidden rounded-3xl bg-white text-slate-900 shadow-2xl shadow-black/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              {/* IMAGE */}
+              <div className="h-60 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?w=600&q=55&auto=format&fit=crop&dpr=1"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="Innovation Lab"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
+
+              {/* CONTENT */}
+              <div className="p-6 sm:p-7">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500 mb-3">
+                  01 — Innovation Lab
+                </p>
+
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 leading-tight">
+                  Build & validate next-gen digital solutions
+                </h3>
+
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                  We engineer next-generation digital solutions—transforming bold ideas into
+                  powerful, scalable technologies ready for real-world impact.                </p>
+
+                <div className="text-xs sm:text-sm font-semibold text-slate-500 group-hover:text-slate-900 transition">
+                  Explore →
+                </div>
+              </div>
+            </motion.a>
+
+            {/* INCUBATION */}
+            <motion.a
+              href="/incubation"
+              className="group relative overflow-hidden rounded-3xl bg-white text-slate-900 shadow-2xl shadow-black/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="h-60 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=55&auto=format&fit=crop&dpr=1"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="Incubation"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
+
+              <div className="p-6 sm:p-7">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500 mb-3">
+                  02 — Incubation Studio
+                </p>
+
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 leading-tight">
+                  Shaping ideas into investment-ready ventures
+                </h3>
+
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                  We transform early-stage ideas into structured, investment-ready ventures—
+                  guiding founders from concept to clarity with strategic direction.                </p>
+
+                <div className="text-xs sm:text-sm font-semibold text-slate-500 group-hover:text-slate-900 transition">
+                  Explore →
+                </div>
+              </div>
+            </motion.a>
+
+            {/* ACCELERATION */}
+            <motion.a
+              href="/acceleration"
+              className="group relative overflow-hidden rounded-3xl bg-white text-slate-900 shadow-2xl shadow-black/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="h-60 overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/32529341/pexels-photo-32529341.jpeg"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="Acceleration"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
+
+              <div className="p-6 sm:p-7">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500 mb-3">
+                  03 — Acceleration Network
+                </p>
+
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 leading-tight">
+                  Scaling ventures into high-impact markets
+                </h3>
+
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                  We accelerate ventures into the market—connecting them with enterprise networks,
+                  capital, and infrastructure to scale sustainably.                </p>
+
+                <div className="text-xs sm:text-sm font-semibold text-slate-500 group-hover:text-slate-900 transition">
+                  Explore →
+                </div>
+              </div>
+            </motion.a>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          9. SOCIAL IMPACT & INCLUSION
+      ════════════════════════════════════════ */}
+      <SocialImpactSection />
+      <EducationMissionSection />
+
+      {/* ════════════════════════════════════════
+          9. IMPACT STORIES
+          ════════════════════════════════════════ */}
+
+      <section className="py-20 sm:py-28 bg-white text-slate-900">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="text-center mb-12 sm:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500 mb-3 block">Client Outcomes</span>
+            <h2 className="logo-shine inline-block text-4xl md:text-5xl font-black tracking-wide uppercase mb-4 leading-tight">IMPACT STORIES</h2>
+            <p className="text-slate-500 max-w-xl mx-auto text-base">
+              Real results from the organisations and professionals we've partnered with.
+            </p>
+          </motion.div>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <CaseStudyCard title="University Digital Awareness" description="How a university strengthened digital risk awareness across student cohorts" metric="2,500+ Students Trained" image="https://images.unsplash.com/photo-1643199187247-b3b6009bf0bb?q=55&w=720&auto=format&fit=crop" />
+            <CaseStudyCard title="Startup Governance Readiness" description="How a fintech startup achieved governance readiness before scaling" metric="Series A Ready in 90 Days" image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop" />
+            <CaseStudyCard title="Team Cyber Risk Awareness" description="How an enterprise team built cyber risk awareness through role-based training" metric="95% Engagement Rate" image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=55&w=720&auto=format&fit=crop" />
+          </motion.div>
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <Link to="/advisory/case-studies" className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold group transition-colors">
+              View All Case Studies <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+
+      {/* ════════════════════════════════════════
+          VALIDATED OUTCOMES
+        ════════════════════════════════════════ */}
+      <ValidatedOutcomeSlider />
+
+      {/* ════════════════════════════════════════
+          9. INSIGHTS & RESEARCH
+      
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="container mx-auto px-6">
+            <motion.div
+              className="flex flex-col items-center justify-center text-center gap-4 mb-12 sm:mb-16"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500 mb-2 block">
+                  Thought Leadership
+                </span>
+
+                <h2 className="logo-shine text-4xl md:text-5xl font-black tracking-wide uppercase mb-4 leading-tight">
+                  Insights & Research
+                </h2>
+              </div>
+            </motion.div>
+          </div>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <InsightCard type="Whitepaper" title="Digital Risk Trends 2026" description="Emerging patterns in cyber risk and digital resilience" icon={<TrendingUp className="w-5 h-5" />} image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=55&w=720" />
+            <InsightCard type="Framework Guide" title="AI Risk Governance Framework" description="Practical approaches to responsible AI implementation" icon={<BookOpen className="w-5 h-5" />} image="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=55&w=720" />
+            <InsightCard type="Research" title="Digital Trust in the Age of AI" description="Building accountability and trust in digital systems" icon={<BarChart3 className="w-5 h-5" />} image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=55&w=720" />
+          </motion.div>
+          <div className="w-full flex justify-center mt-8">
+            <Link
+              to="/insights"
+              className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold transition-colors group"
+            >
+              All Insights
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </section>
+         ════════════════════════════════════════ */}
+
+      {/* ════════════════════════════════════════
+          ACADEMIC PARTNERSHIPS
+      ════════════════════════════════════════ */}
+      <section className="py-20 sm:py-24 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="mb-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-500 mb-4">Academic Partnerships</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight max-w-xl">
+                World-class academic collaboration
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Card */}
+              <div className="bg-white border border-slate-200 rounded-2xl p-10 flex flex-col items-center text-center shadow-sm">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/sco/a/ad/Imperial_College_London_crest.svg"
+                  alt="Imperial College London"
+                  className="h-40 w-auto object-contain mb-8"
+                />
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500 mb-2">Strategic Partner</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-1">Imperial College London</h3>
+              </div>
+
+              {/* Text */}
+              <div>
+                <p className="text-slate-700 text-lg leading-relaxed mb-6">
+                  A strategic academic partner for curriculum design and research collaboration, Imperial College London plays a pivotal role in strengthening the academic and technical foundation of our programmes.
+                </p>
+                <p className="text-slate-600 text-base leading-relaxed mb-6">
+                  Through its globally recognised academic ecosystem and interdisciplinary expertise, Imperial provides access to world-class faculty insights, cutting-edge research, and industry-aligned academic rigour — ensuring our curriculum remains at the forefront of innovation.
+                </p>
+                <p className="text-slate-600 text-base leading-relaxed">
+                  This collaboration integrates the latest advancements in cybersecurity, AI governance, and digital risk directly into every programme we deliver.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          10. CTA BANNER
+      ════════════════════════════════════════ */}
+      <section className="relative py-28 overflow-hidden bg-slate-900">
+        <div className="absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=55&w=1280&auto=format&fit=crop" alt="" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-600/30 to-blue-700/30" />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            className="max-w-3xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-400 mb-4 block">Get started</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              Ready to build your<br />digital risk capability?
+            </h2>
+            <p className="text-slate-300 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+              Whether you need advisory services or a world-class training programme, we're ready to help.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact" className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-orange-500/30 hover:-translate-y-0.5">
+                Schedule a Consultation
+              </Link>
+              <Link to="/academy/programs" className="px-8 py-4 border-2 border-white/50 text-white font-semibold rounded-full hover:bg-white/10 hover:border-white transition-all duration-300 hover:-translate-y-0.5">
+                Browse Programmes
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

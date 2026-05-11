@@ -27,7 +27,7 @@ export default function CyberResiliencePractitioner() {
           <div className="lg:col-span-8">
             <div className="w-full rounded-2xl overflow-hidden border border-orange-100 shadow-[0_4px_24px_rgb(234,88,12,0.1)]">
               <img 
-                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200" 
+                src="https://media.istockphoto.com/id/2174551157/photo/cyber-security-data-protection-business-technology-privacy-concept.jpg?b=1&s=612x612&w=0&k=20&c=C2ye6tSOAmDUhC4MGIAlhA8w2o65eP-Mkg8dDxBwCcI=" 
                 alt="Cyber SOC" 
                 className="w-full h-auto object-cover" 
               />

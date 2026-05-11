@@ -103,6 +103,7 @@ const academyVisionSlides = [
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=55&w=720&auto=format&fit=crop",
   },
 ];
+
 const academyImpactSlides = [
   {
     image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGludmVzdG1lbnR8ZW58MHx8MHx8fDA%3D",
@@ -732,6 +733,314 @@ function MobileStoryVisionImpact({ className = "" }: { className?: string }) {
   );
 }
 
+function AcademyStoryPanel({ slides, label, accent }: { slides: typeof academyStorySlides; label: string; accent: string }) {
+  const [current, setCurrent] = useState(0);
+  const total = slides.length;
+
+  useEffect(() => {
+    const slideId = setInterval(() => setCurrent((c: number) => (c + 1) % total), ACADEMY_SLIDE_DURATION);
+    return () => { clearInterval(slideId); };
+  }, [current, total]);
+
+  const slide = slides[current];
+
+  return (
+    <div className="relative h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden rounded-2xl">
+      <AnimatePresence mode="sync">
+        <motion.img
+          key={current}
+          src={slide.image}
+          alt={slide.heading}
+          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        />
+      </AnimatePresence>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
+
+      <div className="absolute top-6 left-6 z-10">
+        <span className={`text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full border ${accent}`}>
+          {label}
+        </span>
+      </div>
+
+      <div className="absolute bottom-[130px] left-6 right-6 z-10">
+        <AnimatePresence mode="wait">
+          <motion.h3
+            key={current + "-h"}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+            className="text-2xl md:text-3xl font-extrabold text-white leading-tight"
+          >
+            {slide.heading}
+          </motion.h3>
+        </AnimatePresence>
+      </div>
+
+      <div className="absolute bottom-[44px] left-6 right-6 h-[80px] z-10 overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={current + "-p"}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+            className="text-slate-200 text-sm leading-relaxed line-clamp-3"
+          >
+            {slide.body}
+          </motion.p>
+        </AnimatePresence>
+      </div>
+
+      <button onClick={() => setCurrent((current - 1 + total) % total)} className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors" aria-label="Previous">
+        <ChevronLeft className="w-5 h-5" strokeWidth={2} />
+      </button>
+      <button onClick={() => setCurrent((current + 1) % total)} className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors" aria-label="Next">
+        <ChevronRight className="w-5 h-5" strokeWidth={2} />
+      </button>
+
+      <div className="absolute bottom-4 left-0 right-0 z-20 flex flex-col items-center gap-1.5">
+        <div className="flex gap-2">
+          {slides.map((_: typeof slides[0], i: number) => (
+            <button key={i} onClick={() => setCurrent(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "bg-orange-500 w-6" : "bg-white/30 w-2"}`}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AudienceCard({ title, description, link, image }: any) {
+  return (
+    <motion.div variants={fadeInUp}>
+      <Link
+        to={link}
+        className="block group h-full bg-slate-900/70 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10"
+      >
+        <div className="relative h-40 overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover opacity-90 brightness-110 group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/40 to-transparent" />
+        </div>
+        <div className="p-6">
+          <h3 className="text-xl font-bold mb-3">{title}</h3>
+          <p className="text-slate-400 mb-4">{description}</p>
+          <div className="flex items-center space-x-2 text-orange-500 font-semibold">
+            <span>Explore</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
+function TrackCard({
+  title, description, audience, image, to, index = 0, badge,
+}: any) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -8 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{
+        duration: 0.62,
+        delay: index * 0.12,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="group flex flex-col overflow-hidden pb-8 rounded-[24px]
+      bg-gradient-to-b from-white to-orange-50/40
+      border border-orange-300/40
+      shadow-[0_10px_40px_rgba(234,88,12,0.12)]
+      transition-all duration-300
+      hover:shadow-[0_18px_60px_rgba(234,88,12,0.22)]"
+    >
+      {/* IMAGE */}
+      <div className="w-full overflow-hidden relative aspect-[16/10] sm:aspect-[16/9]">
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        {badge && (
+          <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 sm:px-4 py-1 text-[10px] sm:text-xs font-semibold text-orange-300
+    bg-black/70 backdrop-blur-md border border-orange-400/30 rounded-full shadow-lg">
+            {badge}
+          </span>
+        )}
+      </div>
+
+      {/* CONTENT */}
+      <div className="px-5 sm:px-7 md:px-8 mt-4 flex flex-col flex-grow">
+        <h3 className="text-xl sm:text-2xl md:text-[26px] font-bold mb-3 sm:mb-4 text-black leading-snug">{title}</h3>
+
+        <p className="text-slate-800 text-sm sm:text-base mb-4 sm:mb-6 flex-grow leading-relaxed">
+          {description}
+        </p>
+
+        <p className="text-slate-900 font-medium text-sm sm:text-[15px] mb-6 sm:mb-8">
+          {audience}
+        </p>
+
+        {/* BUTTON */}
+        <Link
+          to={to}
+          className="relative block w-full py-3 sm:py-4 text-white rounded-full font-semibold text-base sm:text-lg text-center overflow-hidden group
+          bg-gradient-to-r from-orange-500 via-orange-400 to-orange-600
+          shadow-lg shadow-orange-500/30
+          transition-all duration-300
+          hover:shadow-orange-500/60 hover:scale-[1.02]"
+        >
+          {/* Glow layer */}
+          <span className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-30 blur-xl transition duration-500"></span>
+
+          {/* Text */}
+          <span className="relative z-10">View Course</span>
+        </Link>
+      </div>
+    </motion.div>
+  );
+}
+
+function QuoteSlideshowSection() {
+  const [current, setCurrent] = useState(0);
+  const total = leaderQuotes.length;
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % total);
+    }, 5000);
+
+    return () => clearInterval(id);
+  }, [total]);
+
+  const quote = leaderQuotes[current];
+
+  return (
+    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+        <motion.div
+          className="text-center mb-8 sm:mb-12"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Voices Shaping the Future</h2>
+          <p className="text-base sm:text-lg md:text-xl text-slate-400 px-2">
+            Perspectives from leaders across education, policy, and industry
+          </p>
+        </motion.div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.45 }}
+            className="bg-slate-900/70 border border-slate-700 rounded-2xl p-5 sm:p-8 md:p-10"
+          >
+            <p className="text-base sm:text-xl md:text-2xl text-slate-100 leading-relaxed italic mb-6 sm:mb-8">
+              "{quote.quote}"
+            </p>
+            <div>
+              <p className="text-slate-400 text-xs sm:text-sm">{quote.role}</p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="flex items-center justify-center gap-3 mt-8">
+          <button
+            onClick={() => setCurrent((current - 1 + total) % total)}
+            className="w-10 h-10 rounded-full border border-slate-600 text-slate-300 hover:text-white hover:border-orange-400 transition-colors flex items-center justify-center"
+            aria-label="Previous quote"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          <div className="flex gap-2 px-2">
+            {leaderQuotes.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${i === current ? "bg-orange-500 w-6" : "bg-slate-500 w-2"}`}
+                aria-label={`Quote ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={() => setCurrent((current + 1) % total)}
+            className="w-10 h-10 rounded-full border border-slate-600 text-slate-300 hover:text-white hover:border-orange-400 transition-colors flex items-center justify-center"
+            aria-label="Next quote"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BenefitCard({ title, description, image }: any) {
+  return (
+    <motion.div
+      variants={fadeInUp}
+      className="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+    >
+      <div className="relative h-40 overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover brightness-110 contrast-105 group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 to-transparent" />
+      </div>
+      <div className="p-6 text-left">
+        <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
+        <p className="text-slate-600">{description}</p>
+      </div>
+    </motion.div>
+  );
+}
+
+function TestimonialCard({ quote, author, role, outcome }: any) {
+  return (
+    <motion.div
+      variants={fadeInUp}
+      className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-8"
+    >
+      <div className="mb-6">
+        <span className="inline-block px-3 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-full">
+          {outcome}
+        </span>
+      </div>
+      <p className="text-slate-300 mb-6 italic">"{quote}"</p>
+      <div>
+        <div className="font-semibold">{author}</div>
+        <div className="text-sm text-slate-400">{role}</div>
+      </div>
+    </motion.div>
+  );
+}
+
 export function AcademyHome() {
   const [showFirstHeroDetails, setShowFirstHeroDetails] = useState(false);
   const [showSecondHeroLine, setShowSecondHeroLine] = useState(false);
@@ -1327,314 +1636,3 @@ export function AcademyHome() {
     </div>
   );
 }
-
-function AcademyStoryPanel({ slides, label, accent }: { slides: typeof academyStorySlides; label: string; accent: string }) {
-  const [current, setCurrent] = useState(0);
-  const total = slides.length;
-
-  useEffect(() => {
-    const slideId = setInterval(() => setCurrent((c: number) => (c + 1) % total), ACADEMY_SLIDE_DURATION);
-    return () => { clearInterval(slideId); };
-  }, [current, total]);
-
-  const slide = slides[current];
-
-  return (
-    <div className="relative h-[420px] md:h-[500px] lg:h-[540px] overflow-hidden rounded-2xl">
-      <AnimatePresence mode="sync">
-        <motion.img
-          key={current}
-          src={slide.image}
-          alt={slide.heading}
-          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        />
-      </AnimatePresence>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
-
-      <div className="absolute top-6 left-6 z-10">
-        <span className={`text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full border ${accent}`}>
-          {label}
-        </span>
-      </div>
-
-      <div className="absolute bottom-[130px] left-6 right-6 z-10">
-        <AnimatePresence mode="wait">
-          <motion.h3
-            key={current + "-h"}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.4 }}
-            className="text-2xl md:text-3xl font-extrabold text-white leading-tight"
-          >
-            {slide.heading}
-          </motion.h3>
-        </AnimatePresence>
-      </div>
-
-      <div className="absolute bottom-[44px] left-6 right-6 h-[80px] z-10 overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={current + "-p"}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="text-slate-200 text-sm leading-relaxed line-clamp-3"
-          >
-            {slide.body}
-          </motion.p>
-        </AnimatePresence>
-      </div>
-
-      <button onClick={() => setCurrent((current - 1 + total) % total)} className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors" aria-label="Previous">
-        <ChevronLeft className="w-5 h-5" strokeWidth={2} />
-      </button>
-      <button onClick={() => setCurrent((current + 1) % total)} className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors" aria-label="Next">
-        <ChevronRight className="w-5 h-5" strokeWidth={2} />
-      </button>
-
-      <div className="absolute bottom-4 left-0 right-0 z-20 flex flex-col items-center gap-1.5">
-        <div className="flex gap-2">
-          {slides.map((_: typeof slides[0], i: number) => (
-            <button key={i} onClick={() => setCurrent(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "bg-orange-500 w-6" : "bg-white/30 w-2"}`}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function AudienceCard({ title, description, link, image }: any) {
-  return (
-    <motion.div variants={fadeInUp}>
-      <Link
-        to={link}
-        className="block group h-full bg-slate-900/70 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10"
-      >
-        <div className="relative h-40 overflow-hidden">
-          <img
-            src={image}
-            alt={title}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover opacity-90 brightness-110 group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/40 to-transparent" />
-        </div>
-        <div className="p-6">
-          <h3 className="text-xl font-bold mb-3">{title}</h3>
-          <p className="text-slate-400 mb-4">{description}</p>
-          <div className="flex items-center space-x-2 text-orange-500 font-semibold">
-            <span>Explore</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </div>
-        </div>
-      </Link>
-    </motion.div>
-  );
-}
-
-function TrackCard({
-  title, description, audience, image, to, index = 0, badge,
-}: any) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 36 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -8 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{
-        duration: 0.62,
-        delay: index * 0.12,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className="group flex flex-col overflow-hidden pb-8 rounded-[24px]
-      bg-gradient-to-b from-white to-orange-50/40
-      border border-orange-300/40
-      shadow-[0_10px_40px_rgba(234,88,12,0.12)]
-      transition-all duration-300
-      hover:shadow-[0_18px_60px_rgba(234,88,12,0.22)]"
-    >
-      {/* IMAGE */}
-      <div className="w-full overflow-hidden relative aspect-[16/10] sm:aspect-[16/9]">
-        <img
-          src={image}
-          alt={title}
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        {badge && (
-          <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 sm:px-4 py-1 text-[10px] sm:text-xs font-semibold text-orange-300
-    bg-black/70 backdrop-blur-md border border-orange-400/30 rounded-full shadow-lg">
-            {badge}
-          </span>
-        )}
-      </div>
-
-      {/* CONTENT */}
-      <div className="px-5 sm:px-7 md:px-8 mt-4 flex flex-col flex-grow">
-        <h3 className="text-xl sm:text-2xl md:text-[26px] font-bold mb-3 sm:mb-4 text-black leading-snug">{title}</h3>
-
-        <p className="text-slate-800 text-sm sm:text-base mb-4 sm:mb-6 flex-grow leading-relaxed">
-          {description}
-        </p>
-
-        <p className="text-slate-900 font-medium text-sm sm:text-[15px] mb-6 sm:mb-8">
-          {audience}
-        </p>
-
-        {/* BUTTON */}
-        <Link
-          to={to}
-          className="relative block w-full py-3 sm:py-4 text-white rounded-full font-semibold text-base sm:text-lg text-center overflow-hidden group
-          bg-gradient-to-r from-orange-500 via-orange-400 to-orange-600
-          shadow-lg shadow-orange-500/30
-          transition-all duration-300
-          hover:shadow-orange-500/60 hover:scale-[1.02]"
-        >
-          {/* Glow layer */}
-          <span className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-30 blur-xl transition duration-500"></span>
-
-          {/* Text */}
-          <span className="relative z-10">View Course</span>
-        </Link>
-      </div>
-    </motion.div>
-  );
-}
-
-
-
-function QuoteSlideshowSection() {
-  const [current, setCurrent] = useState(0);
-  const total = leaderQuotes.length;
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCurrent((c) => (c + 1) % total);
-    }, 5000);
-
-    return () => clearInterval(id);
-  }, [total]);
-
-  const quote = leaderQuotes[current];
-
-  return (
-    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-        <motion.div
-          className="text-center mb-8 sm:mb-12"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Voices Shaping the Future</h2>
-          <p className="text-base sm:text-lg md:text-xl text-slate-400 px-2">
-            Perspectives from leaders across education, policy, and industry
-          </p>
-        </motion.div>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.45 }}
-            className="bg-slate-900/70 border border-slate-700 rounded-2xl p-5 sm:p-8 md:p-10"
-          >
-            <p className="text-base sm:text-xl md:text-2xl text-slate-100 leading-relaxed italic mb-6 sm:mb-8">
-              "{quote.quote}"
-            </p>
-            <div>
-              <p className="text-slate-400 text-xs sm:text-sm">{quote.role}</p>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        <div className="flex items-center justify-center gap-3 mt-8">
-          <button
-            onClick={() => setCurrent((current - 1 + total) % total)}
-            className="w-10 h-10 rounded-full border border-slate-600 text-slate-300 hover:text-white hover:border-orange-400 transition-colors flex items-center justify-center"
-            aria-label="Previous quote"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          <div className="flex gap-2 px-2">
-            {leaderQuotes.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${i === current ? "bg-orange-500 w-6" : "bg-slate-500 w-2"}`}
-                aria-label={`Quote ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={() => setCurrent((current + 1) % total)}
-            className="w-10 h-10 rounded-full border border-slate-600 text-slate-300 hover:text-white hover:border-orange-400 transition-colors flex items-center justify-center"
-            aria-label="Next quote"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function BenefitCard({ title, description, image }: any) {
-  return (
-    <motion.div
-      variants={fadeInUp}
-      className="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
-    >
-      <div className="relative h-40 overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover brightness-110 contrast-105 group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 to-transparent" />
-      </div>
-      <div className="p-6 text-left">
-        <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-        <p className="text-slate-600">{description}</p>
-      </div>
-    </motion.div>
-  );
-}
-
-function TestimonialCard({ quote, author, role, outcome }: any) {
-  return (
-    <motion.div
-      variants={fadeInUp}
-      className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl p-8"
-    >
-      <div className="mb-6">
-        <span className="inline-block px-3 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-full">
-          {outcome}
-        </span>
-      </div>
-      <p className="text-slate-300 mb-6 italic">"{quote}"</p>
-      <div>
-        <div className="font-semibold">{author}</div>
-        <div className="text-sm text-slate-400">{role}</div>
-      </div>
-    </motion.div>
-  );
-}
-

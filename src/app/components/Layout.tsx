@@ -179,7 +179,7 @@ const isLab = location.pathname.startsWith("/advisory");
                 </button>
                 <div className={`absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl transition-all duration-200 border border-slate-800 overflow-hidden ${activeDropdown === "academy" ? "opacity-100 visible" : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"}`}>
                   <Link to="/academy" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Academy Home</Link>
-                  <Link to="/academy/programs" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
+                  <Link to="/programs" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
                   <Link to="/academy/certifications" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Certifications</Link>
                 </div>
               </div>
@@ -212,12 +212,12 @@ const isLab = location.pathname.startsWith("/advisory");
                 </div>
               </div>
 
-              <Link to="/insights" className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
-                Insights
+              <Link to="/news" className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
+                News
               </Link>
 
-              <Link to="/contact" className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
-                Contact
+              <Link to="/research" className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
+                Research
               </Link>
 
               <Link to="/contact" className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-md hover:shadow-orange-500/40">
@@ -254,7 +254,7 @@ const isLab = location.pathname.startsWith("/advisory");
                   Academy
                 </Link>
                 <Link
-                  to="/academy/programs"
+                  to="/programs"
                   className="block py-2 pl-4 text-sm text-slate-400 hover:text-orange-500"
                 >
                   Programs
@@ -366,10 +366,10 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  to="/academy/programs"
+                  to="/programs"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
-                  Programs
+                  Programmes
                 </Link>
               </li>
               <li>
