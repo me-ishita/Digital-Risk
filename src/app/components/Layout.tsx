@@ -179,7 +179,7 @@ const isLab = location.pathname.startsWith("/advisory");
                 </button>
                 <div className={`absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl transition-all duration-200 border border-slate-800 overflow-hidden ${activeDropdown === "academy" ? "opacity-100 visible" : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"}`}>
                   <Link to="/academy" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Academy Home</Link>
-                  <Link to="/programs" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
+                  <Link to="/academy/programs" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Programmes</Link>
                   <Link to="/academy/certifications" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Certifications</Link>
                 </div>
               </div>
@@ -206,9 +206,9 @@ const isLab = location.pathname.startsWith("/advisory");
                   Solutions <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "solution" ? "rotate-180" : ""}`} />
                 </button>
                 <div className={`absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl transition-all duration-200 border border-slate-800 overflow-hidden ${activeDropdown === "solution" ? "opacity-100 visible" : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"}`}>
-                  <Link to="/innovation" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Innovation</Link>
-                  <Link to="/incubation" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Incubation</Link>
-                  <Link to="/acceleration" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Acceleration</Link>
+                  <Link to="/advisory/innovation" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Innovation</Link>
+                  <Link to="/advisory/incubation" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Incubation</Link>
+                  <Link to="/advisory/acceleration" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Acceleration</Link>
                 </div>
               </div>
 
@@ -254,10 +254,10 @@ const isLab = location.pathname.startsWith("/advisory");
                   Academy
                 </Link>
                 <Link
-                  to="/programs"
+                  to="/academy/programs"
                   className="block py-2 pl-4 text-sm text-slate-400 hover:text-orange-500"
                 >
-                  Programs
+                  Programmes
                 </Link>
                 <Link
                   to="/academy/certifications"
@@ -270,7 +270,7 @@ const isLab = location.pathname.startsWith("/advisory");
                   to="/advisory"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"
                 >
-                  Advisory
+                  Labs
                 </Link>
                 <Link
                   to="/advisory/services"
@@ -286,17 +286,41 @@ const isLab = location.pathname.startsWith("/advisory");
                   Case Studies
                 </Link>
                 <Link
-                  to="/insights"
+                  to="/advisory/innovation"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"
                 >
-                  Insights
+                  Innovation
                 </Link>
                 <Link
-                  to="/contact"
+                  to="/advisory/incubation"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"
                 >
-                  Contact
+                  Incubation
                 </Link>
+                <Link
+                  to="/advisory/acceleration"
+                  className="block py-2 text-base text-slate-300 hover:text-orange-500"
+                >
+                  Acceleration
+                </Link>
+                <Link
+                  to="/advisory/incubation"
+                  className="block py-2 text-base text-slate-300 hover:text-orange-500"
+                >
+                  Incubation
+                </Link>
+                <Link
+                  to="/news"
+                  className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-center font-semibold"
+                >
+                  News
+                </Link>
+                <Link
+                  to="/research"
+                  className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-center font-semibold"
+                >
+                  Research
+                </Link>           
                 <Link
                   to="/contact"
                   className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-center font-semibold"
@@ -366,7 +390,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  to="/programs"
+                  to="/academy/programs"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
                   Programmes
@@ -392,7 +416,7 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  to="/innovation"
+                  to="/advisory/innovation"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
                   Innovation 
@@ -400,7 +424,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  to="/incubation"
+                  to="/advisory/incubation"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
                   Incubation
@@ -408,7 +432,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  to="/acceleration"
+                  to="/advisory/acceleration"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
                   Acceleration
