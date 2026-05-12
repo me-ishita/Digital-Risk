@@ -12,7 +12,7 @@ export function AcademyPrograms() {
     <div className="pt-20">
       <div className="absolute top-6 left-4 z-50">
                       <Link
-                          to="/"
+                          to="/academy"
                           className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
                           aria-label="Back to Academy"
                       >
@@ -99,7 +99,7 @@ export function AcademyPrograms() {
 
                 {/* CTA */}
                 <Link
-                  to="/programs/investment-banking"
+                  to="/academy/programs/investment-banking"
                   className="inline-flex items-center min-h-[48px] px-5 py-3 mt-5 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-orange-500/40 active:scale-[0.99] transition"
                 >
                   Enroll Now →
@@ -138,7 +138,7 @@ export function AcademyPrograms() {
                     New Professionals, Risk Managers, Board Members
                   </p>
                   <Link
-                    to="/programs/digital-risk-fundamentals"
+                    to="/academy/programs/digital-risk-fundamentals"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -167,7 +167,7 @@ export function AcademyPrograms() {
                     High-potential Graduates, Career Switchers
                   </p>
                   <Link
-                    to="/programs/cyber-resilience-practitioner"
+                    to="/academy/programs/cyber-resilience-practitioner"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -196,7 +196,7 @@ export function AcademyPrograms() {
                     C-Suite, Board Members, Risk Leaders
                   </p>
                   <Link
-                    to="/programs/ai-risk-governance"
+                    to="/academy/programs/ai-risk-governance"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -225,7 +225,7 @@ export function AcademyPrograms() {
                     Mid-to-Senior Professionals, Finance Leaders
                   </p>
                   <Link
-                    to="/programs/executive-leadership"
+                    to="/academy/programs/executive-leadership"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -253,7 +253,7 @@ export function AcademyPrograms() {
                     Government Professionals, CNI Operators
                   </p>
                   <Link
-                    to="/programs/cniscc"
+                    to="/academy/programs/cniscc"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course
@@ -280,7 +280,7 @@ export function AcademyPrograms() {
                     Data Officers, Compliance Teams, IT Directors
                   </p>
                   <Link
-                    to="/programs/data-risk-enterprise"
+                    to="/academy/programs/data-risk-enterprise"
                     className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                   >
                     View Course

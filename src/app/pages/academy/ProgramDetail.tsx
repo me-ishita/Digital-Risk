@@ -20,7 +20,7 @@ export function ProgramDetail() {
     <div className="pt-20">
       <div className="absolute top-6 left-4 z-50">
                 <Link
-                    to="/"
+                    to="/academy"
                     className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
                     aria-label="Back to Academy"
                 >

@@ -478,7 +478,7 @@ function HeroCourseSlider() {
               {/* Bottom Actions */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <Link
-                  to={`/programs/${slide.courseId}`}
+                  to={`/academy/programs/${slide.courseId}`}
                   className={`inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg text-sm sm:text-base ${slide.featured
                     ? "bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-orange-500/40 hover:scale-[1.01] text-white"
                     : "bg-white text-black hover:bg-orange-50"
@@ -1156,7 +1156,7 @@ export function HomePage() {
               title="Academy"
               description="Rigorous live-fire programmes and AI-powered learning for the next generation of digital risk leaders."
               image="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=55&w=720&auto=format&fit=crop"
-              link="/programs"
+              link="/academy/programs"
             />
 
             <MandateCard
@@ -1164,7 +1164,7 @@ export function HomePage() {
               title="Innovate"
               description="Pioneering digital risk frameworks, AI governance tools, and next-generation security solutions for a complex world."
               image="https://images.unsplash.com/photo-1518770660439-4636190af475?q=55&w=720&auto=format&fit=crop"
-              link="/innovation"
+              link="/advisory/innovation"
             />
 
             <MandateCard
@@ -1277,7 +1277,7 @@ export function HomePage() {
 
             {/* INNOVATION */}
             <motion.a
-              href="/innovation"
+              href="/advisory/innovation"
               className="group relative overflow-hidden rounded-3xl bg-white text-slate-900 shadow-2xl shadow-black/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1316,7 +1316,7 @@ export function HomePage() {
 
             {/* INCUBATION */}
             <motion.a
-              href="/incubation"
+              href="/advisory/incubation"
               className="group relative overflow-hidden rounded-3xl bg-white text-slate-900 shadow-2xl shadow-black/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1353,7 +1353,7 @@ export function HomePage() {
 
             {/* ACCELERATION */}
             <motion.a
-              href="/acceleration"
+              href="/advisory/acceleration"
               className="group relative overflow-hidden rounded-3xl bg-white text-slate-900 shadow-2xl shadow-black/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}

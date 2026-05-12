@@ -1330,7 +1330,7 @@ export function AcademyHome() {
                       A 4-week practitioner-led programme designed to bridge the gap between academic learning and real-world investment banking and risk roles.
                     </p>
                     <Link
-                      to="/programs/investment-banking"
+                      to="/academy/programs/investment-banking"
                       className="group inline-flex items-center justify-center gap-2 lg:w-auto lg:px-10 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold text-base hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
                     >
                       <span>Details</span>
@@ -1409,7 +1409,7 @@ export function AcademyHome() {
               title="For Students"
               image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=55&w=720&auto=format&fit=crop"
               description="Launch your digital risk career with industry-ready skills"
-              link="/programs/students"
+              link="/academy/programs/students"
               color="orange"
             />
 
@@ -1418,7 +1418,7 @@ export function AcademyHome() {
               title="For Early Career Professionals"
               image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop"
               description="Advance your career with specialized risk expertise"
-              link="/programs/early-career"
+              link="/academy/programs/early-career"
               color="blue"
             />
 
@@ -1427,7 +1427,7 @@ export function AcademyHome() {
               title="For Experienced Professionals"
               image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=55&w=720&auto=format&fit=crop"
               description="Build team capability through corporate training"
-              link="/programs/experienced"
+              link="/academy/programs/experienced"
               color="orange"
             />
 
@@ -1436,7 +1436,7 @@ export function AcademyHome() {
               title="For Organisations"
               image="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=55&w=720&auto=format&fit=crop"
               description="Partner with us to enhance academic programs"
-              link="/programs/organisation"
+              link="/academy/programs/organisation"
               color="blue"
             />
           </motion.div>
@@ -1530,7 +1530,7 @@ export function AcademyHome() {
               description="A 4-week practitioner-led programme designed to bridge the gap between academic learning and real-world investment banking and risk roles."
               audience="Students, Early-Career Professionals"
               image="https://images.unsplash.com/photo-1630464373688-fb6a37ce89ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGludmVzdG1lbnQlMjBiYW5raW5nfGVufDB8fDB8fHww"
-              to="/programs/investment-banking"
+              to="/academy/programs/investment-banking"
               badge="Launching This JUNE • Enroll Now"
             />
             <TrackCard
@@ -1539,7 +1539,7 @@ export function AcademyHome() {
               description="Strategic AI deployment and governance frameworks for executive decision-makers navigating regulatory compliance and risk management."
               audience="C-Suite, Board Members, Risk Leaders"
               image="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800"
-              to="/programs/ai-risk-governance"
+              to="/academy/programs/ai-risk-governance"
             />
             <TrackCard
               index={2}
@@ -1547,7 +1547,7 @@ export function AcademyHome() {
               description="CISO-in-a-Box training covering crisis management, board communication, and legal defensibility for cyber leadership roles."
               audience="Mid-to-Senior Professionals, Finance Leaders"
               image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800"
-              to="/programs/executive-leadership"
+              to="/academy/programs/executive-leadership"
             />
           </div>
 
@@ -1558,7 +1558,7 @@ export function AcademyHome() {
             viewport={{ once: true }}
           >
             <Link
-              to="/programs"
+              to="/academy/programs"
               className="inline-flex items-center space-x-2 text-orange-500 hover:text-orange-400 font-semibold group text-lg"
             >
               <span>View All Programmes</span>
@@ -1624,7 +1624,7 @@ export function AcademyHome() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
               <Link
-                to="/programs"
+                to="/academy/programs"
                 className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-orange-600 rounded-lg font-semibold text-sm sm:text-base hover:bg-slate-100 transition-all duration-300 text-center"
               >
                 Browse All Programmes

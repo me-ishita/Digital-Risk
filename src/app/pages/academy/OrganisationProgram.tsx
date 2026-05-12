@@ -6,7 +6,7 @@ export default function OrganisationProgram() {
             <div className="container mx-auto px-6">
                 <div className="absolute top-6 left-4 z-50">
                     <Link
-                        to="/"
+                        to="/academy"
                         className="flex items-center justify-center w-10 h-10 bg-slate-900/50 backdrop-blur-md border border-slate-800 text-slate-300 rounded-full hover:text-white hover:border-slate-700 transition-all shadow-lg"
                         aria-label="Back to Academy"
                     >
@@ -75,7 +75,7 @@ export default function OrganisationProgram() {
                                 Mid-to-Senior Professionals, Finance Leaders
                             </p>
                             <Link
-                                to="/programs/executive-leadership"
+                                to="/academy/programs/executive-leadership"
                                 className="block w-full py-4 bg-[#cd5c30] hover:bg-[#b04d27] text-white rounded-full font-semibold transition-colors text-center text-lg shadow-lg shadow-[#cd5c30]/20 active:scale-[0.98]"
                             >
                                 View Course
