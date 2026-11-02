@@ -27,7 +27,7 @@ export default function CyberResiliencePractitioner() {
           <div className="lg:col-span-8">
             <div className="w-full rounded-2xl overflow-hidden border border-orange-100 shadow-[0_4px_24px_rgb(234,88,12,0.1)]">
               <img 
-                src="https://media.istockphoto.com/id/2174551157/photo/cyber-security-data-protection-business-technology-privacy-concept.jpg?b=1&s=612x612&w=0&k=20&c=C2ye6tSOAmDUhC4MGIAlhA8w2o65eP-Mkg8dDxBwCcI=" 
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200" 
                 alt="Cyber SOC" 
                 className="w-full h-auto object-cover" 
               />
@@ -103,7 +103,7 @@ export default function CyberResiliencePractitioner() {
                   {
                     title: "Network Security & Infrastructure Protection",
                     month: "Month-2",
-                    desc: "Deep dive into network architecture security, perimeter defense, and infrastructure hardening. Master enterprise-grade security tools and network monitoring technologies.",
+                    desc: "Deep dive into network architecture security, perimeter defence, and infrastructure hardening. Master enterprise-grade security tools and network monitoring technologies.",
                     topics: ["Zero Trust Architecture", "Firewall & IPS Configuration", "Network Segmentation Design", "VPN & Remote Access Security"],
                     labs: ["Palo Alto Firewall Configuration", "Wireshark Traffic Analysis", "Nessus Vulnerability Scanning", "pfSense Router Hardening"]
                   },
@@ -111,7 +111,7 @@ export default function CyberResiliencePractitioner() {
                     title: "Threat Detection & Security Operations",
                     month: "Month-3",
                     desc: "Advanced SIEM operation, log analysis, and threat hunting methodologies. Build expertise in enterprise security monitoring and anomaly detection techniques.",
-                    topics: ["SIEM Architecture & Tuning", "Advanced Persistent Threats", "Behavioral Analysis Techniques", "Security Orchestration (SOAR)"],
+                    topics: ["SIEM Architecture & Tuning", "Advanced Persistent Threats", "Behavioural Analysis Techniques", "Security Orchestration (SOAR)"],
                     labs: ["Splunk SIEM Administration", "ELK Stack Log Analysis", "QRadar Rule Development", "Live SOC Simulation Exercise"]
                   },
                   {
@@ -190,7 +190,7 @@ export default function CyberResiliencePractitioner() {
             <div className="bg-white rounded-2xl border border-orange-200/80 p-8 shadow-[0_8px_30px_rgb(234,88,12,0.06)]">
               <h3 className="text-xl font-bold mb-6">Graduate Outcomes</h3>
               <ul className="space-y-4 text-sm text-slate-600">
-                <li>Security Operations Center (SOC) Analyst</li>
+                <li>Security Operations Centre (SOC) Analyst</li>
                 <li>Cyber Threat Intelligence Specialist</li>
                 <li>Incident Response Team Lead</li>
                 <li>Cybersecurity Risk Assessment Consultant</li>
@@ -253,9 +253,9 @@ export default function CyberResiliencePractitioner() {
           </div>
         </div>
 
-        {/* Enrollment Information Section */}
+        {/* Enrolment Information Section */}
         <div className="mt-12">
-          <h2 className="text-3xl font-bold mb-12 text-center">Enrollment Information</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">Enrolment Information</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             
             <div className="bg-white rounded-xl border border-orange-200 p-8 shadow-sm flex flex-col items-center text-center">
@@ -263,7 +263,7 @@ export default function CyberResiliencePractitioner() {
                 <Calendar className="w-8 h-8" />
               </div>
               <h4 className="font-bold text-lg mb-1">Next Cohort</h4>
-              <p className="text-[#cd5c30] font-medium text-sm mb-4">September 2025</p>
+              <p className="text-[#cd5c30] font-medium text-sm mb-4">September 2027</p>
               <p className="text-slate-500 text-sm">Applications close 15 August</p>
             </div>
 
@@ -272,7 +272,7 @@ export default function CyberResiliencePractitioner() {
                 <span className="text-3xl font-bold">£</span>
               </div>
               <h4 className="font-bold text-lg mb-1">Programme Fee</h4>
-              <p className="text-[#cd5c30] font-medium text-sm mb-4">£12,500</p>
+              <p className="text-[#cd5c30] font-medium text-sm mb-4">£200</p>
               <p className="text-slate-500 text-sm">Payment plans available</p>
             </div>
 

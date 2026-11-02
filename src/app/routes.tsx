@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { HomePage } from "./pages/HomePage";
 import { AcademyHome } from "./pages/academy/AcademyHome";
@@ -46,29 +46,34 @@ export const router = createBrowserRouter([
       { path: "academy/programs", element: <AcademyPrograms /> },
       { path: "academy/programs/:id", element: <ProgramDetail /> },
       { path: "academy/certifications", element: <Certifications /> },
-      { path: "academy/resources", element: <Resources /> },
 
-      { path: "academy/programs/investment-banking", element: <InvestmentBankingProgram /> },
-      { path: "academy/programs/digital-risk-fundamentals", element: <DigitalRiskFundamentals /> },
-      { path: "academy/programs/cyber-resilience-practitioner", element: <CyberResiliencePractitioner /> },
-      { path: "academy/programs/ai-risk-governance", element: <AIRiskGovernance /> },
-      { path: "academy/programs/executive-leadership", element: <ExecutiveLeadership /> },
-      { path: "academy/programs/cniscc", element: <CNISCC /> },
-      { path: "academy/programs/data-risk-enterprise", element: <DataRiskEnterprise /> },
+      { path: "programmes/investment-banking", element: <InvestmentBankingProgram /> },
+      { path: "programmes/digital-risk-fundamentals", element: <DigitalRiskFundamentals /> },
+      { path: "programmes/cyber-resilience-practitioner", element: <CyberResiliencePractitioner /> },
+      { path: "programmes/ai-risk-governance", element: <AIRiskGovernance /> },
+      { path: "programmes/executive-leadership", element: <ExecutiveLeadership /> },
+      { path: "programmes/cniscc", element: <CNISCC /> },
+      { path: "programmes/data-risk-enterprise", element: <DataRiskEnterprise /> },
       { path: ":id", element: <ProgramDetail /> },
 
-      { path: "academy/programs/students", element: <StudentProgram /> },
-      { path: "academy/programs/early-career", element: <EarlyCareerProgram /> },
-      { path: "academy/programs/experienced", element: <ExperiencedProgram /> },
-      { path: "academy/programs/organisation", element: <OrganisationProgram /> },
+      { path: "programmes/students", element: <StudentProgram /> },
+      { path: "programmes/early-career", element: <EarlyCareerProgram /> },
+      { path: "programmes/experienced", element: <ExperiencedProgram /> },
+      { path: "programmes/organisation", element: <OrganisationProgram /> },
 
-      { path: "advisory", element: <AdvisoryHome /> },
-      { path: "advisory/services", element: <Services /> },
-      { path: "advisory/case-studies", element: <CaseStudies /> },
+      { path: "labs", element: <AdvisoryHome /> },
+      { path: "labs/services", element: <Services /> },
+      { path: "labs/case-studies", element: <CaseStudies /> },
+      { path: "labs/innovation", element: <Innovation /> },
+      { path: "labs/incubation", element: <Incubation /> },
+      { path: "labs/acceleration", element: <Acceleration /> },
 
-      { path: "advisory/innovation", element: <Innovation /> },
-      { path: "advisory/incubation", element: <Incubation /> },
-      { path: "advisory/acceleration", element: <Acceleration /> },
+      { path: "advisory", element: <Navigate to="/labs" replace /> },
+      { path: "advisory/services", element: <Navigate to="/labs/services" replace /> },
+      { path: "advisory/case-studies", element: <Navigate to="/labs/case-studies" replace /> },
+      { path: "advisory/innovation", element: <Navigate to="/labs/innovation" replace /> },
+      { path: "advisory/incubation", element: <Navigate to="/labs/incubation" replace /> },
+      { path: "advisory/acceleration", element: <Navigate to="/labs/acceleration" replace /> },
 
       { path: "contact", element: <Contact /> },
       { path: "about", element: <About /> },

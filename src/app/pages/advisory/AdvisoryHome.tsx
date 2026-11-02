@@ -203,13 +203,13 @@ export default function AdvisoryHome() {
 
           <div className="flex gap-6 mt-10">
             <button
-              onClick={() => navigate('/advisory/services')}
+              onClick={() => navigate('/labs/services')}
               className="px-7 py-3 rounded-xl bg-linear-to-r from-zinc-100 via-zinc-200 to-zinc-100 text-primary border border-zinc-300 font-medium shadow-xl hover:scale-105 transition"
             >
               Explore Services
             </button>
             <button
-              onClick={() => navigate('//contact')}
+              onClick={() => navigate('/contact')}
               className="px-7 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10 transition"
             >
               Talk to an Adviser
@@ -477,7 +477,7 @@ export default function AdvisoryHome() {
         {/* CTA */}
         <div className="text-center mt-16">
           <button
-            onClick={() => navigate('/advisory/services')}
+            onClick={() => navigate('/labs/services')}
             className="inline-flex items-center gap-1 text-lg font-semibold text-[#d4af37]/80 hover:text-[#d4af37] transition"
           >
             View All Advisory Services

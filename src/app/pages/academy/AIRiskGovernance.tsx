@@ -27,7 +27,7 @@ export default function AIRiskGovernance() {
           <div className="lg:col-span-8">
             <div className="w-full rounded-2xl overflow-hidden border border-orange-100 shadow-[0_4px_24px_rgb(234,88,12,0.1)]">
               <img 
-                src="https://media.istockphoto.com/id/2222990006/photo/artificial-intelligence-machine-learning-large-language-model-ai-technology.jpg?b=1&s=612x612&w=0&k=20&c=8hk3IlipRU48WifJU7rAF2QqZ1B6LhXYgggme52yFCA=" 
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200" 
                 alt="AI Governance" 
                 className="w-full h-auto object-cover" 
               />
@@ -47,13 +47,13 @@ export default function AIRiskGovernance() {
                 <div>
                   <div className="font-bold text-slate-900">Next Cohort</div>
                   <div className="text-slate-500 text-sm mt-1 flex flex-col gap-1">
-                    <span>Start Date : 15 March 2025</span>
-                    <span>Application Deadline : 28 February 2025</span>
+                    <span>Start Date : 15 March 2026</span>
+                    <span>Application Deadline : 28 February 2026</span>
                   </div>
                 </div>
                 <div>
                   <div className="font-bold text-slate-900">Availability</div>
-                  <div className="text-slate-500 text-sm mt-1">6 seats remaining</div>
+                  <div className="text-slate-500 text-sm mt-1">50 seats remaining</div>
                 </div>
               </div>
 

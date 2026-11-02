@@ -26,16 +26,19 @@ export function Layout() {
   }, []);
   const location = useLocation();
   const getBrandName = () => {
-    if (location.pathname.startsWith("/academy")) {
+    if (
+      location.pathname.startsWith("/academy") ||
+      location.pathname.startsWith("/programmes")
+    ) {
       return "Digital Risk Academy";
     }
-    if (location.pathname.startsWith("/advisory")) {
-      return "Digital Risk Lab";
+    if (location.pathname.startsWith("/labs")) {
+      return "Digital Risk Labs";
     }
     return "Digital Risk";
   };
   const isAcademy = location.pathname.startsWith("/academy");
-const isLab = location.pathname.startsWith("/advisory"); 
+const isLab = location.pathname.startsWith("/labs"); 
 
   const brandName = getBrandName();
 
@@ -192,9 +195,9 @@ const isLab = location.pathname.startsWith("/advisory");
                   Labs <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "labs" ? "rotate-180" : ""}`} />
                 </button>
                 <div className={`absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl transition-all duration-200 border border-slate-800 overflow-hidden ${activeDropdown === "labs" ? "opacity-100 visible" : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"}`}>
-                  <Link to="/advisory" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Labs Home</Link>
-                  <Link to="/advisory/services" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Services</Link>
-                  <Link to="/advisory/case-studies" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Case Studies</Link>
+                  <Link to="/labs" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Labs Home</Link>
+                  <Link to="/labs/services" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">All Services</Link>
+                  <Link to="/labs/case-studies" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Case Studies</Link>
                 </div>
               </div>
               
@@ -206,12 +209,17 @@ const isLab = location.pathname.startsWith("/advisory");
                   Solutions <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "solution" ? "rotate-180" : ""}`} />
                 </button>
                 <div className={`absolute top-full left-0 mt-2 w-52 bg-slate-900 rounded-xl shadow-2xl transition-all duration-200 border border-slate-800 overflow-hidden ${activeDropdown === "solution" ? "opacity-100 visible" : "opacity-0 invisible group-hover:opacity-100 group-hover:visible"}`}>
-                  <Link to="/advisory/innovation" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Innovation</Link>
-                  <Link to="/advisory/incubation" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Incubation</Link>
-                  <Link to="/advisory/acceleration" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Acceleration</Link>
+                  <Link to="/labs/innovation" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Innovation</Link>
+                  <Link to="/labs/incubation" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Incubation</Link>
+                  <Link to="/labs/acceleration" onClick={() => setActiveDropdown(null)} target="_self" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">Acceleration</Link>
                 </div>
               </div>
-
+              <Link
+                  to="/about"
+                  className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm"
+                >
+                  About Us
+                </Link>
               <Link to="/news" className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
                 News
               </Link>
@@ -221,7 +229,7 @@ const isLab = location.pathname.startsWith("/advisory");
               </Link>
 
               <Link to="/contact" className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-md hover:shadow-orange-500/40">
-                Get Started
+                Contact Us
               </Link>
             </div>
 
@@ -267,47 +275,53 @@ const isLab = location.pathname.startsWith("/advisory");
                 </Link>
                 
                 <Link
-                  to="/advisory"
+                  to="/labs"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"
                 >
                   Labs
                 </Link>
                 <Link
-                  to="/advisory/services"
+                  to="/labs/services"
                   className="block py-2 pl-4 text-sm text-slate-400 hover:text-orange-500"
                 >
                   Services
                 </Link>
                 
                 <Link
-                  to="/advisory/case-studies"
+                  to="/labs/case-studies"
                   className="block py-2 pl-4 text-sm text-slate-400 hover:text-orange-500"
                 >
                   Case Studies
                 </Link>
                 <Link
-                  to="/advisory/innovation"
+                  to="/labs/innovation"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"
                 >
                   Innovation
                 </Link>
                 <Link
-                  to="/advisory/incubation"
+                  to="/labs/incubation"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"
                 >
                   Incubation
                 </Link>
                 <Link
-                  to="/advisory/acceleration"
+                  to="/labs/acceleration"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"
                 >
                   Acceleration
                 </Link>
                 <Link
-                  to="/advisory/incubation"
+                  to="/labs/incubation"
                   className="block py-2 text-base text-slate-300 hover:text-orange-500"
                 >
                   Incubation
+                </Link>
+                <Link
+                  to="/about"
+                  className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-center font-semibold"
+                >
+                  About Us
                 </Link>
                 <Link
                   to="/news"
@@ -325,7 +339,7 @@ const isLab = location.pathname.startsWith("/advisory");
                   to="/contact"
                   className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-center font-semibold"
                 >
-                  Get Started
+                  Contact Us
                 </Link>
               </motion.div>
             )}
@@ -369,7 +383,7 @@ function Footer() {
             </div>
             <p className="text-slate-400 text-sm max-w-sm">
               Advisory, Capability Building, and Digital Risk
-              Transformation. Helping organizations and
+              Transformation. Helping organisations and
               professionals navigate cyber, compliance, and
               digital risk.
             </p>
@@ -409,39 +423,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className="font-semibold mb-4 text-purple-500">
-              Solution
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  to="/advisory/innovation"
-                  className="text-slate-400 hover:text-white transition-colors"
-                >
-                  Innovation 
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/advisory/incubation"
-                  className="text-slate-400 hover:text-white transition-colors"
-                >
-                  Incubation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/advisory/acceleration"
-                  className="text-slate-400 hover:text-white transition-colors"
-                >
-                  Acceleration
-                </Link>
-              </li>
-              
-            </ul>
-          </div>
-
+    
           <div>
             <h3 className="font-semibold mb-4 text-blue-500">
               Labs
@@ -449,7 +431,7 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  to="/advisory"
+                  to="/labs"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
                   Lab Home
@@ -457,7 +439,7 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  to="/advisory/services"
+                  to="/labs/services"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
                   Services
@@ -465,10 +447,42 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  to="/advisory/case-studies"
+                  to="/labs/case-studies"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
                   Case Studies
+                </Link>
+              </li>
+              
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-4 text-purple-500">
+              Solution
+            </h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  to="/labs/innovation"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Innovation 
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/labs/incubation"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Incubation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/labs/acceleration"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Acceleration
                 </Link>
               </li>
               
@@ -478,11 +492,11 @@ function Footer() {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-slate-400 text-sm">
-            © 2026 Digital Risk Labs. All rights reserved.
+            © 2026 Digital Risk. All rights reserved.
           </p>
           <div className="flex items-center space-x-6">
             <a
-              href="#"
+              href="https://www.linkedin.com/company/digital-risk-academy/posts/?feedView=all"
               className="text-slate-400 hover:text-white transition-colors"
             >
               <svg

@@ -44,12 +44,12 @@ const faculty: Faculty[] = [
     },
     {
         name: "Melissa Dembrosky",
-        role: "Ex-Managing Director – Head of Programme Delivery, Cloud and Modernization (CIB), J.P. Morgan",
+        role: "Ex-Managing Director – Head of Programme Delivery, Cloud and Modernisation (CIB), J.P. Morgan",
         image: Speaker4,
         short:
-            "Senior J.P. Morgan executive with expertise in technology transformation, cloud modernization, and investment banking systems.",
+            "Senior J.P. Morgan executive with expertise in technology transformation, cloud modernisation, and investment banking systems.",
         full:
-            "Learn from a senior J.P. Morgan executive with extensive experience leading large-scale technology transformation across global investment banking. Melissa brings deep expertise in markets technology, cloud modernization, front-office systems, regulatory transformation, and enterprise-scale programme delivery—offering students valuable insight into the operational and technological frameworks that power modern investment banking."
+            "Learn from a senior J.P. Morgan executive with extensive experience leading large-scale technology transformation across global investment banking. Melissa brings deep expertise in markets technology, cloud modernisation, front-office systems, regulatory transformation, and enterprise-scale programme delivery—offering students valuable insight into the operational and technological frameworks that power modern investment banking."
     },
     {
         name: "Terry Learmouth",
@@ -134,7 +134,7 @@ export default function InvestmentBankingProgram() {
                         {/* Left Column - Content */}
                         <div className="max-w-2xl">
                             <span className="text-orange-400 text-xs sm:text-sm tracking-widest uppercase">
-                                Digital Risk Academy • June Cohort
+                                Digital Risk Academy - Practitioner-Led Programme
                             </span>
 
                             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 leading-tight">
@@ -341,7 +341,7 @@ export default function InvestmentBankingProgram() {
                                         Real-world case studies
                                     </h3>
                                     <p className="text-sm text-gray-600 leading-relaxed">
-                                        Analyze global banking scenarios and real M&A deals to understand
+                                        Analyse global banking scenarios and real M&A deals to understand
                                         practical decision-making.
                                     </p>
                                 </div>
@@ -836,7 +836,7 @@ export default function InvestmentBankingProgram() {
                     <p className="text-gray-600 text-lg mb-10">
                         The current tuition fee benefit is available as displayed below.
                         The full programme fee is{" "}
-                        <span className="font-semibold">£360</span> as of the start date.
+                        <span className="font-semibold">£360</span> for standard enrolment.
                     </p>
 
                     {/* CARD */}
@@ -861,9 +861,9 @@ export default function InvestmentBankingProgram() {
                             <p className="text-gray-600 text-base">
                                 Pay by{" "}
                                 <span className="font-medium text-gray-800">
-                                    31 Junly 2026
+                                    the current early access rate
                                 </span>{" "}
-                                at 11:59 PM
+                                while places are available
                             </p>
                             <div className="mt-10 flex justify-center">
                                 <Link
@@ -871,7 +871,7 @@ export default function InvestmentBankingProgram() {
                                     className="inline-flex items-center gap-2 whitespace-nowrap bg-gray-700 text-white px-8 py-3.5 rounded-md text-base font-semibold tracking-wide hover:bg-indigo-900 transition shadow-md"
                                 >
                                     <Wallet2 className="w-4 h-4" />
-                                    Pay and Enroll
+                                    Pay and Enrol
                                 </Link>
                             </div>
                         </div>

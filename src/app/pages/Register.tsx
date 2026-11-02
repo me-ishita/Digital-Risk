@@ -239,9 +239,9 @@ export function Register() {
                               value={phone} onChange={(e) => setPhone(e.target.value)} className={inputBase} placeholder="+91 98765 43210" />
                           </div>
                           <div>
-                            <label htmlFor="organization" className="block text-sm font-medium mb-2">Organization / University</label>
+                            <label htmlFor="organization" className="block text-sm font-medium mb-2">Organisation / University</label>
                             <input id="organization" name="organization" autoComplete="organization" type="text"
-                              value={organization} onChange={(e) => setOrganization(e.target.value)} className={inputBase} placeholder="Your organization" />
+                              value={organization} onChange={(e) => setOrganization(e.target.value)} className={inputBase} placeholder="Your organisation" />
                           </div>
                         </div>
 

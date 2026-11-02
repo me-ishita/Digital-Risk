@@ -118,6 +118,53 @@
   animation: logoShine 4s linear infinite;
 }
 
+@keyframes collaborationMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.collaboration-marquee {
+  animation: collaborationMarquee 32s linear infinite;
+}
+
+.collaboration-marquee-large {
+  animation-duration: 24s;
+}
+
+.collaboration-marquee-details {
+  animation-duration: 40s;
+}
+
+.holographic-line {
+  fill: none;
+  stroke: url(#impact-hologram);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 8;
+  filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.6));
+  animation: hologramFlow 5s linear infinite;
+}
+
+@keyframes hologramFlow {
+  to { stroke-dashoffset: -52; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collaboration-marquee {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .collaboration-marquee > div:nth-child(2) {
+    display: none;
+  }
+
+  .holographic-line {
+    animation: none;
+  }
+
+}
+
 .shine {
   background: linear-gradient(
     120deg,

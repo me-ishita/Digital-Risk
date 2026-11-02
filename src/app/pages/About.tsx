@@ -1,8 +1,9 @@
 import { motion } from 'motion/react';
 import { Link } from "react-router-dom";
-import { Target, Users, Globe, Award, TrendingUp, BookOpen, Briefcase, Shield, CheckCircle, Building2 } from 'lucide-react';
+import { Target, Users, Globe, Award, TrendingUp, BookOpen, Briefcase, Shield, CheckCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { WhatsAppChatWidget } from '../components/WhatsAppChatWidget';
 import brandLogo from "@/assets/b402c8efd70b38e0d5cb2eef9fe01649b01c6575.png";
 
 export function About() {
@@ -33,7 +34,7 @@ export function About() {
 
     const educationalApproach = [
         {
-            step: 'Industry-Led Programs',
+            step: 'Industry-Led Programmes',
             description: 'Curriculum designed by practitioners and thought leaders',
             icon: Briefcase,
         },
@@ -67,19 +68,21 @@ export function About() {
 
     const slides = [
         {
-            image: 'https://images.unsplash.com/photo-1769034432267-0fd4a01d839f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBlZHVjYXRpb24lMjBjbGFzc3Jvb20lMjBzdHVkZW50cyUyMGxlYXJuaW5nfGVufDF8fHx8MTc3Nzg4MTc3M3ww&ixlib=rb-4.1.0&q=80&w=1080',
+            image: 'https://images.unsplash.com/photo-1769034432267-0fd4a01d839f?...',
             title: 'Collaborative Learning',
+            description: 'Engage in dynamic peer-to-peer learning environments that foster teamwork, critical thinking, and real-world problem solving.'
         },
         {
-            image: 'https://images.unsplash.com/photo-1758270704296-a59b8f4e7dda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBlZHVjYXRpb24lMjBjbGFzc3Jvb20lMjBzdHVkZW50cyUyMGxlYXJuaW5nfGVufDF8fHx8MTc3Nzg4MTc3M3ww&ixlib=rb-4.1.0&q=80&w=1080',
+            image: 'https://images.unsplash.com/photo-1758270704296-a59b8f4e7dda?...',
             title: 'Expert-Led Sessions',
+            description: 'Learn directly from industry leaders and domain experts with practical insights and hands-on experience.'
         },
         {
-            image: 'https://images.unsplash.com/photo-1758691737182-d42aefd6dee8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxwcm9mZXNzaW9uYWwlMjBlZHVjYXRpb24lMjBjbGFzc3Jvb20lMjBzdHVkZW50cyUyMGxlYXJuaW5nfGVufDF8fHx8MTc3Nzg4MTc3M3ww&ixlib=rb-4.1.0&q=80&w=1080',
+            image: 'https://images.unsplash.com/photo-1758691737182-d42aefd6dee8?...',
             title: 'Professional Development',
+            description: 'Build career-ready skills with structured programmes focused on leadership, compliance, and digital risk strategy.'
         },
     ];
-
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveSlide((prev) => (prev + 1) % slides.length);
@@ -87,10 +90,13 @@ export function About() {
         return () => clearInterval(interval);
     }, [slides.length]);
 
+
+
     return (
         <div className="min-h-screen pt-20">
 
-            <section className="relative py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
+            {/* ABOUT US */}
+            <section className="relative py-10 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAyLjIxLTEuNzkgNC00IDRzLTQtMS43OS00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,7 +106,7 @@ export function About() {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        {/* 🔷 Logo */}
+                        {/*  Logo */}
                         <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
@@ -116,21 +122,26 @@ export function About() {
                             </div>
                         </motion.div>
 
-                        {/* 🔷 Heading */}
+                        {/* Heading */}
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
                             About Us
                         </h1>
 
-                        {/* 🔷 Subheading (same as you wanted) */}
+                        {/* Subheading (same as you wanted) */}
                         <p className="text-lg md:text-xl text-amber-100 max-w-3xl mx-auto leading-relaxed">
                             Shaping the Next Generation of Leaders in Digital Risk, Financial Governance, Compliance and Strategic Decision-Making
                         </p>
                     </motion.div>
                 </div>
             </section>
+
             <section className="py-20 bg-background">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                    {/* TOP GRID */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                        {/* LEFT */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -140,9 +151,10 @@ export function About() {
                             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                                 Our Purpose
                             </h2>
+
                             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                                 <p>
-                                    Digital Risk Academy is a purpose-driven institution dedicated to shaping the next generation of leaders in digital risk, financial governance, compliance, and strategic decision-making.
+                                    Digital Risk Academy operates as a not-for-profit — driven by impact, not commercial gain. We are dedicated to shaping the next generation of leaders in digital risk, financial governance, compliance, and strategic decision-making.
                                 </p>
                                 <p>
                                     Built at the intersection of industry expertise and future-focused education, we equip aspiring professionals with the practical knowledge, analytical mindset, and global perspective required to navigate today's rapidly evolving financial and digital ecosystems.
@@ -150,36 +162,69 @@ export function About() {
                             </div>
                         </motion.div>
 
+                        {/* RIGHT CARD */}
                         <motion.div
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="relative h-96 rounded-2xl overflow-hidden shadow-2xl"
+                            className="relative h-96 rounded-2xl overflow-hidden shadow-2xl flex flex-col"
                         >
-                            <ImageWithFallback
-                                src={slides[activeSlide].image}
-                                alt={slides[activeSlide].title}
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900/90 to-transparent p-6">
-                                <p className="text-white text-lg font-semibold">{slides[activeSlide].title}</p>
-                                <div className="flex gap-2 mt-4">
-                                    {slides.map((_, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => setActiveSlide(index)}
-                                            className={`h-1.5 rounded-full transition-all ${index === activeSlide ? 'w-8 bg-amber-400' : 'w-1.5 bg-white/50'
-                                                }`}
-                                        />
-                                    ))}
-                                </div>
+                            {/* Image */}
+                            <div className="relative h-[65%] w-full">
+                                <ImageWithFallback
+                                    src={slides[activeSlide].image}
+                                    alt={slides[activeSlide].title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+
+                            {/* Content */}
+                            <div className="bg-white dark:bg-slate-900 p-6 flex flex-col justify-center h-[35%]">
+                                <h3 className="text-xl font-semibold text-foreground">
+                                    {slides[activeSlide].title}
+                                </h3>
+                                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                                    {slides[activeSlide].description}
+                                </p>
                             </div>
                         </motion.div>
                     </div>
+
+                    {/* BOTTOM ROW (NEW) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 items-center mt-8">
+
+                        <div className="flex justify-start -mt-4 lg:-mt-6">
+                            <button
+                                onClick={() => window.location.href = "/DRA-Brochure/index.html"}
+                                className="px-5 py-2.5 bg-amber-400 hover:bg-amber-500 text-white rounded-full font-medium transition-all shadow-md"
+                            >
+                                Download Brochure
+                            </button>
+                        </div>
+
+                        {/* RIGHT → Dots aligned with card */}
+                        <div className="flex justify-start lg:justify-center mt-4 lg:mt-0">
+                            <div className="flex gap-2">
+                                {slides.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => setActiveSlide(index)}
+                                        className={`h-1.5 rounded-full transition-all ${index === activeSlide
+                                            ? 'w-8 bg-amber-400'
+                                            : 'w-1.5 bg-gray-400/60'
+                                            }`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </section>
 
+            {/* Bridging the Gap Section */}
             <section className="py-24 bg-gradient-to-br from-gray-900 via-amber-900 to-gray-900 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -214,7 +259,7 @@ export function About() {
                                     Our approach is grounded in excellence, accessibility, and real-world relevance—bridging the gap between academic learning and professional execution.
                                 </p>
                                 <p>
-                                    Through industry-led programs, expert mentorship, and globally aligned frameworks, Digital Risk Academy empowers individuals to develop the competencies demanded by leading financial institutions, regulatory bodies, and multinational enterprises.
+                                    Through industry-led programmes, expert mentorship, and globally aligned frameworks, Digital Risk Academy empowers individuals to develop the competencies demanded by leading financial institutions, regulatory bodies, and multinational enterprises.
                                 </p>
                             </div>
                         </motion.div>
@@ -222,6 +267,7 @@ export function About() {
                 </div>
             </section>
 
+            {/* Core Values */}
             <section className="py-24 bg-background">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -263,6 +309,7 @@ export function About() {
                 </div>
             </section>
 
+            {/* Our Educational Approach */}
             <section className="py-24 bg-gradient-to-br from-gray-800 via-gray-900 to-amber-900 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -312,6 +359,7 @@ export function About() {
                 </div>
             </section>
 
+            {/* Competency Areas Section */}
             <section className="py-24 bg-background">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -347,6 +395,7 @@ export function About() {
                 </div>
             </section>
 
+            {/* Our Impact Section */}
             <section className="py-24 bg-gradient-to-br from-amber-900 via-gray-900 to-gray-800 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -370,7 +419,7 @@ export function About() {
 
                             <div className="mt-8 space-y-4">
                                 {[
-                                    'Industry-recognized certifications',
+                                    'Industry-recognised certifications',
                                     'Lifetime access to learning resources',
                                     'Global alumni network',
                                     'Career support and placement assistance',
@@ -407,6 +456,7 @@ export function About() {
                 </div>
             </section>
 
+            {/* Corporate Information Section */}
             <section className="py-24 bg-background">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -427,27 +477,35 @@ export function About() {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-12 border border-amber-200 shadow-xl"
+                        className="bg-accent rounded-2xl p-12 border border-amber-200 shadow-xl"
                     >
                         <div className="flex items-center justify-center mb-8">
-                            <div className="w-16 h-16 bg-amber-500 rounded-xl flex items-center justify-center shadow-lg">
-                                <Building2 size={36} className="text-white" />
+                            <div className="w-16 h-16 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg">
+                                <img
+                                    src={brandLogo}
+                                    alt="Digital Risk"
+                                    className="w-11 h-11 object-contain"
+                                />
                             </div>
                         </div>
 
                         <h3 className="text-3xl font-bold text-center text-foreground mb-8">
-                            DIGITAL RISK ACADEMY CIC
+                            DIGITAL RISK 
                         </h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="space-y-4">
                                 <div>
-                                    <p className="text-sm text-muted-foreground mb-1">Company Number</p>
-                                    <p className="text-xl font-semibold text-foreground">17006899</p>
+                                    <p className="text-sm text-muted-foreground mb-1">Corporate Identification Number</p>
+                                    <p className="text-xl font-semibold text-foreground">U66190HR2023PTC114176</p>
                                 </div>
                                 <div>
                                     <p className="text-sm text-muted-foreground mb-1">Registered Office</p>
-                                    <p className="text-xl font-semibold text-foreground">London, England</p>
+                                    <p className="text-xl font-semibold text-foreground">
+                                        167-169 Great Portland Street, 5th Floor
+                                        <br />
+                                        London, W1W 5PF, United Kingdom
+                                    </p>
                                 </div>
                             </div>
 
@@ -460,8 +518,8 @@ export function About() {
                                     </p>
                                 </div>
                                 <div>
-                                    <p className="text-sm text-muted-foreground mb-1">Incorporated On</p>
-                                    <p className="text-xl font-semibold text-foreground">2 February 2026</p>
+                                    <p className="text-sm text-muted-foreground mb-1">Incorporated In</p>
+                                    <p className="text-xl font-semibold text-foreground">2023</p>
                                 </div>
                             </div>
                         </div>
@@ -492,14 +550,14 @@ export function About() {
                             Join a community of professionals committed to excellence in digital risk and financial governance
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                            <Link to="/programs">
+                            <Link to="/programmes">
                                 <button className="bg-amber-500 hover:bg-amber-600 text-white px-10 py-4 rounded-full transition-all shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center justify-center gap-2">
                                     <BookOpen size={24} />
                                     Explore Programmes
                                 </button>
                             </Link>
 
-                            <Link to="/register">
+                            <Link to="/contact">
                                 <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-10 py-4 rounded-full transition-all border border-white/30 hover:border-white/50 inline-flex items-center justify-center gap-2">
                                     <Users size={24} />
                                     Contact Us
@@ -509,6 +567,7 @@ export function About() {
                     </motion.div>
                 </div>
             </section>
+        <WhatsAppChatWidget />
         </div>
     );
 }

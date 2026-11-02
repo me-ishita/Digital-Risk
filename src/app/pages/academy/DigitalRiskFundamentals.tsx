@@ -28,7 +28,7 @@ export default function DigitalRiskFundamentals() {
           <div className="lg:col-span-8">
             <div className="w-full rounded-2xl overflow-hidden border border-orange-100 shadow-[0_4px_24px_rgb(234,88,12,0.1)]">
               <img 
-                src="https://images.pexels.com/photos/5833263/pexels-photo-5833263.jpeg" 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" 
                 alt="Dashboard" 
                 className="w-full h-auto object-cover" 
               />
@@ -82,10 +82,10 @@ export default function DigitalRiskFundamentals() {
                   Digital Risk Fundamentals provides comprehensive training in the core frameworks that govern modern cybersecurity practice. This intensive programme covers risk assessment methodologies, compliance frameworks, and governance structures essential for professional cybersecurity roles.
                 </p>
                 <p>
-                  Through practical workshops and real-world case studies, participants develop hands-on expertise in implementing NIST Cybersecurity Framework, NCSC Cyber Assessment Framework, and ISO 27001 controls. The curriculum emphasizes practical application over theoretical knowledge.
+                  Through practical workshops and real-world case studies, participants develop hands-on expertise in implementing NIST Cybersecurity Framework, NCSC Cyber Assessment Framework, and ISO 27001 controls. The curriculum emphasises practical application over theoretical knowledge.
                 </p>
                 <p>
-                  Graduates emerge with immediately applicable skills in risk quantification, control implementation, and regulatory compliance—ready to contribute meaningfully to organizational cybersecurity programmes from day one.
+                  Graduates emerge with immediately applicable skills in risk quantification, control implementation, and regulatory compliance—ready to contribute meaningfully to organisational cybersecurity programmes from day one.
                 </p>
               </div>
             </div>
@@ -197,7 +197,7 @@ export default function DigitalRiskFundamentals() {
               </div>
               <div className="bg-white border border-orange-200 rounded-lg p-4 flex items-center gap-4 shadow-sm">
                 <span className="text-[#cd5c30] text-3xl font-bold">2</span>
-                <p className="text-sm text-slate-600 leading-snug">Implement NIST CSF, NCSC CAF, and ISO 27001 controls within existing organizational structures</p>
+                <p className="text-sm text-slate-600 leading-snug">Implement NIST CSF, NCSC CAF, and ISO 27001 controls within existing organisational structures</p>
               </div>
             </div>
 

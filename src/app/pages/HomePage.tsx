@@ -47,12 +47,12 @@ const heroSlides = [
       "Career guidance & mentorship",
       "Live cohort-based training",
     ],
-    badge: "New Launch • August Cohort",
+    badge: "Financial Services Programme",
     duration: "4 Weeks",
     image:
       "https://images.unsplash.com/photo-1630464373688-fb6a37ce89ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGludmVzdG1lbnQlMjBiYW5raW5nfGVufDB8fDB8fHww",
     courseId: "investment-banking",
-    cta: "Enroll Now",
+    cta: "Enrol Now",
     featured: true,
   },
 
@@ -179,6 +179,11 @@ const academyVisionSlides: StoryVisionSlide[] = [
     image: "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?q=55&w=720&auto=format&fit=crop",
   },
   {
+    heading: "Our Mission",
+    body: "We are committed to democratising education by removing barriers and creating equal access for all. Whether privileged or underserved, every individual deserves the opportunity to learn, grow, and succeed.",
+    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUwfHxjbGFzc3Jvb20lMjB0ZWNobm9sb2d5fGVufDB8fDB8fHww",
+  },
+  {
     heading: "The Future We're Building",
     body: "We envision a world where digital risk is understood at every level of an organisation — where security awareness is cultural, governance is embedded, and emerging technologies are adopted with wisdom. That starts with education.",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=55&w=720&auto=format&fit=crop",
@@ -242,16 +247,18 @@ const impactData = [
 
 function SocialImpactSection() {
   return (
-    <section className="py-20 sm:py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section className="relative overflow-hidden bg-white py-12 sm:py-16">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-100/60 blur-[100px]" />
+      <div className="container relative mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="logo-shine inline-block text-4xl md:text-5xl font-black tracking-wide uppercase mb-4 leading-tight">Social Impact & Inclusion
+          <span className="mb-3 block text-xs font-bold uppercase tracking-[0.24em] text-orange-500">Our Commitment</span>
+          <h2 className="mb-4 inline-block text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-5xl">Social Impact & Inclusion
           </h2>
 
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
@@ -259,113 +266,60 @@ function SocialImpactSection() {
           </p>
         </motion.div>
 
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-        >
-          {impactData.map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeInUp}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="relative h-[320px] rounded-xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-lg transition-shadow duration-300"
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+        <div className="relative mx-auto max-w-6xl">
+          <svg className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full lg:block" viewBox="0 0 1000 560" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="impact-hologram" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#fb923c" stopOpacity=".18" />
+                <stop offset="50%" stopColor="#f97316" stopOpacity=".9" />
+                <stop offset="100%" stopColor="#60a5fa" stopOpacity=".35" />
+              </linearGradient>
+            </defs>
+            <path className="holographic-line" d="M500 280 C400 240 320 145 180 130" />
+            <path className="holographic-line" d="M500 280 C600 240 680 145 820 130" />
+            <path className="holographic-line" d="M500 280 C400 320 320 415 180 430" />
+            <path className="holographic-line" d="M500 280 C600 320 680 415 820 430" />
+          </svg>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/55 to-black/25" />
-
-              <div className="relative z-10 p-5 h-full flex flex-col justify-end text-white">
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-200">{item.description}</p>
+          <div className="relative z-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_300px_minmax(0,1fr)] lg:grid-rows-2 lg:gap-x-8 lg:gap-y-10">
+            <div className="order-first flex min-h-[280px] items-center justify-center md:col-span-2 lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:order-none">
+              <div className="relative flex h-64 w-64 items-center justify-center rounded-full border border-orange-400/60 bg-slate-950 px-7 text-center shadow-[0_0_34px_rgba(249,115,22,0.3),inset_0_0_36px_rgba(249,115,22,0.15)] sm:h-72 sm:w-72">
+                <div className="absolute inset-3 rounded-full border border-orange-300/30" />
+                <div className="absolute inset-0 rounded-full border border-blue-300/25 [transform:rotateX(68deg)_rotateZ(-16deg)_scale(1.22)]" />
+                <div className="absolute -inset-3 rounded-full border border-orange-300/25 [transform:rotateX(68deg)_rotateZ(20deg)_scale(1.22)]" />
+                <p className="relative z-10 text-2xl font-black leading-tight text-white sm:text-3xl">
+                  Equal Opportunity.<br /><span className="logo-shine">Limitless Potential.</span>
+                </p>
+                <span className="absolute -right-1 top-1/2 h-2 w-2 rounded-full bg-orange-300 shadow-[0_0_14px_4px_rgba(251,146,60,0.65)]" />
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function EducationMissionSection() {
-  return (
-    <section className="py-16 sm:py-20 bg-slate-900">
-      <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white text-center drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">
-            Equal Opportunity. Limitless Potential.
-          </h2>
-        </motion.div>
-
-        <motion.div
-          className="grid md:grid-cols-2 gap-10"
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-        >
-          <motion.div variants={fadeInUp} whileHover={{ y: -6, scale: 1.015 }} className="relative h-[420px] rounded-2xl overflow-hidden group">
-            <img
-              src="https://images.unsplash.com/photo-1523580494863-6f3031224c94"
-              alt="Education for all"
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30" />
-
-            <div className="relative z-10 p-8 h-full flex flex-col justify-end text-white">
-              <h3 className="text-2xl font-bold mb-3">Education for All</h3>
-
-              <p className="text-slate-200 mb-4">
-                We ensure that financial limitations never define a learner's future.
-                Our platform provides inclusive opportunities through scholarships and flexible learning.
-              </p>
-
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li>Need-based scholarships</li>
-                <li>Merit-based rewards</li>
-                <li>Flexible learning paths</li>
-                <li>Mentorship support</li>
-              </ul>
             </div>
-          </motion.div>
 
-          <motion.div variants={fadeInUp} whileHover={{ y: -6, scale: 1.015 }} className="relative h-[420px] rounded-2xl overflow-hidden group">
-            <img
-              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUwfHxjbGFzc3Jvb20lMjB0ZWNobm9sb2d5fGVufDB8fDB8fHww"
-              alt="Education mission"
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+            {impactData.map((item, i) => (
+              <motion.article
+                key={item.title}
+                initial={{ opacity: 0.6, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className={`group relative min-h-[240px] overflow-hidden rounded-2xl border border-orange-200/70 bg-slate-950 shadow-[0_14px_40px_rgba(15,23,42,0.12)] transition duration-300 hover:-translate-y-1 hover:border-orange-400 hover:shadow-[0_18px_48px_rgba(249,115,22,0.2)] sm:min-h-[270px] lg:min-h-[225px] ${i === 0 ? "lg:col-start-1 lg:row-start-1" : i === 1 ? "lg:col-start-3 lg:row-start-1" : i === 2 ? "lg:col-start-1 lg:row-start-2" : "lg:col-start-3 lg:row-start-2"}`}
+              >
+                <img src={item.image} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-orange-400 via-amber-200 to-blue-400 opacity-80" />
+                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                  <h3 className="text-xl font-bold leading-tight text-white sm:text-2xl">{item.title}</h3>
+                  <p className="mt-2 max-w-lg text-xs leading-relaxed text-slate-200 sm:text-sm">{item.description}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/20" />
-            <div className="relative z-10 p-8 h-full flex flex-col justify-end text-white">
-              <h3 className="text-2xl font-bold mb-3">Our Mission</h3>
-
-              <p className="text-slate-200 leading-relaxed">
-                We are committed to democratizing education by removing barriers and creating equal access for all.
-                Whether privileged or underserved, every individual deserves the opportunity to learn, grow, and succeed.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
+        <div className="mt-12 text-center">
+          <Link to="/labs/case-studies" className="group inline-flex items-center gap-2 font-semibold text-orange-600 transition hover:text-orange-700">
+            View All Case Studies <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -478,7 +432,7 @@ function HeroCourseSlider() {
               {/* Bottom Actions */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <Link
-                  to={`/academy/programs/${slide.courseId}`}
+                  to={`programmes/${slide.courseId}`}
                   className={`inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg text-sm sm:text-base ${slide.featured
                     ? "bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-orange-500/40 hover:scale-[1.01] text-white"
                     : "bg-white text-black hover:bg-orange-50"
@@ -562,6 +516,12 @@ function ValidatedOutcomeSlider() {
       detail: "avoidable security incidents reported across participating organisations.",
       meta: "Measured after training",
     },
+    {
+      eyebrow: "Practical Capability",
+      title: "Learn by doing",
+      detail: "Hands-on scenarios help learners apply AI, cyber and governance concepts to real decisions.",
+      meta: "Scenario-based learning",
+    },
   ];
   const [current, setCurrent] = useState(0);
 
@@ -589,10 +549,10 @@ function ValidatedOutcomeSlider() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-500 mb-3 block">Validated Outcomes</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">Validated Outcomes</h2>
+          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-500 mb-3 block">From Learning to Impact</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">Validated Outcomes </h2>
           <p className="text-slate-300 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
-            A rotating card deck keeps the section moving while preserving the smaller, cleaner text treatment.
+            Learners build practical confidence through real-world scenarios, while partner organisations strengthen risk communication and day-to-day resilience.
           </p>
         </motion.div>
 
@@ -668,80 +628,165 @@ function StoryVisionPanel({ slides, label, accent }: { slides: StoryVisionSlide[
   const next = () => setCurrent((c) => (c + 1) % total);
   const slide = slides[current];
 
+  const isVision = label === "Our Vision";
+
   return (
-    <div className="relative h-[360px] sm:h-[460px] overflow-hidden rounded-2xl">
-      <AnimatePresence mode="sync">
-        <motion.img
-          key={current}
-          src={slide.image}
-          alt={slide.heading}
-          className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        />
-      </AnimatePresence>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/10" />
-
-      {/* Label */}
-      <div className="absolute top-4 sm:top-6 left-4 sm:left-6 z-10">
-        <span className={`text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full border ${accent}`}>
-          {label}
-        </span>
+    <div className="grid items-center gap-7 md:grid-cols-12 md:gap-12">
+      <div className={`relative min-h-[260px] sm:min-h-[340px] md:col-span-7 ${isVision ? "md:order-2" : ""}`}>
+        <div className={`absolute inset-0 overflow-hidden ${isVision ? "rounded-[120px_24px_120px_24px]" : "rounded-[24px_120px_24px_120px]"}`}>
+          <AnimatePresence mode="sync">
+            <motion.img
+              key={current}
+              src={slide.image}
+              alt={slide.heading}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+              initial={{ opacity: 0.5, scale: 1.025 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+            />
+          </AnimatePresence>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
+          <span className="absolute bottom-5 left-6 text-xs font-bold uppercase tracking-[0.24em] text-white/80">{label === "Our Story" ? "01 / The Beginning" : "02 / The Future"}</span>
+        </div>
+        <div className={`absolute -z-0 top-5 h-16 w-16 border-t border-orange-400/70 ${isVision ? "right-5 border-r" : "left-5 border-l"}`} />
       </div>
 
-      {/* Heading — always at fixed position from bottom */}
-      <div className="absolute bottom-[82px] sm:bottom-[100px] left-4 sm:left-6 right-4 sm:right-6 z-10">
+      <div className={`relative z-10 md:col-span-5 ${isVision ? "md:order-1 md:pl-8" : "md:pr-8"}`}>
+        <span className={`inline-block rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-[0.24em] ${accent}`}>{label}</span>
         <AnimatePresence mode="wait">
-          <motion.h3
-            key={current + "-h"}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl font-extrabold text-white leading-tight"
-          >
-            {slide.heading}
-          </motion.h3>
-        </AnimatePresence>
-      </div>
-      {/* Body — fixed height strip above dots */}
-      <div className="absolute bottom-[18px] sm:bottom-[28px] left-4 sm:left-6 right-4 sm:right-6 h-[64px] sm:h-[72px] z-10 overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={current + "-p"}
-            initial={{ opacity: 0, y: 12 }}
+          <motion.div
+            key={current}
+            initial={{ opacity: 0.65, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="text-slate-200 text-[13px] sm:text-sm leading-relaxed line-clamp-3"
+            transition={{ duration: 0.35 }}
+            className="mt-4"
           >
-            {slide.body}
-          </motion.p>
+            <h3 className="text-2xl font-extrabold leading-tight text-white sm:text-3xl">{slide.heading}</h3>
+            <p className="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">{slide.body}</p>
+          </motion.div>
         </AnimatePresence>
-      </div>
-
-      {/* Arrows */}
-      <button onClick={prev} className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm border border-white/15 text-white/80 hover:text-white transition-all active:scale-95" aria-label="Previous">
-        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2} />
-      </button>
-      <button onClick={next} className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm border border-white/15 text-white/80 hover:text-white transition-all active:scale-95" aria-label="Next">
-        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2} />
-      </button>
-
-      {/* Dots */}
-      <div className="absolute bottom-3 sm:bottom-5 left-0 right-0 z-20 flex justify-center gap-2">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "bg-orange-500 w-6" : "bg-white/40 w-2 hover:bg-white/70"}`}
-            aria-label={`Slide ${i + 1}`}
-          />
-        ))}
+        <div className="mt-6 flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            {slides.map((_, i) => (
+              <button key={i} onClick={() => setCurrent(i)} className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-orange-400" : "w-3 bg-white/30 hover:bg-white/60"}`} aria-label={`${label} slide ${i + 1}`} />
+            ))}
+          </div>
+          <div className="ml-auto flex gap-2">
+            <button onClick={prev} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/80 transition hover:border-orange-400 hover:text-orange-300" aria-label={`Previous ${label} slide`}>
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button onClick={next} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/80 transition hover:border-orange-400 hover:text-orange-300" aria-label={`Next ${label} slide`}>
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+  );
+}
+
+function FlagshipCollaborationSection() {
+  const details = [
+    "4–8 JANUARY 2027",
+    "5 DAYS",
+    "AGES 12–17",
+    "LONDON, UK",
+    "IMPERIAL COLLEGE LONDON",
+  ];
+  const headlineTicker = ["DON’T JUST USE AI. BUILD THE FUTURE.", "THINK BIGGER."];
+
+  return (
+    <section className="bg-white px-4 py-12 sm:px-6 sm:py-16">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-8 text-center sm:mb-10">
+          <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.28em] text-orange-500 [text-shadow:0_0_12px_rgba(249,115,22,0.55)]">Featured Experience</span>
+          <h2 className="mx-auto max-w-none whitespace-nowrap text-[clamp(0.8rem,4vw,3rem)] font-black leading-tight tracking-tight text-slate-900">Shaping the Next Generation of AI Innovators</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">An extraordinary learning opportunity at Imperial College London.</p>
+        </div>
+
+        <div className="overflow-hidden rounded-[28px] border border-orange-300/50 bg-slate-950 shadow-[0_24px_70px_rgba(15,23,42,0.16)]">
+        <div className="overflow-hidden border-b border-orange-400/25 bg-slate-950 py-3 sm:py-4" aria-label="Programme inspiration">
+          <div className="collaboration-marquee collaboration-marquee-large flex w-max items-center" aria-hidden="true">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center">
+                {headlineTicker.map((message) => (
+                  <span key={`${copy}-${message}`} className="flex items-center whitespace-nowrap px-5 text-base font-black uppercase tracking-[0.12em] text-white sm:px-8 sm:text-xl sm:tracking-[0.16em]">
+                    {message}<span className="ml-8 text-orange-400">✦</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative isolate min-h-[650px] overflow-hidden sm:min-h-[570px] lg:min-h-[520px]">
+          <img
+            src="/images/ai-generation-globe.png"
+            alt="Glowing digital globe representing artificial intelligence and emerging technology"
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 -z-20 h-full w-full object-cover object-[64%_center]"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black via-black/90 to-black/15 sm:via-black/80" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-transparent to-black/10" />
+
+          <div className="flex min-h-[650px] items-center px-5 py-8 sm:min-h-[570px] sm:px-10 sm:py-10 lg:min-h-[520px] lg:px-14">
+            <div className="max-w-2xl text-white">
+              <div className="mb-5 flex flex-wrap items-center gap-3 sm:gap-4">
+                <span className="rounded-md border border-orange-400 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-orange-300 shadow-[0_0_15px_rgba(249,115,22,0.22)] sm:text-xs sm:tracking-[0.18em]">
+                  Flagship Academic Collaboration
+                </span>
+                <div className="flex items-center gap-3">
+                  <img src="/images/economic-times-et-mark.webp" alt="The Economic Times" className="h-10 w-10 rounded-md object-cover" />
+                  <span aria-hidden="true" className="h-7 w-px bg-white/40" />
+                  <img src="/images/imperial-white-wordmark.webp" alt="Imperial College London" className="h-7 w-[150px] object-contain" />
+                </div>
+              </div>
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.24em] text-orange-200">Young Innovators · London 2027</p>
+              <h2 className="text-4xl font-black uppercase leading-[0.92] tracking-[-0.045em] text-white sm:text-6xl lg:text-[4.25rem]">
+                <span className="block">AI for</span>
+                <span className="block">Generation <span className="logo-shine inline-block">Z</span></span>
+              </h2>
+              <p className="mt-4 text-lg font-semibold leading-snug text-orange-100 sm:text-xl">
+                Certification to <span className="font-bold text-orange-400">Build</span>, <span className="font-bold text-orange-400">Innovate</span> &amp; <span className="font-bold text-orange-400">Secure</span> with <span className="font-bold text-orange-400">AI</span>
+              </p>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-200 sm:text-base">
+                An exceptional opportunity for young innovators to explore AI, develop practical skills and experience learning at the prestigious Imperial College London campus.
+              </p>
+              <a
+                href="https://economictimes.indiatimes.com/masterclass/ai-for-generationz"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex items-center gap-2 rounded-full border border-orange-300/60 bg-orange-500/35 px-6 py-3 text-xs font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_0_24px_rgba(249,115,22,0.24)] backdrop-blur-md transition hover:-translate-y-0.5 hover:border-orange-200 hover:bg-orange-500/55"
+              >
+                Explore &amp; Enrol <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <div className="overflow-hidden border-t border-white/10 bg-slate-900 py-2.5" aria-label="Programme dates and details">
+          <div className="collaboration-marquee collaboration-marquee-details flex w-max items-center" aria-hidden="true">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center">
+                {details.map((detail) => (
+                  <span key={`${copy}-${detail}`} className="flex items-center whitespace-nowrap px-4 text-[9px] font-semibold tracking-[0.16em] text-slate-300 sm:px-7 sm:text-[10px] sm:tracking-[0.2em]">
+                    {detail}<span className="ml-8 text-orange-400">✦</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+          <span className="sr-only">4–8 January 2027 · 5 days · Ages 12–17 · London, UK · Imperial College London</span>
+        </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -815,7 +860,7 @@ function AcademyCard({
   outcome,
 }: any) {
   const bgImages: { [key: string]: string } = {
-    "Professional Programs":
+    "Professional Programmes":
       "https://images.unsplash.com/photo-1758876019673-704b039d405c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wbWVudCUyMGNhcmVlciUyMGdyb3d0aHxlbnwxfHx8fDE3NzUyODk0ODZ8MA&ixlib=rb-4.1.0&q=55&w=900&utm_source=figma&utm_medium=referral",
     "Corporate Training":
       "https://images.unsplash.com/flagged/photo-1576485436509-a7d286952b65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjB0cmFpbmluZyUyMHdvcmtzaG9wJTIwb2ZmaWNlfGVufDF8fHx8MTc3NTI4OTQ4Nnww&ixlib=rb-4.1.0&q=55&w=900&utm_source=figma&utm_medium=referral",
@@ -823,7 +868,7 @@ function AcademyCard({
       "https://images.unsplash.com/photo-1758518727707-b023e285b709?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleGVjdXRpdmUlMjBsZWFkZXJzaGlwJTIwbWVldGluZyUyMGJvYXJkcm9vbXxlbnwxfHx8fDE3NzUyODk0ODZ8MA&ixlib=rb-4.1.0&q=55&w=900&utm_source=figma&utm_medium=referral",
     "Student Career Tracks":
       "https://images.unsplash.com/photo-1758270704534-fd9715bffc0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwbGVhcm5pbmclMjBjbGFzc3Jvb20lMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc3NTI4OTQ4N3ww&ixlib=rb-4.1.0&q=55&w=900&utm_source=figma&utm_medium=referral",
-    "University Partnership Programs":
+    "University Partnership Programmes":
       "https://images.unsplash.com/photo-1678132218412-0f18fab9b537?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwcGFydG5lcnNoaXAlMjBjb2xsYWJvcmF0aW9uJTIwZWR1Y2F0aW9ufGVufDF8fHx8MTc3NTI4OTQ4N3ww&ixlib=rb-4.1.0&q=55&w=900&utm_source=figma&utm_medium=referral",
     "Certification Readiness":
       "https://images.unsplash.com/photo-1604872423159-61ef082dab75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0aW9uJTIwZXhhbSUyMHByZXBhcmF0aW9uJTIwc3R1ZHl8ZW58MXx8fHwxNzc1MjQxMzAxfDA&ixlib=rb-4.1.0&q=55&w=900&utm_source=figma&utm_medium=referral",
@@ -918,7 +963,7 @@ function CaseStudyCard({
           {description}
         </p>
         <Link
-          to="/advisory/case-studies"
+          to="/labs/case-studies"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-500 hover:text-orange-700 transition-colors group/link"
         >
           Read Case Study
@@ -1004,9 +1049,28 @@ function InsightCard({
 const heroBackgroundVideo = "/Hero%20Background.mp4";
 
 function HeroBg() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        void video.play().catch(() => undefined);
+      } else {
+        video.pause();
+      }
+    }, { threshold: 0.05 });
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="absolute inset-0">
       <video
+        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover object-center brightness-110 contrast-110 scale-[1.02]"
         autoPlay
         muted
@@ -1062,12 +1126,12 @@ export function HomePage() {
             </motion.span>
           </motion.h1>
           <motion.p
-            className="text-[clamp(0.85rem,3.4vw,1rem)] sm:text-lg md:text-2xl text-slate-200 max-w-3xl mx-auto text-center px-2 leading-snug"
+            className="mt-6 text-[clamp(0.85rem,3.4vw,1rem)] sm:text-lg md:text-2xl text-slate-200 max-w-3xl mx-auto text-center px-2 leading-snug"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.7 }}
           >
-            The Core of Digital Confidence, Capability Building and Strategic Innovation in Digital Risk-empowering organizations and professionals to navigate complexity with confidence.
+            The Core of Digital Confidence, Capability Building and Strategic Innovation in Digital Risk-empowering organisations and professionals to navigate complexity with confidence.
           </motion.p>
 
           <motion.div
@@ -1080,7 +1144,7 @@ export function HomePage() {
               Explore Academy <ArrowRight className="w-4 h-4" />
             </Link>
             <button
-              onClick={() => navigate("/advisory")}
+              onClick={() => navigate("/labs")}
               className="group inline-flex items-center justify-center gap-2 
                  w-full sm:w-auto px-8 py-3 mt-10
                  bg-blue-900 border-2 border-white/60 text-white 
@@ -1089,7 +1153,7 @@ export function HomePage() {
                  transition-all duration-300 ease-out 
                  hover:-translate-y-0.5"
             >
-              Explore Labs
+              Visit Labs
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </motion.div>
@@ -1164,7 +1228,7 @@ export function HomePage() {
               title="Innovate"
               description="Pioneering digital risk frameworks, AI governance tools, and next-generation security solutions for a complex world."
               image="https://images.unsplash.com/photo-1518770660439-4636190af475?q=55&w=720&auto=format&fit=crop"
-              link="/advisory/innovation"
+              link="/labs/innovation"
             />
 
             <MandateCard
@@ -1172,7 +1236,7 @@ export function HomePage() {
               title="Accelerator"
               description="Strategic extension of your leadership team through tailored risk programmes and bespoke talent pipelining."
               image="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=55&w=720&auto=format&fit=crop"
-              link="/advisory/services"
+              link="/labs/services"
             />
 
             <MandateCard
@@ -1180,7 +1244,7 @@ export function HomePage() {
               title="Social Impact"
               description="Delivering measurable outcomes from governance to workforce capability across organisations and communities."
               image="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=55&w=720&auto=format&fit=crop"
-              link="/advisory/case-studies"
+              link="/labs/case-studies"
             />
           </motion.div>
         </div>
@@ -1202,7 +1266,7 @@ export function HomePage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Our Story &amp; Vision</h2>
           </motion.div>
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6"
+            className="relative flex flex-col gap-12 sm:gap-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1222,10 +1286,12 @@ export function HomePage() {
         </div>
       </section>
 
+      <FlagshipCollaborationSection />
+
       {/* ════════════════════════════════════════
           4. ELITE PROGRAMMES INTRO + COURSE SLIDER
           ════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20 bg-white text-center">
+      <section className="pt-6 pb-12 sm:pt-8 sm:pb-16 bg-white text-center">
         <motion.div
           className="container mx-auto px-4 sm:px-6"
           initial={{ opacity: 0, y: 24 }}
@@ -1233,7 +1299,6 @@ export function HomePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="logo-shine inline-block text-sm sm:text-lg md:text-2xl font-black tracking-[0.14em] uppercase mb-3 leading-none">Digital Risk Academy</span>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-slate-900">
             Elite programmes for ambitious professionals
           </h2>
@@ -1277,7 +1342,7 @@ export function HomePage() {
 
             {/* INNOVATION */}
             <motion.a
-              href="/advisory/innovation"
+              href="/labs/innovation"
               className="group relative overflow-hidden rounded-3xl bg-white text-slate-900 shadow-2xl shadow-black/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1316,7 +1381,7 @@ export function HomePage() {
 
             {/* INCUBATION */}
             <motion.a
-              href="/advisory/incubation"
+              href="/labs/incubation"
               className="group relative overflow-hidden rounded-3xl bg-white text-slate-900 shadow-2xl shadow-black/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1353,7 +1418,7 @@ export function HomePage() {
 
             {/* ACCELERATION */}
             <motion.a
-              href="/advisory/acceleration"
+              href="/labs/acceleration"
               className="group relative overflow-hidden rounded-3xl bg-white text-slate-900 shadow-2xl shadow-black/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1396,52 +1461,6 @@ export function HomePage() {
           9. SOCIAL IMPACT & INCLUSION
       ════════════════════════════════════════ */}
       <SocialImpactSection />
-      <EducationMissionSection />
-
-      {/* ════════════════════════════════════════
-          9. IMPACT STORIES
-          ════════════════════════════════════════ */}
-
-      <section className="py-20 sm:py-28 bg-white text-slate-900">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-12 sm:mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500 mb-3 block">Client Outcomes</span>
-            <h2 className="logo-shine inline-block text-4xl md:text-5xl font-black tracking-wide uppercase mb-4 leading-tight">IMPACT STORIES</h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-base">
-              Real results from the organisations and professionals we've partnered with.
-            </p>
-          </motion.div>
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <CaseStudyCard title="University Digital Awareness" description="How a university strengthened digital risk awareness across student cohorts" metric="2,500+ Students Trained" image="https://images.unsplash.com/photo-1643199187247-b3b6009bf0bb?q=55&w=720&auto=format&fit=crop" />
-            <CaseStudyCard title="Startup Governance Readiness" description="How a fintech startup achieved governance readiness before scaling" metric="Series A Ready in 90 Days" image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop" />
-            <CaseStudyCard title="Team Cyber Risk Awareness" description="How an enterprise team built cyber risk awareness through role-based training" metric="95% Engagement Rate" image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=55&w=720&auto=format&fit=crop" />
-          </motion.div>
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <Link to="/advisory/case-studies" className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold group transition-colors">
-              View All Case Studies <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
 
       {/* ════════════════════════════════════════
           VALIDATED OUTCOMES
@@ -1516,14 +1535,16 @@ export function HomePage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Card */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-10 flex flex-col items-center text-center shadow-sm">
+              <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/sco/a/ad/Imperial_College_London_crest.svg"
-                  alt="Imperial College London"
-                  className="h-40 w-auto object-contain mb-8"
+                  src="/images/imperial-campus.png"
+                  alt="Imperial College London campus"
+                  className="w-full h-[420px] md:h-[500px] object-cover object-center"
                 />
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500 mb-2">Strategic Partner</p>
-                <h3 className="text-xl font-bold text-slate-900 mb-1">Imperial College London</h3>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent p-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-300 mb-2">Strategic Partner</p>
+                  <h3 className="text-xl font-bold text-white">Imperial College London</h3>
+                </div>
               </div>
 
               {/* Text */}

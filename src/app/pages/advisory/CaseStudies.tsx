@@ -4,10 +4,10 @@ import { ArrowRight, TrendingUp, CheckCircle } from "lucide-react";
 
 const caseStudies = [
   {
-    title: "University Digital Awareness Program",
+    title: "University Digital Awareness Programme",
     category: "Education",
     challenge: "A leading university needed to strengthen digital risk awareness across 2,500+ students and faculty.",
-    solution: "Developed role-based awareness program with interactive modules and measurable outcomes.",
+    solution: "Developed role-based awareness programme with interactive modules and measurable outcomes.",
     results: ["2,500+ participants trained", "92% knowledge improvement", "Sustainable awareness culture"],
     image: "https://images.unsplash.com/photo-1758270704534-fd9715bffc0e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fHVuaXZlcnNpdHklMjBsZWFybmluZ3xlbnwwfHwwfHx8MA%3D%3D",
   },
@@ -23,7 +23,7 @@ const caseStudies = [
     title: "Enterprise Cyber Risk Awareness",
     category: "Financial Services",
     challenge: "250-person team lacked consistent cyber risk awareness and role-specific training.",
-    solution: "Designed and delivered role-based cyber awareness program with continuous reinforcement.",
+    solution: "Designed and delivered role-based cyber awareness programme with continuous reinforcement.",
     results: ["95% engagement rate", "60% reduction in risk incidents", "Strong risk culture"],
     image: "https://images.unsplash.com/photo-1751448555253-f39c06e29d82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwZGF0YSUyMHByb3RlY3Rpb24lMjBzaGllbGR8ZW58MXx8fHwxNzc1MjM2MDU4fDA&ixlib=rb-4.1.0&q=55&w=900&utm_source=figma&utm_medium=referral",
   },
@@ -63,7 +63,7 @@ export function CaseStudies() {
             </h1>
 
             <p className="text-2xl md:text-xl font-semibold text-primary uppercase tracking-widest text-center max-w-4xl mx-auto leading-relaxed px-4 whitespace-normal">
-              Real results from organizations we've partnered with to navigate digital risk and drive transformation.
+              Real results from organisations we've partnered with to navigate digital risk and drive transformation.
             </p>
           </motion.div>
         </div>

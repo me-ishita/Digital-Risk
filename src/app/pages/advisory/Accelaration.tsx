@@ -35,7 +35,7 @@ export function Acceleration() {
       icon: TrendingUp,
     },
     {
-      title: 'Structured Pilot Programs',
+      title: 'Structured Pilot Programmes',
       description: 'Validate new solutions through controlled pilot environments, enabling measurable outcomes with minimal operational risk.',
       icon: Target,
     },
@@ -62,13 +62,13 @@ export function Acceleration() {
     {
       step: 'Strategic Alignment',
       description: 'Connect with enterprise partners whose business challenges align with your innovation and growth potential.',
-      image: 'https://media.istockphoto.com/id/2210586431/photo/technology-leadership-business-the-way-forward-innovation-futuristic-artificial-intelligence.jpg?b=1&s=612x612&w=0&k=20&c=96qJwQq2HvvPgdPH2f08tWvUS2jwDlTyYwkTq4qHk04=',
+      image: 'https://images.pexels.com/photos/7792841/pexels-photo-7792841.jpeg',
       icon: Handshake,
 
     },
     {
       step: 'Pilot Deployment',
-      description: 'Launch controlled pilot programs within enterprise environments to validate performance and business impact.',
+      description: 'Launch controlled pilot programmes within enterprise environments to validate performance and business impact.',
       image: 'https://content.pexels.com/aigc-bundle/images/7b189f9e-fd23-4a17-9b22-b7a59db66249.jpg',
       icon: Rocket,
 
@@ -118,7 +118,7 @@ export function Acceleration() {
     },
     {
       title: 'Enterprise Integration',
-      desc: 'We act as a bridge between startups and large organizations—enabling meaningful collaborations while guiding enterprises toward adopting innovative, high-impact solutions.',
+      desc: 'We act as a bridge between startups and large organisations—enabling meaningful collaborations while guiding enterprises toward adopting innovative, high-impact solutions.',
       icon: Network,
       image:
         'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200',
@@ -697,7 +697,7 @@ export function Acceleration() {
               Ready to Scale?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Join our acceleration program and connect with enterprise partners
+              Join our acceleration programme and connect with enterprise partners
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl inline-flex items-center gap-2">

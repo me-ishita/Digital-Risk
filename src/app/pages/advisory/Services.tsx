@@ -3,6 +3,7 @@ import { Shield, RefreshCw, Brain, GraduationCap, FileCheck, Building2, Heart, C
 import { Card } from '@/app/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { WhatsAppChatWidget } from '@/app/components/WhatsAppChatWidget';
 
 export function Services() {
   const services = [
@@ -11,7 +12,7 @@ export function Services() {
       title: 'Digital Risk Advisory',
       image:
         'https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTEwfHxjb2Rpbmd8ZW58MHwwfDB8fHww',
-      description: 'We help organizations manage digital risk at a strategic level. We align cybersecurity, compliance, and business goals into a unified risk posture.',
+      description: 'We help organisations manage digital risk at a strategic level. We align cybersecurity, compliance, and business goals into a unified risk posture.',
       gradient: 'from-gray-300 via-gray-400 to-gray-300',
       offerings: [
         'Enterprise risk assessments',
@@ -56,7 +57,7 @@ export function Services() {
       description: 'Empower teams with the skills to manage modern digital risks effectively. Deliver structured learning for cybersecurity and AI readiness.',
       gradient: 'from-gray-300 via-gray-400 to-gray-300',
       offerings: [
-        'Cybersecurity training programs',
+        'Cybersecurity training programmes',
         'AI risk awareness workshops',
         'Executive leadership training',
         'Certification-focused learning'
@@ -82,12 +83,12 @@ export function Services() {
       image:
         'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=60',
       description:
-        'We partner with academic and public institutions to strengthen digital capability and governance. Enable structured risk and resilience programs.',
+        'We partner with academic and public institutions to strengthen digital capability and governance. Enable structured risk and resilience programmes.',
       gradient: 'from-gray-300 via-gray-400 to-gray-300',
       offerings: [
         'Policy and safety advisory',
         'Digital literacy and risk strategy',
-        'Academic program enablement',
+        'Academic programme enablement',
         'Institution readiness assessments'
       ]
     }
@@ -289,7 +290,7 @@ export function Services() {
       </section>
       <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800/70 to-transparent"></div>
 
-
+      <WhatsAppChatWidget />
 
     </div>
   );

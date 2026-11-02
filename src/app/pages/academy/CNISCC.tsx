@@ -20,7 +20,7 @@ export default function CNISCC() {
         <div className="mb-10 lg:w-3/4 mt-4">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Civil Nuclear Industry Security Controller Course</h1>
           <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mb-6">
-            Comprehensive two-day intensive training program designed to develop specialized security controllers for the UK's civil nuclear industry
+            Comprehensive two-day intensive training programme designed to develop specialised security controllers for the UK's civil nuclear industry
           </p>
           <div className="inline-block px-3 py-1 text-slate-700 font-bold text-sm tracking-wider uppercase border border-slate-300 rounded">
             FIRST OF ITS KIND
@@ -61,7 +61,7 @@ export default function CNISCC() {
                 </div>
                 <div>
                   <div className="font-bold text-slate-900">Certification</div>
-                  <div className="text-slate-500 text-sm">Industry Recognized Certificate</div>
+                  <div className="text-slate-500 text-sm">Industry Recognised Certificate</div>
                 </div>
               </div>
 
@@ -86,13 +86,13 @@ export default function CNISCC() {
               <h2 className="text-3xl font-bold mb-12">Course Overview</h2>
               <div className="text-slate-600 space-y-8 leading-relaxed text-lg">
                 <p>
-                  A specialized program combining theoretical knowledge with practical application, designed specifically for the unique security challenges of the civil nuclear sector
+                  A specialised programme combining theoretical knowledge with practical application, designed specifically for the unique security challenges of the civil nuclear sector
                 </p>
 
                 <div className="space-y-6">
                   <div>
                     <h3 className="font-bold text-slate-900 text-xl mb-2">Intensive Format</h3>
-                    <p className="text-base">Concentrated two-day program maximizing learning efficiency while minimizing time away from operations</p>
+                    <p className="text-base">Concentrated two-day programme maximising learning efficiency while minimising time away from operations</p>
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-xl mb-2">Industry-Focused</h3>
@@ -186,7 +186,7 @@ export default function CNISCC() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-slate-900 mt-2">Qualification Course</h3>
               <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                Complete program with formal assessment and industry qualification
+                Complete programme with formal assessment and industry qualification
               </p>
               <div className="text-lg font-bold text-[#cd5c30] mb-6">£850 per participant</div>
               <Link
@@ -208,7 +208,7 @@ export default function CNISCC() {
               { title: "Comprehensive Knowledge", desc: "Gain deep understanding of nuclear security principles and regulatory requirements" },
               { title: "Practical Skills", desc: "Develop hands-on capabilities for implementing security controls and incident response" },
               { title: "Professional Network", desc: "Connect with industry peers and experts within the nuclear security community" },
-              { title: "Career Advancement", desc: "Enhance professional credentials in the specialized nuclear security field" }
+              { title: "Career Advancement", desc: "Enhance professional credentials in the specialised nuclear security field" }
             ].map((benefit, i) => (
               <div key={i} className="bg-white rounded-xl border border-orange-200 p-8 shadow-sm text-center">
                 <h4 className="font-bold text-lg mb-3 text-slate-900">{benefit.title}</h4>
@@ -223,7 +223,7 @@ export default function CNISCC() {
           <h2 className="text-3xl font-bold mb-12 text-center">Why Choose CNISCC</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Trophy, title: "Industry Leadership", desc: "First and only specialized nuclear security controller course in the UK" },
+              { icon: Trophy, title: "Industry Leadership", desc: "First and only specialised nuclear security controller course in the UK" },
               { icon: ShieldCheck, title: "ONR Aligned", desc: "Fully aligned with Office for Nuclear Regulation security requirements" },
               { icon: UserCheck, title: "Expert Instructors", desc: "Taught by certified professionals with decades of nuclear experience" },
               { icon: Zap, title: "Immediate Application", desc: "Practical, scenario-based learning that can be immediately applied" }
@@ -246,7 +246,7 @@ export default function CNISCC() {
         <div className="mt-12 mb-20 max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">Application Process</h2>
           <p className="text-slate-600 text-center max-w-2xl mx-auto mb-12">
-            Our selective admissions process ensures every participant is prepared for this intensive specialized training.
+            Our selective admissions process ensures every participant is prepared for this intensive specialised training.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
