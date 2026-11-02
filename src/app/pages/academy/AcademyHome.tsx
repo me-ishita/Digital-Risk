@@ -907,7 +907,7 @@ export function AcademyHome() {
             viewport={{ once: true }}
           >
             <Link
-              to="/programmes"
+              to="/academy/programs"
               className="inline-flex items-center space-x-2 text-orange-500 hover:text-orange-400 font-semibold group text-lg"
             >
               <span>View All Programmes</span>
