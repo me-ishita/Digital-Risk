@@ -135,7 +135,7 @@ const isLab = location.pathname.startsWith("/labs");
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen overflow-x-clip bg-slate-950 text-white">
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${mobileMenuOpen
             ? "bg-slate-950/95 backdrop-blur-lg"

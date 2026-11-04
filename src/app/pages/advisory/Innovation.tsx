@@ -182,7 +182,7 @@ export function Innovation() {
 
           {/* HEADER */}
           <div className="text-center mb-20">
-            <div className="flex justify-center items-center gap-4 mb-6 flex-wrap">
+            <div className="mb-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
 
               {/* Small icon */}
               <img
@@ -192,9 +192,9 @@ export function Innovation() {
               />
 
               {/* Title */}
-              <h2 className="flex items-center gap-3 text-5xl md:text-6xl font-extrabold leading-tight">
+              <h2 className="flex flex-wrap items-center justify-center gap-2 text-center text-3xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
 
-                <span className="text-white whitespace-nowrap">
+                <span className="text-white">
                   Live Innovation —
                 </span>
 
@@ -266,7 +266,22 @@ export function Innovation() {
             </div>
 
             {/* RIGHT - WORKFLOW */}
-            <div className="relative flex justify-center items-center">
+            <div className="grid grid-cols-1 gap-3 sm:hidden">
+              {prismWorkflow.map((step, i) => {
+                const Icon = step.icon;
+                return (
+                  <div key={i} className="flex items-start gap-3 rounded-xl border border-indigo-100/50 bg-white p-4 shadow-md">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700"><Icon size={18} /></span>
+                    <div>
+                      <h4 className="text-sm font-bold text-gray-800">{step.title}</h4>
+                      <p className="mt-1 text-xs leading-relaxed text-gray-600">{step.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="relative hidden items-center justify-center sm:flex">
 
               <div className="relative w-105 h-105">
 

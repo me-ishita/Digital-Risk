@@ -6,9 +6,67 @@ import { Button } from "../../components/ui/button";
 import { Card } from "../../components/ui/card";
 import { FlippingCards } from "../../components/FlippingCards";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import aiGovernanceImg from "../../../assets/ai_governance.png";
 import cyberRiskImg from "../../../assets/cyber_risk.png";
 import prismLogo from '../../../assets/Prism logo.png';
+
+function LabsFlagshipTicker() {
+  return (
+    <div className="fixed left-0 right-0 top-[60px] z-40 overflow-hidden border-y border-orange-200/30 bg-gradient-to-r from-blue-700/85 via-orange-600/90 to-blue-700/85 py-2.5 shadow-[0_0_26px_rgba(249,115,22,0.4)] backdrop-blur-md sm:top-[76px] sm:py-3" aria-label="New flagship programme: AI for Generation Z. Build, innovate, secure, present. Enrolment now open.">
+      <div className="labs-ribbon-sweep absolute inset-0" aria-hidden="true" />
+      <div className="collaboration-marquee relative z-10 flex w-max items-center" aria-hidden="true">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="flex shrink-0 items-center gap-4 px-4 sm:gap-7 sm:px-8">
+            <span className="rounded-full bg-orange-400 px-3 py-1 text-[9px] font-black uppercase tracking-[0.12em] text-slate-950 sm:text-[11px]">New</span>
+            <span className="whitespace-nowrap text-[9px] font-extrabold uppercase tracking-[0.13em] text-white sm:text-xs sm:tracking-[0.18em]">Flagship Programme</span>
+            <span className="text-orange-200">✦</span>
+            <span className="whitespace-nowrap text-[9px] font-extrabold uppercase tracking-[0.13em] text-white sm:text-xs sm:tracking-[0.18em]">AI for Generation Z</span>
+            <span aria-hidden="true" className="h-4 w-px bg-white/65" />
+            <span className="whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.12em] text-white/90 sm:text-xs sm:tracking-[0.16em]">Build. Innovate. Secure. Present.</span>
+            <span aria-hidden="true" className="h-4 w-px bg-white/65" />
+            <span className="whitespace-nowrap text-[9px] font-black uppercase tracking-[0.13em] text-white sm:text-xs sm:tracking-[0.18em]">Enrolment Now Open</span>
+            <ArrowRight className="h-4 w-4 shrink-0 text-white" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LabsMagazineFeature() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 1.35, ease: [0.22, 1, 0.36, 1] }}
+      className="relative mx-auto w-full max-w-[380px] px-4 pb-4 pt-2 sm:px-6 lg:px-0 lg:py-3"
+    >
+      <div className="labs-poster-aura absolute inset-6 rounded-[32px] sm:inset-8" aria-hidden="true" />
+      <span aria-hidden="true" className="labs-poster-orbit labs-poster-orbit--wide" />
+      <span aria-hidden="true" className="labs-poster-orbit labs-poster-orbit--tall" />
+      <div className="labs-magazine-tilt labs-poster-frame relative z-10 mx-auto max-w-[320px] rounded-[22px] p-[2px] sm:rounded-[26px]">
+        <div className="relative overflow-hidden rounded-[20px] bg-slate-950 shadow-[0_30px_90px_rgba(0,0,0,0.55)] sm:rounded-[24px]">
+          <img
+            src="/images/ai-generation-z-magazine.png"
+            alt="AI for Generation Z programme magazine cover, featuring a young innovator and a glowing digital globe"
+            className="labs-magazine-cover block aspect-[2/3] w-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
+          <span aria-hidden="true" className="promo-light-sweep absolute inset-y-0 left-0 z-10 w-1/3" />
+        </div>
+      </div>
+      <div aria-hidden="true" className="labs-poster-stand relative z-0 mx-auto -mt-3 mb-2 h-12 w-[72%]">
+        <span className="labs-poster-stand__stem" />
+        <span className="labs-poster-stand__foot" />
+      </div>
+      <Link to="/programmes/ai-for-generation-z" className="relative z-20 mx-auto mt-3 flex w-fit items-center justify-center gap-2 rounded-full border border-blue-200/70 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 px-5 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_0_24px_rgba(59,130,246,0.4)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(59,130,246,0.62)]">
+        Explore &amp; Enrol <ArrowRight className="h-3.5 w-3.5" />
+      </Link>
+    </motion.div>
+  );
+}
 
 
 export default function AdvisoryHome() {
@@ -157,9 +215,10 @@ export default function AdvisoryHome() {
 
   return (
     <div className="bg-background text-foreground transition-colors duration-300">
+      <LabsFlagshipTicker />
 
       {/* HERO */}
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative min-h-screen w-full overflow-hidden">
 
         {/* VIDEO */}
         <video
@@ -175,46 +234,59 @@ export default function AdvisoryHome() {
         <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-transparent" />
 
         {/* CONTENT */}
-        <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-6">
+        <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-[1680px] grid-cols-1 items-center gap-6 px-6 pb-6 pt-32 sm:px-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.42fr)] lg:gap-14 lg:px-12 lg:pb-8 lg:pt-32">
+          <div className="mx-auto w-full text-center">
+            <h1 className="font-extrabold leading-[1.02] tracking-[-0.045em] text-[clamp(2.6rem,3.75vw,4.15rem)]">
+              <motion.span
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="block text-white"
+              >
+                From Vision to Enterprise
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="logo-shine mt-2 block"
+              >
+                Where Ideas Scale into Digital Ventures
+              </motion.span>
+            </h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight"
-          >
-
-            {/* MAIN HEADING - METALLIC SILVER */}
-            <span className="text-white">
-              From Vision to Enterprise
-            </span>
-
-            <br />
-
-            {/* SUB HEADING - DEEPER SILVER EMPHASIS */}
-            <span className="logo-shine">
-              Where Ideas Scale into Digital Ventures
-            </span>
-          </motion.h1>
-
-          {/* DESCRIPTION */}
-          <p className="text-[clamp(0.85rem,3.4vw,1rem)] sm:text-lg md:text-2xl text-slate-200 max-w-3xl mx-auto text-center px-2 leading-snug">
-            An integrated ecosystem combining incubation, advanced technology, and global partnerships to build the next generation of digital businesses.
-          </p>
-
-          <div className="flex gap-6 mt-10">
-            <button
-              onClick={() => navigate('/labs/services')}
-              className="px-7 py-3 rounded-xl bg-linear-to-r from-zinc-100 via-zinc-200 to-zinc-100 text-primary border border-zinc-300 font-medium shadow-xl hover:scale-105 transition"
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.68 }}
+              className="mx-auto mt-7 max-w-2xl text-center text-lg leading-relaxed text-slate-100 sm:text-xl lg:text-2xl"
             >
-              Explore Services
-            </button>
-            <button
-              onClick={() => navigate('/contact')}
-              className="px-7 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10 transition"
-            >
-              Talk to an Adviser
-            </button>
+              An integrated ecosystem combining incubation, advanced technology, and global partnerships to build the next generation of digital businesses.
+            </motion.p>
+
+            <div className="mt-9 flex flex-wrap justify-center gap-4 sm:gap-5">
+              <motion.button
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.95 }}
+                onClick={() => navigate('/labs/services')}
+                className="inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-gradient-to-r from-orange-500 to-orange-600 px-8 py-3.5 text-base font-bold text-white shadow-[0_0_24px_rgba(249,115,22,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(249,115,22,0.55)]"
+              >
+                Explore Services <ArrowRight className="h-4 w-4" />
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 1.15 }}
+                onClick={() => navigate('/contact')}
+                className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition hover:border-white/70 hover:bg-white/10"
+              >
+                Talk to an Adviser <ArrowRight className="h-4 w-4" />
+              </motion.button>
+            </div>
           </div>
+
+          <LabsMagazineFeature />
         </div>
       </section>
 
@@ -489,15 +561,15 @@ export default function AdvisoryHome() {
 
       {/* Innovation Spotlight - PRISM */}
       <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800/70 to-transparent"></div>
-      <section className="py-24 bg-background  ">
+      <section className="relative overflow-hidden py-24 bg-background">
 
         {/* HEADER OUTSIDE CARD */}
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 whitespace-nowrap">
+          <h2 className="flex flex-wrap justify-center gap-x-2 text-3xl font-extrabold mb-6 sm:text-5xl md:text-6xl">
             <span className="text-foreground">
               Innovation Spotlight
             </span>
-            <span className="ml-3 bg-linear-to-r from-[#4A7FA8] to-[#FF7A18] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#4A7FA8] to-[#FF7A18] bg-clip-text text-transparent">
               PRISM
             </span>
           </h2>

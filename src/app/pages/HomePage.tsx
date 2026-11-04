@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import digitalRiskLogo from "../../assets/brand logo.jpeg";
 import {
   ArrowRight,
   TrendingUp,
@@ -115,6 +116,8 @@ const heroSlides = [
 ];
 
 const SLIDE_DURATION = 5000;
+const sectionEyebrowLight = "mb-3 inline-flex items-center rounded-full border border-orange-200/70 bg-orange-100/75 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-orange-700 sm:text-xs";
+const sectionEyebrowDark = "mb-3 inline-flex items-center rounded-full border border-orange-300/30 bg-orange-400/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-orange-200 sm:text-xs";
 
 const academyStorySlides: StoryVisionSlide[] = [
   {
@@ -247,7 +250,7 @@ const impactData = [
 
 function SocialImpactSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-12 sm:py-16">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-100/60 blur-[100px]" />
       <div className="container relative mx-auto px-6">
         <motion.div
@@ -257,7 +260,9 @@ function SocialImpactSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="mb-3 block text-xs font-bold uppercase tracking-[0.24em] text-orange-500">Our Commitment</span>
+          <div className="mb-3">
+            <span className={sectionEyebrowLight}>Our Commitment</span>
+          </div>
           <h2 className="mb-4 inline-block text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-5xl">Social Impact & Inclusion
           </h2>
 
@@ -482,7 +487,7 @@ function HeroCourseSlider() {
       </section>
 
       {/* OUTSIDE BUTTON */}
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-8 pb-16 sm:pb-20">
         <Link
           to="/academy/programs"
           className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#cd5c30] hover:bg-[#b04d27] text-white font-semibold text-base shadow-lg shadow-orange-500/20 transition-all duration-300"
@@ -540,7 +545,7 @@ function ValidatedOutcomeSlider() {
   ];
 
   return (
-    <section className="py-20 sm:py-24 bg-slate-900 text-white overflow-hidden">
+    <section className="py-16 sm:py-20 bg-slate-900 text-white overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-12 sm:mb-14"
@@ -549,7 +554,7 @@ function ValidatedOutcomeSlider() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-500 mb-3 block">From Learning to Impact</span>
+          <span className={sectionEyebrowDark}>From Learning to Impact</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">Validated Outcomes </h2>
           <p className="text-slate-300 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
             Learners build practical confidence through real-world scenarios, while partner organisations strengthen risk communication and day-to-day resilience.
@@ -757,14 +762,12 @@ function FlagshipCollaborationSection() {
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-200 sm:text-base">
                 An exceptional opportunity for young innovators to explore AI, develop practical skills and experience learning at the prestigious Imperial College London campus.
               </p>
-              <a
-                href="https://economictimes.indiatimes.com/masterclass/ai-for-generationz"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                to="/programmes/ai-for-generation-z"
                 className="mt-5 inline-flex items-center gap-2 rounded-full border border-orange-300/60 bg-orange-500/35 px-6 py-3 text-xs font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_0_24px_rgba(249,115,22,0.24)] backdrop-blur-md transition hover:-translate-y-0.5 hover:border-orange-200 hover:bg-orange-500/55"
               >
                 Explore &amp; Enrol <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </div>
 
           </div>
@@ -1090,10 +1093,92 @@ function HeroBg() {
   );
 }
 
+function FlagshipHomeTicker() {
+  const items = [
+    { text: "NEW", className: "text-orange-400" },
+    { text: "FLAGSHIP PROGRAMME", className: "text-white" },
+    { text: "AI FOR GENERATION Z", className: "text-white" },
+    { text: "ENROLMENT NOW OPEN", className: "text-emerald-400" },
+  ];
+
+  return (
+    <div className="fixed left-0 right-0 top-[60px] z-40 overflow-hidden border-y border-sky-200/10 bg-blue-950/45 py-2.5 backdrop-blur-md sm:top-[76px] sm:py-3" aria-label="New flagship programme: AI for Generation Z. Enrolment now open.">
+      <div className="collaboration-marquee flex w-max items-center" aria-hidden="true">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="flex shrink-0 items-center">
+            {items.map((item) => (
+              <span key={`${copy}-${item.text}`} className={`flex items-center whitespace-nowrap px-5 text-[10px] font-extrabold uppercase tracking-[0.12em] drop-shadow-[0_1px_4px_rgba(2,6,23,0.95)] sm:px-8 sm:text-xs sm:tracking-[0.16em] ${item.className}`}>
+                {item.text}
+                <span className="ml-5 text-orange-400 sm:ml-8">✦</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HomeFlagshipPromo() {
+  return (
+    <motion.aside
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.65, delay: 1.85, ease: [0.22, 1, 0.36, 1] }}
+      className="promo-card-highlight relative z-10 mx-4 mb-10 mt-5 w-[calc(100%-2rem)] max-w-[360px] overflow-hidden rounded-[22px] border border-orange-300/35 bg-slate-950/65 p-4 text-left text-white shadow-[0_18px_60px_rgba(0,0,0,0.4)] backdrop-blur-xl sm:mx-7 sm:ml-auto sm:mr-7 sm:p-4 lg:absolute lg:bottom-7 lg:right-8 lg:mx-0 lg:mb-0 lg:mt-0"
+    >
+      <img
+        src="/images/ai-generation-globe.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover object-[65%_center] opacity-35"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-950/65 to-orange-950/60" />
+      <span aria-hidden="true" className="promo-light-sweep absolute inset-y-0 left-0 z-10 w-1/3" />
+      <div className="relative z-10">
+        <p className="text-[8px] font-bold uppercase tracking-[0.15em] text-slate-200 sm:text-[9px]">
+          A flagship initiative by <span className="text-orange-300">Digital Risk Labs</span>
+        </p>
+        <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-emerald-300/35 bg-emerald-500/15 px-2.5 py-0.5 text-[8px] font-extrabold uppercase tracking-[0.14em] text-emerald-200 backdrop-blur-sm sm:text-[9px]">
+          <span aria-hidden="true" className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-300 shadow-[0_0_8px_rgba(110,231,183,0.9)]" />
+          Now Enrolling
+        </span>
+        <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-300">The Future Is Being Built. Are You Ready?</p>
+        <h2 className="mt-1 text-2xl font-black uppercase leading-[0.98] tracking-[-0.03em] text-orange-300 [text-shadow:0_0_18px_rgba(251,146,60,0.32)] sm:text-3xl">
+          AI for<br />Generation Z
+        </h2>
+
+        <div className="mt-2 border-t border-white/15 pt-2">
+          <p className="mb-1 text-[7px] font-bold uppercase tracking-[0.2em] text-slate-300">In collaboration with</p>
+          <div className="flex items-center justify-start gap-2">
+            <div className="flex min-w-0 shrink-0 items-center">
+              <img src={digitalRiskLogo} alt="Digital Risk Labs" className="h-7 w-7 shrink-0 rounded object-cover" />
+            </div>
+            <span aria-hidden="true" className="text-xs text-orange-300">×</span>
+            <div className="flex min-w-0 items-center gap-2">
+              <img src="/images/economic-times-et-mark.webp" alt="The Economic Times" className="h-8 w-8 shrink-0 rounded object-contain" />
+              <span aria-hidden="true" className="h-6 w-px shrink-0 bg-white/45" />
+              <img src="/images/imperial-white-wordmark.webp" alt="Imperial College London" className="h-5 w-[104px] shrink-0 object-contain" />
+            </div>
+          </div>
+        </div>
+
+        <Link
+          to="/programmes/ai-for-generation-z"
+          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full border border-orange-300/60 bg-orange-500/35 px-4 py-2 text-[9px] font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_20px_rgba(249,115,22,0.18)] backdrop-blur-md transition hover:border-orange-200 hover:bg-orange-500/55 sm:text-[10px]"
+        >
+          Explore Programme &amp; Enrol <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+    </motion.aside>
+  );
+}
+
 export function HomePage() {
   const navigate = useNavigate();
   return (
     <div className="bg-white">
+      <FlagshipHomeTicker />
 
       {/* ════════════════════════════════════════
           1. HERO
@@ -1126,7 +1211,7 @@ export function HomePage() {
             </motion.span>
           </motion.h1>
           <motion.p
-            className="mt-6 text-[clamp(0.85rem,3.4vw,1rem)] sm:text-lg md:text-2xl text-slate-200 max-w-3xl mx-auto text-center px-2 leading-snug"
+            className="mt-6 text-[clamp(0.85rem,3.4vw,1rem)] sm:text-lg md:text-2xl text-slate-200 max-w-2xl mx-auto text-center px-2 leading-snug"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.7 }}
@@ -1158,6 +1243,7 @@ export function HomePage() {
             </button>
           </motion.div>
         </div>
+        <HomeFlagshipPromo />
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
         {/* scroll hint */}
@@ -1174,7 +1260,7 @@ export function HomePage() {
       {/* ════════════════════════════════════════
           2. OUR MANDATE
           ════════════════════════════════════════ */}
-      <section className="relative py-16 sm:py-16 overflow-hidden bg-gradient-to-b from-white via-orange-50/30 to-white">
+      <section className="relative py-16 sm:py-20 overflow-hidden bg-gradient-to-b from-white via-orange-50/30 to-white">
 
         {/* Background Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-orange-200/20 blur-3xl rounded-full pointer-events-none" />
@@ -1183,17 +1269,17 @@ export function HomePage() {
 
           /* Section Header */
           <motion.div
-            className="text-center mb-16 max-w-3xl mx-auto -mt-2"
+            className="text-center mb-16 w-full mx-auto -mt-2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 text-orange-600 text-[11px] font-bold uppercase tracking-[0.22em] mb-4">
+            <span className={sectionEyebrowLight}>
               Our Core Mandate
             </span>
 
-            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-black text-slate-900 mb-3 whitespace-nowrap leading-tight">
+            <h2 className="mb-3 text-3xl font-black leading-tight text-slate-900 sm:text-4xl md:text-5xl lg:whitespace-nowrap lg:text-[clamp(2rem,3.3vw,3rem)]">
               Building the Infrastructure of{" "}
               <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-blue-500 bg-clip-text text-transparent">
                 Digital Confidence
@@ -1262,7 +1348,7 @@ export function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="logo-shine inline-block text-xl sm:text-2xl md:text-4xl font-black tracking-[0.08em] uppercase mb-4 leading-none">Digital Risk Academy</span>
+            <span className="logo-shine mb-4 inline-block text-xl font-black uppercase leading-none tracking-[0.08em] sm:text-2xl md:text-4xl">Digital Risk Academy</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Our Story &amp; Vision</h2>
           </motion.div>
           <motion.div
@@ -1286,12 +1372,14 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* FlagshipCollaborationSection is temporarily hidden; the hero promotion remains active.
       <FlagshipCollaborationSection />
+      */}
 
       {/* ════════════════════════════════════════
           4. ELITE PROGRAMMES INTRO + COURSE SLIDER
           ════════════════════════════════════════ */}
-      <section className="pt-6 pb-12 sm:pt-8 sm:pb-16 bg-white text-center">
+      <section className="py-16 sm:py-20 bg-white text-center">
         <motion.div
           className="container mx-auto px-4 sm:px-6"
           initial={{ opacity: 0, y: 24 }}
@@ -1299,6 +1387,9 @@ export function HomePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <span className={sectionEyebrowLight}>
+            Our Learning Pathways
+          </span>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-slate-900">
             Elite programmes for ambitious professionals
           </h2>
@@ -1313,7 +1404,7 @@ export function HomePage() {
           5. INNOVATIONS & SOLUTIONS — DIGITAL RISK LABS
           ════════════════════════════════════════ */}
 
-      <section className="mt-14 sm:mt-20 py-16 sm:py-20 bg-slate-900 text-white overflow-hidden">
+      <section className="py-16 sm:py-20 bg-slate-900 text-white overflow-hidden">
         <div className="container mx-auto px-6">
 
           {/* HEADER */}
@@ -1324,7 +1415,7 @@ export function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="logo-shine inline-block text-xl sm:text-2xl md:text-4xl font-black tracking-[0.08em] uppercase mb-4 leading-none">
+            <span className="logo-shine mb-4 inline-block text-xl font-black uppercase leading-none tracking-[0.08em] sm:text-2xl md:text-4xl">
               Digital Risk Labs
             </span>
 
@@ -1470,7 +1561,7 @@ export function HomePage() {
       {/* ════════════════════════════════════════
           9. INSIGHTS & RESEARCH
       
-      <section className="py-20 sm:py-28 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="container mx-auto px-6">
             <motion.div
@@ -1518,7 +1609,7 @@ export function HomePage() {
       {/* ════════════════════════════════════════
           ACADEMIC PARTNERSHIPS
       ════════════════════════════════════════ */}
-      <section className="py-20 sm:py-24 bg-slate-50 border-t border-slate-200">
+      <section className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-6 max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1527,7 +1618,7 @@ export function HomePage() {
             transition={{ duration: 0.6 }}
           >
             <div className="mb-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-500 mb-4">Academic Partnerships</p>
+              <p className={sectionEyebrowLight}>Academic Partnerships</p>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight max-w-xl">
                 World-class academic collaboration
               </h2>
@@ -1567,7 +1658,7 @@ export function HomePage() {
       {/* ════════════════════════════════════════
           10. CTA BANNER
       ════════════════════════════════════════ */}
-      <section className="relative py-28 overflow-hidden bg-slate-900">
+      <section className="relative py-16 sm:py-20 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=55&w=1280&auto=format&fit=crop" alt="" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-r from-orange-600/30 to-blue-700/30" />
@@ -1580,7 +1671,7 @@ export function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-400 mb-4 block">Get started</span>
+            <span className={sectionEyebrowDark}>Get started</span>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
               Ready to build your<br />digital risk capability?
             </h2>

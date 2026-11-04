@@ -281,14 +281,12 @@ export function AcademyPrograms() {
                 <p className="mt-3 max-w-xl text-xs leading-relaxed text-slate-200 sm:text-sm">
                   An exceptional opportunity for young innovators to explore AI, develop practical skills and experience learning at the prestigious Imperial College London campus.
                 </p>
-                <a
-                  href="https://economictimes.indiatimes.com/masterclass/ai-for-generationz"
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  to="/programmes/ai-for-generation-z"
                   className="mt-5 inline-flex items-center gap-2 rounded-full border border-orange-300/60 bg-orange-500/30 px-5 py-2.5 text-[11px] font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_0_20px_rgba(249,115,22,0.24)] backdrop-blur-md transition hover:bg-orange-500/55 sm:text-xs"
                 >
                   Explore &amp; Enrol <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

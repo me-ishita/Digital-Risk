@@ -20,6 +20,7 @@ import StudentProgram from "./pages/academy/StudentProgram";
 import EarlyCareerProgram from "./pages/academy/EarlyCareerProgram";
 import ExperiencedProgram from "./pages/academy/ExperiencedProgram";
 import OrganisationProgram from "./pages/academy/OrganisationProgram";
+import { AIForGenerationZ } from "./pages/academy/AIForGenerationZ";
 
 
 import AdvisoryHome from "@/app/pages/advisory/AdvisoryHome";
@@ -54,6 +55,7 @@ export const router = createBrowserRouter([
       { path: "programmes/executive-leadership", element: <ExecutiveLeadership /> },
       { path: "programmes/cniscc", element: <CNISCC /> },
       { path: "programmes/data-risk-enterprise", element: <DataRiskEnterprise /> },
+      { path: "programmes/ai-for-generation-z", element: <AIForGenerationZ /> },
       { path: ":id", element: <ProgramDetail /> },
 
       { path: "programmes/students", element: <StudentProgram /> },

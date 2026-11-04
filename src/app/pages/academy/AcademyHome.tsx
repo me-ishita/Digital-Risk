@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { COURSE_DETAILS, logPayment } from "../../lib/api";
+import digitalRiskLogo from "../../../assets/brand logo.jpeg";
 import deveshMehtaImage from "../../../assets/Devesh Mehta.png";
 import jonHoldenImage from "../../../assets/Jon-Holden.png";
 import manuSharmaImage from "../../../assets/Manu Sharma.png";
@@ -729,11 +730,12 @@ export function AcademyHome() {
               </div>
             </div>
           </div>
+          {showFirstHeroDetails && heroProgress < 0.08 && <AcademyFlagshipPromo />}
         </div>
       </section>
 
       {/* Audience Routing */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-10 sm:mb-14 md:mb-16"
@@ -741,8 +743,8 @@ export function AcademyHome() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Who We Serve</h2>
-            <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto px-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-slate-900">Who We Serve</h2>
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto px-2">
               Tailored learning pathways for every stage of your journey
             </p>
           </motion.div>
@@ -757,7 +759,7 @@ export function AcademyHome() {
             <AudienceCard
               icon={<Users className="w-10 h-10" />}
               title="For Students"
-              image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=55&w=720&auto=format&fit=crop"
+              image="https://images.unsplash.com/photo-1513258496099-48168024aec0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               description="Launch your digital risk career with industry-ready skills"
               link="/programmes/students"
               color="orange"
@@ -766,7 +768,7 @@ export function AcademyHome() {
             <AudienceCard
               icon={<Briefcase className="w-10 h-10" />}
               title="For Early Career Professionals"
-              image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop"
+              image="https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               description="Advance your career with specialised risk expertise"
               link="/programmes/early-career"
               color="blue"
@@ -775,7 +777,7 @@ export function AcademyHome() {
             <AudienceCard
               icon={<Building2 className="w-10 h-10" />}
               title="For Experienced Professionals"
-              image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=55&w=720&auto=format&fit=crop"
+              image="https://images.unsplash.com/photo-1714974528737-3e6c7e4d11af?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               description="Build team capability through corporate training"
               link="/programmes/experienced"
               color="orange"
@@ -794,72 +796,60 @@ export function AcademyHome() {
       </section>
 
       {/* What Makes Academy Unique */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="relative isolate overflow-hidden bg-[#091426] py-16 text-white sm:py-20 md:py-24">
+        <div aria-hidden="true" className="pointer-events-none absolute -left-36 top-12 h-[28rem] w-[28rem] rounded-full bg-blue-500/10 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-36 bottom-0 h-[30rem] w-[30rem] rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="container relative mx-auto px-4 sm:px-6">
           <motion.div
-            className="text-center mb-10 sm:mb-14 md:mb-16"
-            initial={{ opacity: 0, y: 30 }}
+            className="mb-10 text-center sm:mb-14"
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">What Makes Academy Unique</h2>
-            <p className="text-xs sm:text-base md:text-lg font-extrabold uppercase tracking-[0.07em] text-orange-400 max-w-5xl mx-auto px-2">
-              DIGITAL RISK ACADEMY OPERATES AS A NOT-FOR-PROFIT - DRIVEN BY IMPACT, NOT COMMERCIAL GAIN.
-            </p>
-            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mt-3 sm:mt-4 px-2">
-              Students are not looking for courses. They are looking for progress.
-            </p>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-orange-300">Our purpose, in practice</p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">What Makes Academy Unique</h2>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <BenefitCard
-              icon={<Target className="w-8 h-8" />}
-              title="Learn From Active C-Suite Leaders"
-              description="Programmes are delivered by active CISOs, AI leaders, and technology executives securing complex global digital ecosystems."
-              image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=55&w=720&auto=format&fit=crop"
-            />
-            <BenefitCard
-              icon={<BookOpen className="w-8 h-8" />}
-              title="Rigorous Academic Partnerships"
-              description="Strategic collaboration with UK universities combines industry agility with the credibility and depth of world-class academia."
-              image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=55&w=720&auto=format&fit=crop"
-            />
-            <BenefitCard
-              icon={<Briefcase className="w-8 h-8" />}
-              title="Employment-Focused Design"
-              description="Training alone does not create outcomes. Learners receive employability support to get and keep quality jobs."
-              image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=55&w=720&auto=format&fit=crop"
-            />
-            <BenefitCard
-              icon={<Users className="w-8 h-8" />}
-              title="Apprenticeship Pathways"
-              description="Apprenticeship routes bridge the gap between education and employment with practical, mentored experience."
-              image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=55&w=720&auto=format&fit=crop"
-            />
-            <BenefitCard
-              icon={<Award className="w-8 h-8" />}
-              title="Career Progress Over Credentials"
-              description="We focus on confidence, clarity, and career direction - not just course completion and certificates."
-              image="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=55&w=720&auto=format&fit=crop"
-            />
-            <BenefitCard
-              icon={<TrendingUp className="w-8 h-8" />}
-              title="Lifelong Reskilling Mindset"
-              description="Curriculum and coaching prepare learners to continuously reskill as technology and risk landscapes evolve."
-              image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop"
-            />
-          </motion.div>
+          <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.92fr)_minmax(0,1fr)] lg:gap-8">
+            <motion.div className="grid gap-4" variants={staggerContainer} initial="initial" whileInView="animate" viewport={{ once: true }}>
+              <BenefitCard compact icon={<Target className="h-6 w-6" />} title="Learn From Active C-Suite Leaders" description="Learn from active CISOs, AI leaders, and technology executives working across complex digital ecosystems." image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=55&w=720&auto=format&fit=crop" />
+              <BenefitCard compact icon={<BookOpen className="h-6 w-6" />} title="Rigorous Academic Partnerships" description="Industry agility meets the credibility and depth of world-class UK academia." image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=55&w=720&auto=format&fit=crop" />
+              <BenefitCard compact icon={<Briefcase className="h-6 w-6" />} title="Employment-Focused Design" description="Build employability and the practical skills to get and keep quality jobs." image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=55&w=720&auto=format&fit=crop" />
+            </motion.div>
+
+            <motion.div
+              className="relative order-first overflow-hidden rounded-[2rem] border border-white/15 bg-gradient-to-br from-blue-950 via-slate-900 to-orange-950 px-7 py-10 text-center shadow-[0_30px_90px_rgba(0,0,0,0.35)] sm:px-10 sm:py-12 lg:order-none"
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
+            >
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(251,146,60,0.16),transparent_68%)]" />
+              <div className="relative mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-orange-200/25 bg-orange-300/10 text-3xl text-orange-300">✦</div>
+              <p className="relative text-[11px] font-bold uppercase tracking-[0.24em] text-orange-200 sm:text-xs">Impact before profit</p>
+              <p className="relative mt-5 text-2xl font-black leading-tight tracking-tight sm:text-3xl">
+                Digital Risk Academy operates as a not-for-profit
+              </p>
+              <div className="relative mx-auto my-6 h-px w-16 bg-gradient-to-r from-transparent via-orange-300 to-transparent" />
+              <p className="relative text-base font-semibold leading-relaxed text-slate-200 sm:text-lg">
+                Driven by impact, <span className="text-orange-300">not commercial gain.</span>
+              </p>
+              <p className="relative mt-6 text-sm leading-relaxed text-slate-400">
+                Students are not looking for courses. They are looking for progress.
+              </p>
+            </motion.div>
+
+            <motion.div className="grid gap-4" variants={staggerContainer} initial="initial" whileInView="animate" viewport={{ once: true }}>
+              <BenefitCard compact icon={<Users className="h-6 w-6" />} title="Apprenticeship Pathways" description="Bridge education and employment through practical, mentored experience." image="https://images.unsplash.com/photo-1580982324076-d95230549339?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" />
+              <BenefitCard compact icon={<Award className="h-6 w-6" />} title="Career Progress Over Credentials" description="Build confidence, clarity, and career direction beyond a certificate." image="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=55&w=720&auto=format&fit=crop" />
+              <BenefitCard compact icon={<TrendingUp className="h-6 w-6" />} title="Lifelong Reskilling Mindset" description="Keep pace with changing technology and digital risk through continuous learning." image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=55&w=720&auto=format&fit=crop" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Future Learning Tracks */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-10 sm:mb-14 md:mb-16"
@@ -868,7 +858,7 @@ export function AcademyHome() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Future Learning Tracks</h2>
-            <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto px-2">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto px-2">
               Structured pathways designed for real-world digital risk capability
             </p>
           </motion.div>
@@ -918,7 +908,7 @@ export function AcademyHome() {
       </section>
 
       {/* Leadership & Advisory Team */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900">
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 text-white">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="text-center mb-10 sm:mb-14"
@@ -927,7 +917,7 @@ export function AcademyHome() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">The Minds Behind the Academy</h2>
-            <p className="text-base sm:text-lg text-slate-500 max-w-3xl mx-auto px-2">
+            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto px-2">
               Learn from accomplished professionals with real-world experience across technology, governance, cybersecurity, risk, and business transformation.
             </p>
           </motion.div>
@@ -970,12 +960,51 @@ export function AcademyHome() {
 
 
 
+function AcademyFlagshipPromo() {
+  return (
+    <motion.aside
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.65, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      className="promo-card-highlight absolute bottom-[24vh] right-3 z-30 mx-0 w-[min(330px,calc(100%-1.5rem))] overflow-hidden rounded-[22px] border border-orange-300/35 bg-slate-950/65 p-3.5 text-left text-white shadow-[0_18px_60px_rgba(0,0,0,0.4)] backdrop-blur-xl sm:right-6 sm:p-4 md:bottom-[20vh] md:right-8 md:w-[360px]"
+    >
+      <img src="/images/ai-generation-globe.png" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-[65%_center] opacity-35" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-950/65 to-orange-950/60" />
+      <span aria-hidden="true" className="promo-light-sweep absolute inset-y-0 left-0 z-10 w-1/3" />
+      <div className="relative z-10">
+        <p className="text-[8px] font-bold uppercase tracking-[0.15em] text-slate-200 sm:text-[9px]">
+          A flagship initiative by <span className="text-orange-300">Digital Risk Labs</span>
+        </p>
+        <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-emerald-300/35 bg-emerald-500/15 px-2.5 py-0.5 text-[8px] font-extrabold uppercase tracking-[0.14em] text-emerald-200 backdrop-blur-sm sm:text-[9px]">
+          <span aria-hidden="true" className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-300 shadow-[0_0_8px_rgba(110,231,183,0.9)]" />
+          Now Enrolling
+        </span>
+        <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-300">The Future Is Being Built. Are You Ready?</p>
+        <h2 className="mt-1 text-2xl font-black uppercase leading-[0.98] tracking-[-0.03em] text-orange-300 [text-shadow:0_0_18px_rgba(251,146,60,0.32)] sm:text-3xl">AI for<br />Generation Z</h2>
+        <div className="mt-2 border-t border-white/15 pt-2">
+          <p className="mb-1 text-[7px] font-bold uppercase tracking-[0.2em] text-slate-300">In collaboration with</p>
+          <div className="flex items-center justify-start gap-2">
+            <img src={digitalRiskLogo} alt="Digital Risk Labs" className="h-7 w-7 shrink-0 rounded object-cover" />
+            <span aria-hidden="true" className="text-xs text-orange-300">×</span>
+            <img src="/images/economic-times-et-mark.webp" alt="The Economic Times" className="h-8 w-8 shrink-0 rounded object-contain" />
+            <span aria-hidden="true" className="h-6 w-px shrink-0 bg-white/45" />
+            <img src="/images/imperial-white-wordmark.webp" alt="Imperial College London" className="h-5 w-[104px] shrink-0 object-contain" />
+          </div>
+        </div>
+        <Link to="/programmes/ai-for-generation-z" className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full border border-orange-300/60 bg-orange-500/35 px-4 py-2 text-[9px] font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_20px_rgba(249,115,22,0.18)] backdrop-blur-md transition hover:border-orange-200 hover:bg-orange-500/55 sm:text-[10px]">
+          Explore Programme &amp; Enrol <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+    </motion.aside>
+  );
+}
+
 function AudienceCard({ title, description, link, image }: any) {
   return (
     <motion.div variants={fadeInUp}>
       <Link
         to={link}
-        className="block group h-full bg-slate-900/70 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10"
+        className="block group h-full bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-900/10 transition-all duration-300"
       >
         <div className="relative h-40 overflow-hidden">
           <img
@@ -985,11 +1014,11 @@ function AudienceCard({ title, description, link, image }: any) {
             decoding="async"
             className="w-full h-full object-cover opacity-90 brightness-110 group-hover:scale-105 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/25 to-transparent" />
         </div>
         <div className="p-6">
-          <h3 className="text-xl font-bold mb-3">{title}</h3>
-          <p className="text-slate-400 mb-4">{description}</p>
+          <h3 className="text-xl font-bold mb-3 text-slate-900">{title}</h3>
+          <p className="text-slate-600 mb-4">{description}</p>
           <div className="flex items-center space-x-2 text-orange-500 font-semibold">
             <span>Explore</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -1071,59 +1100,44 @@ function TrackCard({
 }
 
 function AdvisorSlideshow() {
-  const [current, setCurrent] = useState(0);
   const [selectedAdvisor, setSelectedAdvisor] = useState<(typeof advisoryTeam)[number] | null>(null);
-
-  const total = advisoryTeam.length;
-
-  const visibleAdvisors = [
-    advisoryTeam[current % total],
-    advisoryTeam[(current + 1) % total],
-  ];
-
-  const goNext = () => setCurrent((prev) => (prev + 2) % total);
-  const goPrev = () => setCurrent((prev) => (prev - 2 + total) % total);
 
   return (
     <>
       <div className="relative mx-auto w-full max-w-[1280px]">
-        <div className="mb-5 flex items-center justify-between">
-        </div>
-
-        <div className="grid gap-8 xl:grid-cols-2">
-          {visibleAdvisors.map((advisor, idx) => (
+        <div className="grid gap-x-5 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {advisoryTeam.map((advisor, idx) => (
             <motion.article
-              key={`${advisor.name}-${current}`}
-              initial={{ opacity: 0, x: idx === 0 ? -16 : 16, y: 12 }}
+              key={advisor.name}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.06)]"
+              viewport={{ once: true, amount: 0.12 }}
+              transition={{ duration: 0.45, delay: idx * 0.07, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative flex min-w-0 flex-col border-l border-white/15 pl-4 first:border-l-0 first:pl-0"
             >
-              <div className="flex h-full min-h-[220px] flex-row">
-                <div className="flex w-[210px] shrink-0 items-center justify-center bg-slate-100 p-3 sm:w-[230px]">
-                  <div className="h-[175px] w-[175px] overflow-hidden rounded-[18px] bg-slate-200 sm:h-[185px] sm:w-[185px]">
+              <div className="mb-5 flex h-[190px] items-end justify-center overflow-hidden rounded-t-[100px] rounded-b-[28px] bg-white/10 sm:h-[210px]">
+                  <div className="h-[176px] w-[176px] overflow-hidden rounded-full bg-slate-700 ring-4 ring-slate-800 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-[1.04] sm:h-[188px] sm:w-[188px]">
                     <img
                       src={advisor.image}
                       alt={advisor.name}
-                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                      className="h-full w-full object-cover object-center"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                </div>
+              </div>
 
-                <div className="flex flex-1 flex-col justify-center px-4 py-4 sm:px-5 sm:py-5">
-                  <div>
-                    <span className="inline-flex rounded-full border border-orange-200 bg-orange-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-orange-700">
+              <div className="flex flex-1 flex-col">
+                <div>
+                    <span className="inline-flex max-w-full rounded-full border border-orange-300/30 bg-orange-400/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.11em] text-orange-200">
                       {advisor.intro}
                     </span>
 
-                    <h3 className="mt-3 text-[clamp(1.7rem,2vw,2.3rem)] font-extrabold leading-[1.08] text-slate-900">
+                    <h3 className="mt-3 text-xl font-extrabold leading-tight text-white">
                       {advisor.name}
                     </h3>
 
-                    <p className="mt-2 text-[14px] font-medium leading-relaxed text-slate-700">
+                    <p className="mt-2 min-h-[3.25rem] text-[13px] font-medium leading-relaxed text-slate-200">
                       {advisor.role}
                     </p>
 
@@ -1131,65 +1145,31 @@ function AdvisorSlideshow() {
                       {advisor.summary.split("·").map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-600"
+                          className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] font-medium text-slate-300"
                         >
                           {tag.trim()}
                         </span>
                       ))}
                     </div>
 
-                    <p className="mt-3 max-w-[42ch] text-[14px] leading-7 text-slate-600">
+                    <p className="mt-3 text-[13px] leading-6 text-slate-300">
                       {advisor.description}
                     </p>
-                  </div>
+                </div>
 
-                  <div className="mt-4 flex justify-start">
+                <div className="mt-5 flex justify-start">
                     <button
                       type="button"
                       onClick={() => setSelectedAdvisor(advisor)}
-                      className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 py-2 text-[12px] font-semibold text-orange-700 transition-all duration-300 hover:border-orange-300 hover:bg-orange-500 hover:text-white"
+                      className="inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-400/10 px-3 py-2 text-[12px] font-semibold text-orange-200 transition-all duration-300 hover:border-orange-300 hover:bg-orange-500 hover:text-white"
                     >
                       <span>View profile</span>
                       <ArrowRight className="h-3.5 w-3.5" />
                     </button>
-                  </div>
                 </div>
               </div>
             </motion.article>
           ))}
-        </div>
-
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <button
-            type="button"
-            onClick={goPrev}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-orange-200 bg-orange-50 text-orange-700 transition-all duration-300 hover:border-orange-300 hover:bg-orange-500 hover:text-white"
-            aria-label="Previous advisers"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-
-          <div className="flex items-center justify-center gap-2">
-            {advisoryTeam.map((member, index) => (
-              <button
-                key={member.name}
-                type="button"
-                onClick={() => setCurrent(index)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${index === current ? "w-8 bg-orange-500" : "w-2 bg-slate-300 hover:bg-slate-400"
-                  }`}
-                aria-label={`Show ${member.name}`}
-              />
-            ))}
-          </div>
-
-          <button
-            type="button"
-            onClick={goNext}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-orange-200 bg-orange-50 text-orange-700 transition-all duration-300 hover:border-orange-300 hover:bg-orange-500 hover:text-white"
-            aria-label="Next advisers"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
         </div>
       </div>
 
@@ -1328,7 +1308,7 @@ function QuoteSlideshowSection() {
   const quote = leaderQuotes[current];
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-24 bg-white text-slate-900 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         <motion.div
           className="text-center mb-8 sm:mb-12"
@@ -1337,7 +1317,7 @@ function QuoteSlideshowSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Voices Shaping the Future</h2>
-          <p className="text-base sm:text-lg md:text-xl text-slate-400 px-2">
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 px-2">
             Perspectives from leaders across education, policy, and industry
           </p>
         </motion.div>
@@ -1349,13 +1329,13 @@ function QuoteSlideshowSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.45 }}
-            className="bg-slate-900/70 border border-slate-700 rounded-2xl p-5 sm:p-8 md:p-10"
+            className="rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-orange-50/60 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.08)] sm:p-8 md:p-10"
           >
-            <p className="text-base sm:text-xl md:text-2xl text-slate-100 leading-relaxed italic mb-6 sm:mb-8">
+            <p className="mb-6 text-base italic leading-relaxed text-slate-800 sm:mb-8 sm:text-xl md:text-2xl">
               "{quote.quote}"
             </p>
             <div>
-              <p className="text-slate-400 text-xs sm:text-sm">{quote.role}</p>
+              <p className="text-xs text-slate-500 sm:text-sm">{quote.role}</p>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -1363,7 +1343,7 @@ function QuoteSlideshowSection() {
         <div className="flex items-center justify-center gap-3 mt-8">
           <button
             onClick={() => setCurrent((current - 1 + total) % total)}
-            className="w-10 h-10 rounded-full border border-slate-600 text-slate-300 hover:text-white hover:border-orange-400 transition-colors flex items-center justify-center"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-colors hover:border-orange-400 hover:bg-orange-50 hover:text-orange-600"
             aria-label="Previous quote"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -1374,7 +1354,7 @@ function QuoteSlideshowSection() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${i === current ? "bg-orange-500 w-6" : "bg-slate-500 w-2"}`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === current ? "bg-orange-500 w-6" : "bg-slate-300 w-2"}`}
                 aria-label={`Quote ${i + 1}`}
               />
             ))}
@@ -1382,7 +1362,7 @@ function QuoteSlideshowSection() {
 
           <button
             onClick={() => setCurrent((current + 1) % total)}
-            className="w-10 h-10 rounded-full border border-slate-600 text-slate-300 hover:text-white hover:border-orange-400 transition-colors flex items-center justify-center"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition-colors hover:border-orange-400 hover:bg-orange-50 hover:text-orange-600"
             aria-label="Next quote"
           >
             <ChevronRight className="w-5 h-5" />
@@ -1393,11 +1373,26 @@ function QuoteSlideshowSection() {
   );
 }
 
-function BenefitCard({ title, description, image }: any) {
+function BenefitCard({ title, description, image, icon, compact = false }: any) {
+  if (compact) {
+    return (
+      <motion.div variants={fadeInUp} className="group flex min-h-[132px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.055] shadow-[0_16px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300/35 hover:bg-white/[0.09]">
+        <div className="relative w-[34%] min-w-[96px] overflow-hidden sm:w-[38%]">
+          <img src={image} alt={title} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover brightness-75 transition duration-700 group-hover:scale-105 group-hover:brightness-90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-950/30" />
+          <div className="absolute bottom-3 left-3 flex h-9 w-9 items-center justify-center rounded-xl border border-white/20 bg-slate-950/60 text-orange-300 backdrop-blur-md">{icon}</div>
+        </div>
+        <div className="flex flex-1 flex-col justify-center p-4 sm:p-5">
+          <h3 className="text-base font-bold leading-snug text-white sm:text-lg">{title}</h3>
+          <p className="mt-2 text-xs leading-relaxed text-slate-300 sm:text-sm">{description}</p>
+        </div>
+      </motion.div>
+    );
+  }
   return (
     <motion.div
       variants={fadeInUp}
-      className="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/35 shadow-[0_18px_45px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-1 hover:border-orange-300/40 hover:shadow-[0_22px_55px_rgba(249,115,22,0.12)]"
     >
       <div className="relative h-40 overflow-hidden">
         <img
@@ -1405,13 +1400,17 @@ function BenefitCard({ title, description, image }: any) {
           alt={title}
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-cover brightness-110 contrast-105 group-hover:scale-105 transition-transform duration-500"
+          className="h-full w-full object-cover brightness-90 contrast-105 transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
+        <div className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-slate-950/50 text-orange-300 backdrop-blur-md">
+          {icon}
+        </div>
       </div>
-      <div className="p-6 text-left">
-        <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-        <p className="text-slate-600">{description}</p>
+      <div className="relative p-5 text-left sm:p-6">
+        
+        <h3 className="mb-3 text-xl font-bold leading-snug text-white">{title}</h3>
+        <p className="leading-relaxed text-slate-300">{description}</p>
       </div>
     </motion.div>
   );
