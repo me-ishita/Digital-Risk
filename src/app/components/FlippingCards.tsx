@@ -21,7 +21,7 @@ const cards: CardType[] = [
     {
         id: 1,
         title: 'Innovation',
-        route: '/innovation',
+        route: '/labs/innovation',
         icon: Sparkles,
         gradient: 'from-zinc-100 to-zinc-200',
         imageFront:
@@ -41,7 +41,7 @@ const cards: CardType[] = [
     {
         id: 2,
         title: 'Incubation',
-        route: '/incubation',
+        route: '/labs/incubation',
         icon: Rocket,
         gradient: 'from-zinc-100 to-zinc-200',
         imageFront:
@@ -61,7 +61,7 @@ const cards: CardType[] = [
     {
         id: 3,
         title: 'Acceleration',
-        route: '/acceleration',
+        route: '/labs/acceleration',
         icon: TrendingUp,
         gradient: 'from-zinc-100 to-zinc-200',
         imageFront:
