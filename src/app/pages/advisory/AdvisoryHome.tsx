@@ -1,14 +1,12 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from 'react';
-import { Shield, Target, Zap, Award, Eye, ArrowLeft, ArrowRight, Icon } from 'lucide-react';
+import { Shield, Target, Zap, Award, Eye, ArrowLeft, ArrowRight, Icon, GraduationCap, Cpu, Lightbulb, BrainCircuit, ShieldCheck, RefreshCw, Scale } from 'lucide-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from "../../components/ui/button";
 import { Card } from "../../components/ui/card";
 import { FlippingCards } from "../../components/FlippingCards";
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import aiGovernanceImg from "../../../assets/ai_governance.png";
-import cyberRiskImg from "../../../assets/cyber_risk.png";
 import prismLogo from '../../../assets/Prism logo.png';
 
 function LabsFlagshipTicker() {
@@ -137,18 +135,28 @@ export default function AdvisoryHome() {
 
   const services = [
     {
-      title: "AI Governance",
-      img: aiGovernanceImg,
-      icon: Zap,
-      description:
-        'Establish robust AI governance frameworks that ensure transparency, accountability, and regulatory compliance across your digital ecosystem. Enable responsible AI adoption with continuous monitoring, ethical safeguards, and risk-aware deployment strategies that align innovation with trust and control.'
+      number: '01', title: 'AI Governance & Responsible Innovation', icon: BrainCircuit,
+      img: '/images/capability-ai-governance.jpg',
+      description: 'Establish robust AI governance frameworks that promote transparency, accountability and responsible adoption. Navigate AI-related risks, strengthen oversight and align innovation with ethical principles and evolving regulatory expectations.',
+      themes: 'TRANSPARENCY · ACCOUNTABILITY · TRUST', placement: 'lg:col-start-1 lg:row-start-1'
     },
     {
-      title: "Cyber Risk",
-      img: cyberRiskImg,
-      icon: Shield,
-      description:
-        'Identify, quantify, and mitigate cyber risks through advanced threat modeling, continuous monitoring, and intelligence-driven security frameworks. Gain real-time visibility into vulnerabilities, strengthen your security posture, and proactively defend against evolving cyber threats across your enterprise ecosystem.'
+      number: '02', title: 'Cyber Risk & Security', icon: ShieldCheck,
+      img: '/images/capability-cyber-risk.jpg',
+      description: 'Identify, assess and mitigate evolving cyber threats through structured risk assessments, security strategies and proactive threat management. Strengthen your security posture and safeguard critical digital assets.',
+      themes: 'THREAT INTELLIGENCE · PROTECTION · SECURITY', placement: 'lg:col-start-3 lg:row-start-1'
+    },
+    {
+      number: '03', title: 'Digital Resilience & Business Continuity', icon: RefreshCw,
+      img: '/images/capability-identity.jpg',
+      description: 'Prepare your organisation to withstand, respond to and recover from digital disruptions. Strengthen operational resilience, anticipate vulnerabilities and build the adaptability needed to keep critical services running.',
+      themes: 'CONTINUITY · RECOVERY · ADAPTABILITY', placement: 'lg:col-start-1 lg:row-start-2'
+    },
+    {
+      number: '04', title: 'Regulatory Compliance & Digital Trust', icon: Scale,
+      img: '/images/capability-compliance.jpg',
+      description: 'Navigate complex regulatory environments with structured compliance and governance approaches. Embed risk awareness, strengthen accountability and build trust across your digital operations.',
+      themes: 'COMPLIANCE · GOVERNANCE · DIGITAL TRUST', placement: 'lg:col-start-3 lg:row-start-2'
     },
   ];
 
@@ -314,7 +322,8 @@ export default function AdvisoryHome() {
 
       {/* ABOUT */}
       <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800/70 to-transparent"></div>
-      <section className="py-24 bg-[#0f0d0c]">
+      <section className="relative overflow-hidden bg-[#071321] py-20 md:py-24">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(17,84,124,0.22),transparent_56%)]" />
 
         <div className="container mx-auto px-6">
 
@@ -411,6 +420,46 @@ export default function AdvisoryHome() {
         </div>
       </section>
 
+      {/* Imperial academic collaboration */}
+      <section className="relative isolate min-h-[900px] overflow-hidden border-y border-orange-300/20 bg-slate-950 px-5 py-12 text-slate-900 sm:min-h-[860px] sm:px-8 sm:py-16 lg:min-h-[900px]">
+        <img src="/images/Imperial/imperial-collaboration-campus.jpg" alt="Imperial College London campus courtyard" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" loading="lazy" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(247,249,255,.78)_0%,rgba(247,249,255,.66)_34%,rgba(18,34,67,.16)_58%,rgba(5,13,36,.92)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,.18),transparent_24%,transparent_76%,rgba(255,255,255,.16))]" />
+        <div className="relative mx-auto flex min-h-[820px] max-w-7xl flex-col justify-between sm:min-h-[780px] lg:min-h-[800px]">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6 }} className="mx-auto w-full max-w-5xl text-center">
+            <span className="inline-flex rounded-full border border-orange-400/70 bg-white/55 px-5 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-amber-800 backdrop-blur sm:text-xs">Academic × Innovation</span>
+            <h2 className="mt-4 text-4xl font-black leading-[1.03] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">Empowering the Next Generation<br/><em className="font-black italic text-blue-800">Through Knowledge and Innovation.</em></h2>
+            <p className="mt-3 text-base font-semibold uppercase tracking-[0.14em] text-slate-600 sm:text-lg">From Academic Excellence to Real-World Possibilities.</p>
+            <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-6 text-slate-700 sm:text-base sm:leading-7">Through our collaboration with Imperial College London, Digital Risk Labs aims to bring academic expertise and emerging technologies together to inspire tomorrow’s innovators.</p>
+            <div className="mt-5 inline-flex flex-wrap items-center justify-center gap-2.5 rounded-full border border-white/70 bg-white/55 px-5 py-2.5 shadow-lg shadow-slate-900/10 backdrop-blur-md sm:gap-3">
+              <img src="/images/Imperial/digital-risk-logo-blue.png" alt="Digital Risk Labs" className="h-8 w-7 object-contain" />
+              <span className="text-xs font-extrabold text-slate-900 sm:text-sm">Digital Risk Labs</span>
+              <span aria-hidden="true" className="text-lg font-light text-orange-500">×</span>
+              <img src="/images/Imperial/imperial-logo-blue.png" alt="Imperial College London" className="h-7 w-28 object-cover sm:w-36" />
+            </div>
+          </motion.div>
+
+          <div className="relative mt-10 pt-8">
+            <div className="grid gap-3 md:grid-cols-3 md:gap-4">
+              {[
+                { icon: GraduationCap, title: "Learn from Academic Expertise", text: "Gain insights from world-class academics and subject experts." },
+                { icon: Cpu, title: "Explore Emerging Technologies", text: "Discover how cutting-edge innovation shapes the future." },
+                { icon: Lightbulb, title: "Turn Ideas into Possibilities", text: "Develop skills, think creatively, and build for what’s next." },
+              ].map(({ icon: Icon, title, text }) => (
+                <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5 }} className="flex items-center gap-4 rounded-2xl border border-amber-100/40 bg-slate-950/65 p-4 text-white shadow-xl shadow-slate-950/20 backdrop-blur-md sm:p-5">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-amber-300/35 bg-white/5 text-amber-300"><Icon className="h-6 w-6"/></span>
+                  <span className="h-10 w-px shrink-0 bg-amber-300/55" />
+                  <span><strong className="block text-sm font-extrabold leading-snug sm:text-base">{title}</strong><span className="mt-1 block text-xs leading-relaxed text-slate-200 sm:text-sm">{text}</span></span>
+                </motion.article>
+              ))}
+            </div>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-4">
+              <Link to="/collaboration" className="group inline-flex items-center gap-2 font-bold text-amber-200 transition hover:text-white">Discover Our Collaboration <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How We Work */}
       <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800/70 to-transparent"></div>
       <section className="py-24 bg-background ">
@@ -478,67 +527,44 @@ export default function AdvisoryHome() {
 
       {/* SERVICES GRID */}
       <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800/70 to-transparent"></div>
-      <section className="py-24 bg-[#0f0d0c]">
+      <section className="relative overflow-hidden bg-[#0b1118] py-14 md:py-16">
 
         {/* HEADER */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
+        <div className="relative z-10 mb-8 text-center md:mb-10">
+          <h2 className="mb-3 text-5xl font-extrabold md:text-5xl">
             <span className="text-white">
-              Strategic Capabilities
+             Strategic Capabilities
             </span>
           </h2>
 
-          <p className="text-2xl md:text-xl font-semibold text-[#d4af37] uppercase tracking-widest text-center max-w-4xl mx-auto leading-relaxed px-4 whitespace-normal">
+          <p className="mx-auto max-w-4xl px-4 text-xs font-semibold uppercase leading-relaxed tracking-[0.18em] text-cyan-100/75 md:text-sm">
             From risk assessment to regulatory compliance, we enable secure and scalable digital transformation
           </p>
         </div>
 
-        {/* TWO CARD GRID */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        {/* EDITORIAL BENTO GRID */}
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-[250px]">
             {services.map((item, i) => (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
+                key={item.number}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                className="group relative"
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+                className={`group relative overflow-hidden rounded-[24px] border border-white/10 bg-[#111d29] shadow-[0_16px_40px_rgba(0,0,0,0.25)] transition duration-300 hover:-translate-y-1 hover:border-amber-200/40 ${i === 0 ? 'md:col-span-7' : i === 1 ? 'md:col-span-5' : i === 2 ? 'md:col-span-5' : 'md:col-span-7'}`}
               >
-                <div className="bg-card rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-700 overflow-hidden border border-border flex flex-col h-full">
-                  {/* IMAGE AREA - Zoom effect on hover */}
-                  <div className="h-72 sm:h-80 overflow-hidden relative">
-                    <motion.img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-110"
-                    />
-                    {/* Subtle Overlay */}
-                    <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
+                <div className={`flex h-full flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                  <div className="relative h-44 shrink-0 overflow-hidden md:h-full md:w-[38%]">
+                    <img src={item.img} alt={`${item.title} visual`} loading="lazy" className="h-full w-full object-cover object-center transition duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#101a25]/65 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#111d29]/25" />
+                    <span className="absolute left-4 top-4 rounded-full border border-white/40 bg-[#071321]/70 px-3 py-1 font-mono text-[11px] tracking-[0.16em] text-white backdrop-blur-sm">{item.number}</span>
                   </div>
-
-                  {/* CONTENT AREA */}
-                  <div className="p-10 grow flex flex-col">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <item.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-3xl font-bold text-foreground tracking-tight">
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    <p className="text-muted-foreground text-lg leading-relaxed mb-8 grow">
-                      {item.description}
-                    </p>
-
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      className="inline-flex items-center text-sm font-bold text-primary cursor-pointer uppercase tracking-widest"
-                    >
-                      Learn more
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </motion.div>
+                  <div className="flex min-w-0 flex-1 flex-col justify-center p-5 sm:p-6">
+                    <div className="mb-2 flex items-center gap-2 text-amber-200"><item.icon className="h-4 w-4 shrink-0" /><span className="text-[9px] font-bold uppercase tracking-[0.14em] text-amber-100/80">Strategic capability</span></div>
+                    <h3 className="text-xl font-bold leading-tight tracking-tight text-white sm:text-[22px]">{item.title}</h3>
+                    <p className="mt-2 text-xs leading-[1.5] text-slate-200/85 sm:text-[13px]">{item.description}</p>
+                    <p className="mt-3 text-[8px] font-bold leading-4 tracking-[0.1em] text-amber-200 sm:text-[9px] sm:tracking-[0.13em]">{item.themes}</p>
                   </div>
                 </div>
               </motion.div>
@@ -547,7 +573,7 @@ export default function AdvisoryHome() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-16">
+        <div className="mt-8 text-center">
           <button
             onClick={() => navigate('/labs/services')}
             className="inline-flex items-center gap-1 text-lg font-semibold text-[#d4af37]/80 hover:text-[#d4af37] transition"

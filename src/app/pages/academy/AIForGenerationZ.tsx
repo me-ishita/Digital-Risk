@@ -213,7 +213,7 @@ export function AIForGenerationZ() {
                 Flagship Academic Collaboration
               </span>
               <div className="flex items-center gap-3 rounded-full border border-white/20 bg-slate-950/35 px-3 py-2 backdrop-blur-md">
-                <img src="/images/economic-times-et-mark.webp" alt="The Economic Times" className="h-7 w-7 rounded object-cover" />
+                <img src="/images/digital-risk-labs-white.png" alt="Digital Risk Labs" className="h-7 w-7 object-contain" />
                 <span aria-hidden="true" className="h-5 w-px bg-white/35" />
                 <img src="/images/imperial-white-wordmark.webp" alt="Imperial College London" className="h-5 w-24 object-contain" />
               </div>

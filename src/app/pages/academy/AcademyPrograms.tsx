@@ -268,7 +268,7 @@ export function AcademyPrograms() {
                 <div className="mb-4 flex flex-wrap items-center gap-3">
                   <span className="rounded-md border border-orange-400 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-orange-200 shadow-[0_0_14px_rgba(249,115,22,0.2)] sm:text-xs">Flagship Academic Collaboration</span>
                   <div className="flex items-center gap-2.5">
-                    <img src="/images/economic-times-et-mark.webp" alt="The Economic Times" className="h-9 w-9 rounded-md object-cover" />
+                    <img src="/images/digital-risk-labs-white.png" alt="Digital Risk Labs" className="h-9 w-9 object-contain" />
                     <span aria-hidden="true" className="h-6 w-px bg-white/40" />
                     <img src="/images/imperial-white-wordmark.webp" alt="Imperial College London" className="h-6 w-[126px] object-contain" />
                   </div>

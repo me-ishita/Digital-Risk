@@ -35,6 +35,7 @@ import { Incubation } from "./pages/advisory/Incubation";
 import { Acceleration } from "./pages/advisory/Accelaration";
 import { NewsArticleDetail } from "./pages/NewsArticleDetail";
 import { ResearchPaperDetail } from "./pages/ResearchPaperDetail";
+import { Collaboration } from "./pages/Collaboration";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,7 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: "collaboration", element: <Collaboration /> },
 
       { path: "academy", element: <AcademyHome /> },
       { path: "academy/programs", element: <AcademyPrograms /> },

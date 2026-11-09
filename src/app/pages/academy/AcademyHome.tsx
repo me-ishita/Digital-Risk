@@ -986,8 +986,6 @@ function AcademyFlagshipPromo() {
           <div className="flex items-center justify-start gap-2">
             <img src={digitalRiskLogo} alt="Digital Risk Labs" className="h-7 w-7 shrink-0 rounded object-cover" />
             <span aria-hidden="true" className="text-xs text-orange-300">×</span>
-            <img src="/images/economic-times-et-mark.webp" alt="The Economic Times" className="h-8 w-8 shrink-0 rounded object-contain" />
-            <span aria-hidden="true" className="h-6 w-px shrink-0 bg-white/45" />
             <img src="/images/imperial-white-wordmark.webp" alt="Imperial College London" className="h-5 w-[104px] shrink-0 object-contain" />
           </div>
         </div>
@@ -1099,7 +1097,7 @@ function TrackCard({
   );
 }
 
-function AdvisorSlideshow() {
+export function AdvisorSlideshow({ compact = false }: { compact?: boolean }) {
   const [selectedAdvisor, setSelectedAdvisor] = useState<(typeof advisoryTeam)[number] | null>(null);
 
   return (
@@ -1141,7 +1139,7 @@ function AdvisorSlideshow() {
                       {advisor.role}
                     </p>
 
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    {!compact && <div className="mt-3 flex flex-wrap gap-2">
                       {advisor.summary.split("·").map((tag) => (
                         <span
                           key={tag}
@@ -1150,11 +1148,11 @@ function AdvisorSlideshow() {
                           {tag.trim()}
                         </span>
                       ))}
-                    </div>
+                    </div>}
 
-                    <p className="mt-3 text-[13px] leading-6 text-slate-300">
+                    {!compact && <p className="mt-3 text-[13px] leading-6 text-slate-300">
                       {advisor.description}
-                    </p>
+                    </p>}
                 </div>
 
                 <div className="mt-5 flex justify-start">

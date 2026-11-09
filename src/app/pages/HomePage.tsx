@@ -746,7 +746,7 @@ function FlagshipCollaborationSection() {
                   Flagship Academic Collaboration
                 </span>
                 <div className="flex items-center gap-3">
-                  <img src="/images/economic-times-et-mark.webp" alt="The Economic Times" className="h-10 w-10 rounded-md object-cover" />
+                  <img src="/images/digital-risk-labs-white.png" alt="Digital Risk Labs" className="h-10 w-10 object-contain" />
                   <span aria-hidden="true" className="h-7 w-px bg-white/40" />
                   <img src="/images/imperial-white-wordmark.webp" alt="Imperial College London" className="h-7 w-[150px] object-contain" />
                 </div>
@@ -1156,8 +1156,6 @@ function HomeFlagshipPromo() {
             </div>
             <span aria-hidden="true" className="text-xs text-orange-300">×</span>
             <div className="flex min-w-0 items-center gap-2">
-              <img src="/images/economic-times-et-mark.webp" alt="The Economic Times" className="h-8 w-8 shrink-0 rounded object-contain" />
-              <span aria-hidden="true" className="h-6 w-px shrink-0 bg-white/45" />
               <img src="/images/imperial-white-wordmark.webp" alt="Imperial College London" className="h-5 w-[104px] shrink-0 object-contain" />
             </div>
           </div>
@@ -1280,10 +1278,7 @@ export function HomePage() {
             </span>
 
             <h2 className="mb-3 text-3xl font-black leading-tight text-slate-900 sm:text-4xl md:text-5xl lg:whitespace-nowrap lg:text-[clamp(2rem,3.3vw,3rem)]">
-              Building the Infrastructure of{" "}
-              <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-blue-500 bg-clip-text text-transparent">
-                Digital Confidence
-              </span>
+              Building the Infrastructure of Digital Confidence
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
@@ -1333,6 +1328,80 @@ export function HomePage() {
               link="/labs/case-studies"
             />
           </motion.div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════
+          ACADEMIC PARTNERSHIPS
+      ════════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-white via-orange-50/40 to-blue-50/60 pb-14 pt-8 text-slate-900 sm:pb-16 sm:pt-10 lg:pb-20 lg:pt-12">
+        <div className="pointer-events-none absolute -left-40 top-0 h-[460px] w-[460px] rounded-full bg-blue-200/35 blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-48 right-1/3 h-[400px] w-[400px] rounded-full bg-orange-200/30 blur-[120px]" />
+        <div className="container relative mx-auto px-5 sm:px-8 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="mx-auto mb-9 max-w-4xl text-center sm:mb-10"
+          >
+            <span className={sectionEyebrowLight}>Academic Partnership</span>
+            <h2 className="mt-3 text-3xl font-black leading-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-[clamp(2rem,3.3vw,3rem)]">World-Class Academic Collaboration</h2>
+            <p className="mx-auto mt-3 max-w-3xl text-base font-medium leading-relaxed text-slate-600 sm:text-lg">Bringing Academic Excellence and Innovation Together.</p>
+          </motion.div>
+
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-2xl"
+            >
+              <div className="mb-4 inline-flex flex-wrap items-center gap-2 sm:gap-2.5">
+                <div className="flex items-center gap-1.5">
+                  <img src="/images/Imperial/digital-risk-logo-blue.png" alt="Digital Risk Labs" className="h-8 w-8 object-contain" />
+                  <span className="text-xs font-bold text-slate-700 sm:text-sm">Digital Risk Labs</span>
+                </div>
+                <span aria-hidden="true" className="text-lg font-light text-orange-500">×</span>
+                <img src="/images/Imperial/imperial-logo-blue.png" alt="Imperial College London" className="h-6 w-36 object-cover" />
+              </div>
+
+              <div className="relative overflow-hidden rounded-2xl border border-orange-200/80 bg-gradient-to-br from-white/90 via-orange-50/65 to-blue-50/55 p-5 shadow-[0_18px_45px_-34px_rgba(15,23,42,.4)] sm:p-6">
+                <span className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-orange-400 to-amber-300" />
+                <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-blue-800"><i className="h-1.5 w-1.5 rounded-full bg-orange-500" />Partnership in practice</span>
+                <h3 className="mt-3 text-xl font-bold leading-snug tracking-tight text-slate-900 sm:text-2xl">Bringing the Best of Academia and Innovation Together.</h3>
+                <div className="mt-3 space-y-3 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-[1.7]">
+                  <p className="font-medium text-slate-700">Through Digital Risk Labs, our collaboration with Imperial College London brings together academic insight, interdisciplinary expertise and emerging technologies.</p>
+                  <p>Together, we aim to create meaningful learning experiences that encourage new thinking, connect knowledge with practical application and prepare the next generation to explore the possibilities of tomorrow.</p>
+                </div>
+              </div>
+
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="relative mx-auto w-full max-w-[720px] lg:max-w-none"
+            >
+              <div className="absolute -inset-3 rounded-[2rem] border border-orange-400/30 sm:-inset-4" />
+              <div className="relative aspect-video overflow-hidden rounded-[1.5rem] border border-white/70 bg-slate-900 shadow-[0_28px_75px_-35px_rgba(15,23,42,.5)]">
+                <video src="/images/Imperial/Imperial Campus Shot.mp4" autoPlay muted loop playsInline poster="/images/Imperial/Imperial Campus.jpg" aria-label="Imperial College London campus" className="absolute inset-0 h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/5" />
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-200">South Kensington · London</p>
+                  <p className="mt-1 text-lg font-bold text-white sm:text-xl">A campus built around discovery</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+          <div className="mt-7 flex justify-center">
+            <Link to="/collaboration" className="group inline-flex items-center gap-2 text-sm font-extrabold text-blue-800 transition hover:text-orange-600">
+              Discover Our Collaboration <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -1605,55 +1674,7 @@ export function HomePage() {
         </div>
       </section>
          ════════════════════════════════════════ */}
-
-      {/* ════════════════════════════════════════
-          ACADEMIC PARTNERSHIPS
-      ════════════════════════════════════════ */}
-      <section className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="mb-12">
-              <p className={sectionEyebrowLight}>Academic Partnerships</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight max-w-xl">
-                World-class academic collaboration
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Card */}
-              <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                <img
-                  src="/images/imperial-campus.png"
-                  alt="Imperial College London campus"
-                  className="w-full h-[420px] md:h-[500px] object-cover object-center"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent p-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-300 mb-2">Strategic Partner</p>
-                  <h3 className="text-xl font-bold text-white">Imperial College London</h3>
-                </div>
-              </div>
-
-              {/* Text */}
-              <div>
-                <p className="text-slate-700 text-lg leading-relaxed mb-6">
-                  A strategic academic partner for curriculum design and research collaboration, Imperial College London plays a pivotal role in strengthening the academic and technical foundation of our programmes.
-                </p>
-                <p className="text-slate-600 text-base leading-relaxed mb-6">
-                  Through its globally recognised academic ecosystem and interdisciplinary expertise, Imperial provides access to world-class faculty insights, cutting-edge research, and industry-aligned academic rigour — ensuring our curriculum remains at the forefront of innovation.
-                </p>
-                <p className="text-slate-600 text-base leading-relaxed">
-                  This collaboration integrates the latest advancements in cybersecurity, AI governance, and digital risk directly into every programme we deliver.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* ════════════════════════════════════════
           10. CTA BANNER

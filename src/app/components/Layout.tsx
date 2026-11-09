@@ -26,6 +26,8 @@ export function Layout() {
   }, []);
   const location = useLocation();
   const getBrandName = () => {
+    if (location.pathname.startsWith("/collaboration")) return "Digital Risk Labs";
+    if (location.pathname === "/programmes/ai-for-generation-z") return "Digital Risk Labs";
     if (
       location.pathname.startsWith("/academy") ||
       location.pathname.startsWith("/programmes")
@@ -220,12 +222,8 @@ const isLab = location.pathname.startsWith("/labs");
                 >
                   About Us
                 </Link>
-              <Link to="/news" className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
-                News
-              </Link>
-
-              <Link to="/research" className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
-                Research
+              <Link to="/collaboration" className="px-4 py-2 rounded-full border border-slate-700/60 text-slate-200 hover:border-orange-500/60 hover:text-white transition-all duration-200 bg-slate-900/40 backdrop-blur-sm">
+                Our Collaboration
               </Link>
 
               <Link to="/contact" className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 shadow-md hover:shadow-orange-500/40">
@@ -323,17 +321,8 @@ const isLab = location.pathname.startsWith("/labs");
                 >
                   About Us
                 </Link>
-                <Link
-                  to="/news"
-                  className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-center font-semibold"
-                >
-                  News
-                </Link>
-                <Link
-                  to="/research"
-                  className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-center font-semibold"
-                >
-                  Research
+                <Link to="/collaboration" className="block py-2 text-base text-slate-300 hover:text-orange-500">
+                  Our Collaboration
                 </Link>           
                 <Link
                   to="/contact"
@@ -360,7 +349,7 @@ function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <img
@@ -486,6 +475,14 @@ function Footer() {
                 </Link>
               </li>
               
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-4 text-orange-300">Quick Access</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/news" className="text-slate-400 hover:text-white transition-colors">News</Link></li>
+              <li><Link to="/research" className="text-slate-400 hover:text-white transition-colors">Research</Link></li>
+              <li><Link to="/contact" className="text-slate-400 hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
         </div>
