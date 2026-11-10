@@ -980,7 +980,7 @@ function AcademyFlagshipPromo() {
           Now Enrolling
         </span>
         <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-300">The Future Is Being Built. Are You Ready?</p>
-        <h2 className="mt-1 text-2xl font-black uppercase leading-[0.98] tracking-[-0.03em] text-orange-300 [text-shadow:0_0_18px_rgba(251,146,60,0.32)] sm:text-3xl">AI for<br />Generation Z</h2>
+        <h2 className="mt-1 text-lg font-black italic leading-[0.98] tracking-[-0.03em] text-orange-300 [text-shadow:0_0_18px_rgba(251,146,60,0.32)] sm:text-xl">Innovate, Build<br /><span className="whitespace-nowrap">&amp; Secure with AI</span></h2>
         <div className="mt-2 border-t border-white/15 pt-2">
           <p className="mb-1 text-[7px] font-bold uppercase tracking-[0.2em] text-slate-300">In collaboration with</p>
           <div className="flex items-center justify-start gap-2">
@@ -1097,13 +1097,14 @@ function TrackCard({
   );
 }
 
-export function AdvisorSlideshow({ compact = false }: { compact?: boolean }) {
+export function AdvisorSlideshow({ compact = false, theme = "dark" }: { compact?: boolean; theme?: "dark" | "light" }) {
+  const light = theme === "light";
   const [selectedAdvisor, setSelectedAdvisor] = useState<(typeof advisoryTeam)[number] | null>(null);
 
   return (
     <>
       <div className="relative mx-auto w-full max-w-[1280px]">
-        <div className="grid gap-x-5 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className={`grid gap-x-4 gap-y-5 ${light ? 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' : 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'}`}>
           {advisoryTeam.map((advisor, idx) => (
             <motion.article
               key={advisor.name}
@@ -1111,10 +1112,10 @@ export function AdvisorSlideshow({ compact = false }: { compact?: boolean }) {
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, amount: 0.12 }}
               transition={{ duration: 0.45, delay: idx * 0.07, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative flex min-w-0 flex-col border-l border-white/15 pl-4 first:border-l-0 first:pl-0"
+              className={`group relative flex min-w-0 flex-col ${light ? 'rounded-[20px] border border-[#dce5ee] bg-white/85 p-3 shadow-[0_10px_28px_rgba(27,55,92,.06)] transition hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(27,55,92,.11)]' : 'border-l border-white/15 pl-4 first:border-l-0 first:pl-0'}`}
             >
-              <div className="mb-5 flex h-[190px] items-end justify-center overflow-hidden rounded-t-[100px] rounded-b-[28px] bg-white/10 sm:h-[210px]">
-                  <div className="h-[176px] w-[176px] overflow-hidden rounded-full bg-slate-700 ring-4 ring-slate-800 shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-[1.04] sm:h-[188px] sm:w-[188px]">
+              <div className={`mb-3 flex items-end justify-center overflow-hidden ${light ? 'h-[126px] rounded-[15px] bg-gradient-to-br from-[#eef4fb] via-white to-[#f7f1e5]' : 'h-[190px] rounded-t-[100px] rounded-b-[28px] bg-white/10 sm:h-[210px]'}`}>
+                  <div className={`overflow-hidden rounded-full transition-transform duration-500 group-hover:scale-[1.04] ${light ? 'h-[112px] w-[112px] bg-white ring-4 ring-white shadow-[0_9px_22px_rgba(27,55,92,.16)] sm:h-[116px] sm:w-[116px]' : 'h-[176px] w-[176px] bg-slate-700 ring-4 ring-slate-800 shadow-[0_12px_30px_rgba(0,0,0,0.25)] sm:h-[188px] sm:w-[188px]'}`}>
                     <img
                       src={advisor.image}
                       alt={advisor.name}
@@ -1127,15 +1128,15 @@ export function AdvisorSlideshow({ compact = false }: { compact?: boolean }) {
 
               <div className="flex flex-1 flex-col">
                 <div>
-                    <span className="inline-flex max-w-full rounded-full border border-orange-300/30 bg-orange-400/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.11em] text-orange-200">
+                    <span className={`inline-flex max-w-full rounded-full px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.11em] ${light ? 'border border-[#d6a64b]/35 bg-[#fbf5e8] text-[#9a6b17]' : 'border border-orange-300/30 bg-orange-400/10 text-orange-200'}`}>
                       {advisor.intro}
                     </span>
 
-                    <h3 className="mt-3 text-xl font-extrabold leading-tight text-white">
+                    <h3 className={`mt-3 text-xl font-extrabold leading-tight ${light ? 'text-[#14233b]' : 'text-white'}`}>
                       {advisor.name}
                     </h3>
 
-                    <p className="mt-2 min-h-[3.25rem] text-[13px] font-medium leading-relaxed text-slate-200">
+                    <p className={`mt-2 min-h-[3.25rem] text-[13px] font-medium leading-relaxed ${light ? 'text-slate-600' : 'text-slate-200'}`}>
                       {advisor.role}
                     </p>
 
@@ -1143,23 +1144,23 @@ export function AdvisorSlideshow({ compact = false }: { compact?: boolean }) {
                       {advisor.summary.split("·").map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] font-medium text-slate-300"
+                          className={`rounded-full px-2 py-1 text-[10px] font-medium ${light ? 'border border-slate-200 bg-slate-50 text-slate-600' : 'border border-white/10 bg-white/5 text-slate-300'}`}
                         >
                           {tag.trim()}
                         </span>
                       ))}
                     </div>}
 
-                    {!compact && <p className="mt-3 text-[13px] leading-6 text-slate-300">
+                    {!compact && <p className={`mt-3 text-[13px] leading-6 ${light ? 'text-slate-600' : 'text-slate-300'}`}>
                       {advisor.description}
                     </p>}
                 </div>
 
-                <div className="mt-5 flex justify-start">
+                <div className={`flex justify-start ${light ? 'mt-3' : 'mt-5'}`}>
                     <button
                       type="button"
                       onClick={() => setSelectedAdvisor(advisor)}
-                      className="inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-400/10 px-3 py-2 text-[12px] font-semibold text-orange-200 transition-all duration-300 hover:border-orange-300 hover:bg-orange-500 hover:text-white"
+                      className={`inline-flex items-center gap-2 rounded-full px-3 py-2 text-[12px] font-semibold transition-all duration-300 ${light ? 'border border-[#315eab]/20 bg-[#edf4fc] text-[#315eab] hover:border-[#315eab] hover:bg-[#315eab] hover:text-white' : 'border border-orange-300/30 bg-orange-400/10 text-orange-200 hover:border-orange-300 hover:bg-orange-500 hover:text-white'}`}
                     >
                       <span>View profile</span>
                       <ArrowRight className="h-3.5 w-3.5" />

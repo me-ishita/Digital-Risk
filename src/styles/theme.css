@@ -295,7 +295,7 @@
 
 @keyframes labsMagazineZoom {
   0%, 100% { scale: 1; }
-  50% { scale: 1.035; }
+  50% { scale: 1.06; }
 }
 
 @media (hover: hover) {

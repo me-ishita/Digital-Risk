@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Shield, Target, Zap, Award, Eye, ArrowLeft, ArrowRight, Icon, GraduationCap, Cpu, Lightbulb, BrainCircuit, ShieldCheck, RefreshCw, Scale } from 'lucide-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from "../../components/ui/button";
@@ -7,11 +7,12 @@ import { Card } from "../../components/ui/card";
 import { FlippingCards } from "../../components/FlippingCards";
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { AdvisorSlideshow } from "../academy/AcademyHome";
 import prismLogo from '../../../assets/Prism logo.png';
 
 function LabsFlagshipTicker() {
   return (
-    <div className="fixed left-0 right-0 top-[60px] z-40 overflow-hidden border-y border-orange-200/30 bg-gradient-to-r from-blue-700/85 via-orange-600/90 to-blue-700/85 py-2.5 shadow-[0_0_26px_rgba(249,115,22,0.4)] backdrop-blur-md sm:top-[76px] sm:py-3" aria-label="New flagship programme: AI for Generation Z. Build, innovate, secure, present. Enrolment now open.">
+    <div className="fixed left-0 right-0 top-[60px] z-40 overflow-hidden border-y border-orange-200/30 bg-gradient-to-r from-blue-700/85 via-orange-600/90 to-blue-700/85 py-2.5 shadow-[0_0_26px_rgba(249,115,22,0.4)] backdrop-blur-md sm:top-[76px] sm:py-3" aria-label="New flagship programme: Innovate, Build & Secure with AI. Enrolment now open.">
       <div className="labs-ribbon-sweep absolute inset-0" aria-hidden="true" />
       <div className="collaboration-marquee relative z-10 flex w-max items-center" aria-hidden="true">
         {[0, 1].map((copy) => (
@@ -19,7 +20,7 @@ function LabsFlagshipTicker() {
             <span className="rounded-full bg-orange-400 px-3 py-1 text-[9px] font-black uppercase tracking-[0.12em] text-slate-950 sm:text-[11px]">New</span>
             <span className="whitespace-nowrap text-[9px] font-extrabold uppercase tracking-[0.13em] text-white sm:text-xs sm:tracking-[0.18em]">Flagship Programme</span>
             <span className="text-orange-200">✦</span>
-            <span className="whitespace-nowrap text-[9px] font-extrabold uppercase tracking-[0.13em] text-white sm:text-xs sm:tracking-[0.18em]">AI for Generation Z</span>
+            <span className="whitespace-nowrap text-[9px] font-extrabold uppercase tracking-[0.13em] text-white sm:text-xs sm:tracking-[0.18em]">Innovate, Build &amp; Secure with AI</span>
             <span aria-hidden="true" className="h-4 w-px bg-white/65" />
             <span className="whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.12em] text-white/90 sm:text-xs sm:tracking-[0.16em]">Build. Innovate. Secure. Present.</span>
             <span aria-hidden="true" className="h-4 w-px bg-white/65" />
@@ -38,28 +39,35 @@ function LabsMagazineFeature() {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 1.35, ease: [0.22, 1, 0.36, 1] }}
-      className="relative mx-auto w-full max-w-[380px] px-4 pb-4 pt-2 sm:px-6 lg:px-0 lg:py-3"
+      className="relative mx-auto w-full max-w-6xl px-4 pb-4 pt-2 sm:px-6 lg:px-0 lg:py-3"
     >
-      <div className="labs-poster-aura absolute inset-6 rounded-[32px] sm:inset-8" aria-hidden="true" />
+      <div aria-hidden="true" className="pointer-events-none absolute -inset-3 rounded-[34px] bg-[radial-gradient(ellipse_at_center,rgba(250,204,21,.3),rgba(245,158,11,.13)_42%,transparent_72%)] blur-2xl animate-pulse" />
       <span aria-hidden="true" className="labs-poster-orbit labs-poster-orbit--wide" />
       <span aria-hidden="true" className="labs-poster-orbit labs-poster-orbit--tall" />
-      <div className="labs-magazine-tilt labs-poster-frame relative z-10 mx-auto max-w-[320px] rounded-[22px] p-[2px] sm:rounded-[26px]">
-        <div className="relative overflow-hidden rounded-[20px] bg-slate-950 shadow-[0_30px_90px_rgba(0,0,0,0.55)] sm:rounded-[24px]">
-          <img
-            src="/images/ai-generation-z-magazine.png"
-            alt="AI for Generation Z programme magazine cover, featuring a young innovator and a glowing digital globe"
-            className="labs-magazine-cover block aspect-[2/3] w-full object-cover"
-            loading="eager"
-            decoding="async"
-          />
-          <span aria-hidden="true" className="promo-light-sweep absolute inset-y-0 left-0 z-10 w-1/3" />
+      <div className="promo-card-highlight relative z-10 overflow-hidden rounded-[26px] border border-amber-200/60 bg-gradient-to-br from-slate-900/90 via-[#11141a]/90 to-amber-950/70 shadow-[0_30px_80px_rgba(0,0,0,.42),0_0_28px_rgba(250,204,21,.28)] backdrop-blur-xl">
+        <div className="absolute -left-11 top-7 z-20 w-44 -rotate-45 border-y border-emerald-200/50 bg-gradient-to-r from-emerald-700 via-emerald-500 to-emerald-700 py-1.5 text-center text-[8px] font-black uppercase tracking-[0.16em] text-white shadow-[0_0_20px_rgba(16,185,129,.38)]">
+          Registration Open
+        </div>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_12%_0%,rgba(255,198,66,.15),transparent_42%),radial-gradient(ellipse_at_100%_100%,rgba(255,153,0,.12),transparent_45%)]" aria-hidden="true" />
+        <div className="relative min-h-[500px] overflow-hidden sm:min-h-[440px] lg:min-h-[410px]">
+          <div aria-hidden="true" className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,.14)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.14)_1px,transparent_1px)] [background-size:46px_46px] [mask-image:linear-gradient(90deg,black,transparent_85%)]" />
+          <div className="relative z-10 flex min-h-[500px] max-w-[600px] flex-col justify-center px-6 py-8 sm:min-h-[440px] sm:px-10 lg:min-h-[410px] lg:px-12">
+            <p className="w-fit whitespace-nowrap border-l-2 border-amber-400 pl-2.5 text-[8px] font-semibold uppercase tracking-[0.08em] text-white/75 sm:text-[10px] sm:tracking-[0.12em]">A flagship initiative by <span className="whitespace-nowrap font-extrabold text-amber-300">Digital Risk Labs</span></p>
+            <p className="mt-5 text-[9px] font-black uppercase tracking-[0.2em] text-amber-200 sm:text-[10px]">The Future Is Being Built.<br className="sm:hidden" /> Are You Ready?</p>
+            <h2 className="mt-2 text-2xl font-black italic leading-[1.02] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-100 via-amber-300 to-yellow-500 drop-shadow-[0_2px_12px_rgba(0,0,0,.95)] sm:text-3xl lg:text-[40px]"><span className="block whitespace-nowrap">Innovate, Build</span><span className="block whitespace-nowrap">&amp; Secure with AI</span></h2>
+            <p className="mt-3 max-w-md text-xs font-semibold leading-relaxed text-white drop-shadow-[0_1px_7px_rgba(0,0,0,.95)] sm:text-sm">Designed for the next generation of innovators.</p>
+            <div className="mt-5 border-t border-amber-200/30 pt-3">
+              <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-amber-100/80">In collaboration with</p>
+              <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-1.5"><img src="/images/digital-risk-labs-white.png" alt="" className="h-6 w-6 object-contain" /><span className="whitespace-nowrap text-[9px] font-bold text-white sm:text-[10px]">Digital Risk Labs</span></div>
+                <span aria-hidden="true" className="text-sm font-light text-amber-300">×</span>
+                <img src="/images/imperial-white-wordmark.webp" alt="Imperial College London" className="h-5 w-[92px] object-contain" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div aria-hidden="true" className="labs-poster-stand relative z-0 mx-auto -mt-3 mb-2 h-12 w-[72%]">
-        <span className="labs-poster-stand__stem" />
-        <span className="labs-poster-stand__foot" />
-      </div>
-      <Link to="/programmes/ai-for-generation-z" className="relative z-20 mx-auto mt-3 flex w-fit items-center justify-center gap-2 rounded-full border border-blue-200/70 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 px-5 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_0_24px_rgba(59,130,246,0.4)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(59,130,246,0.62)]">
+      <Link to="/programmes/ai-for-generation-z" className="relative z-20 mx-auto mt-4 flex w-fit items-center justify-center gap-2 rounded-full border border-yellow-300/80 bg-gradient-to-r from-amber-300/90 to-yellow-400/90 px-5 py-2.5 text-xs font-extrabold uppercase tracking-[0.12em] text-slate-950 shadow-[0_0_24px_rgba(250,204,21,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_0_34px_rgba(250,204,21,0.5)]">
         Explore &amp; Enrol <ArrowRight className="h-3.5 w-3.5" />
       </Link>
     </motion.div>
@@ -199,15 +207,6 @@ export default function AdvisoryHome() {
     premium: "bg-background"
   };
 
-
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % whyChooseUs.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
 
   const prev = () => {
     if (current > 0) {
@@ -537,14 +536,14 @@ export default function AdvisoryHome() {
             </span>
           </h2>
 
-          <p className="mx-auto max-w-4xl px-4 text-xs font-semibold uppercase leading-relaxed tracking-[0.18em] text-cyan-100/75 md:text-sm">
+          <p className="mx-auto max-w-4xl px-4 text-xs font-semibold uppercase leading-relaxed tracking-[0.18em] text-amber-300 md:text-sm">
             From risk assessment to regulatory compliance, we enable secure and scalable digital transformation
           </p>
         </div>
 
         {/* EDITORIAL BENTO GRID */}
-        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-[250px]">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-12">
             {services.map((item, i) => (
               <motion.div
                 key={item.number}
@@ -552,19 +551,18 @@ export default function AdvisoryHome() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className={`group relative overflow-hidden rounded-[24px] border border-white/10 bg-[#111d29] shadow-[0_16px_40px_rgba(0,0,0,0.25)] transition duration-300 hover:-translate-y-1 hover:border-amber-200/40 ${i === 0 ? 'md:col-span-7' : i === 1 ? 'md:col-span-5' : i === 2 ? 'md:col-span-5' : 'md:col-span-7'}`}
+                className={`group relative min-h-[320px] overflow-hidden rounded-[26px] border border-white/20 bg-white/[0.09] shadow-[0_18px_48px_rgba(0,0,0,0.2)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-amber-200/50 hover:bg-white/[0.13] md:min-h-[330px] ${i === 0 ? 'md:col-span-7' : i === 1 ? 'md:col-span-5' : i === 2 ? 'md:col-span-5' : 'md:col-span-7'}`}
               >
-                <div className={`flex h-full flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
-                  <div className="relative h-44 shrink-0 overflow-hidden md:h-full md:w-[38%]">
-                    <img src={item.img} alt={`${item.title} visual`} loading="lazy" className="h-full w-full object-cover object-center transition duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#101a25]/65 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#111d29]/25" />
-                    <span className="absolute left-4 top-4 rounded-full border border-white/40 bg-[#071321]/70 px-3 py-1 font-mono text-[11px] tracking-[0.16em] text-white backdrop-blur-sm">{item.number}</span>
+                <div className={`flex h-full min-h-[320px] flex-col md:min-h-[330px] ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                  <div className="relative h-52 shrink-0 overflow-hidden md:h-auto md:w-[44%]">
+                    <img src={item.img} alt={`${item.title} visual`} loading="lazy" className={`h-full w-full object-cover transition duration-700 group-hover:scale-105 ${item.number === '01' ? 'object-[68%_center]' : 'object-center'}`} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#101a25]/35 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#102033]/20" />
+                    <span className="absolute left-4 top-4 rounded-full border border-white/55 bg-[#071321]/55 px-3 py-1 font-mono text-[11px] tracking-[0.16em] text-white backdrop-blur-sm">{item.number}</span>
                   </div>
-                  <div className="flex min-w-0 flex-1 flex-col justify-center p-5 sm:p-6">
-                    <div className="mb-2 flex items-center gap-2 text-amber-200"><item.icon className="h-4 w-4 shrink-0" /><span className="text-[9px] font-bold uppercase tracking-[0.14em] text-amber-100/80">Strategic capability</span></div>
-                    <h3 className="text-xl font-bold leading-tight tracking-tight text-white sm:text-[22px]">{item.title}</h3>
-                    <p className="mt-2 text-xs leading-[1.5] text-slate-200/85 sm:text-[13px]">{item.description}</p>
-                    <p className="mt-3 text-[8px] font-bold leading-4 tracking-[0.1em] text-amber-200 sm:text-[9px] sm:tracking-[0.13em]">{item.themes}</p>
+                  <div className="flex min-w-0 flex-1 flex-col justify-center p-6 sm:p-7">
+                    <div className="mb-2 flex items-start gap-3"><item.icon className="mt-1 h-5 w-5 shrink-0 text-amber-200" /><h3 className="text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">{item.title}</h3></div>
+                    <p className="mt-1 text-[13px] leading-[1.6] text-slate-100/90 sm:text-sm">{item.description}</p>
+                    <p className="mt-4 text-[9px] font-bold leading-4 tracking-[0.1em] text-amber-200 sm:text-[10px] sm:tracking-[0.13em]">{item.themes}</p>
                   </div>
                 </div>
               </motion.div>
@@ -587,51 +585,36 @@ export default function AdvisoryHome() {
 
       {/* Innovation Spotlight - PRISM */}
       <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800/70 to-transparent"></div>
-      <section className="relative overflow-hidden py-24 bg-background">
+      <section className="relative isolate overflow-hidden bg-[#f5f7fa] py-16 md:py-20">
 
         {/* HEADER OUTSIDE CARD */}
-        <div className="text-center mb-12">
+        <div className="relative z-10 mb-10 text-center">
           <h2 className="flex flex-wrap justify-center gap-x-2 text-3xl font-extrabold mb-6 sm:text-5xl md:text-6xl">
-            <span className="text-foreground">
+            <span className="text-[#101d35]">
               Innovation Spotlight
             </span>
-            <span className="bg-linear-to-r from-[#4A7FA8] to-[#FF7A18] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#315eab] to-[#c78320] bg-clip-text text-transparent">
               PRISM
             </span>
           </h2>
 
-          <p className="text-2xl md:text-xl font-semibold text-primary uppercase tracking-widest text-center max-w-4xl mx-auto leading-relaxed px-4 whitespace-normal">
+          <p className="mx-auto max-w-4xl px-4 text-sm font-semibold uppercase leading-relaxed tracking-[0.15em] text-slate-600 md:text-base">
             AI-powered regulatory intelligence transforming compliance into automated, traceable systems.
           </p>
         </div>
 
         {/* MAIN CARD */}
-        <div className="max-w-6xl mx-auto">
-          <div className="relative rounded-[40px] p-10 mt-10 md:p-14 overflow-hidden
-bg-black/40 backdrop-blur-xl
-border border-white/10
-shadow-[0_25px_80px_rgba(0,0,0,0.6)]
-">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="relative mt-8 overflow-hidden rounded-[34px_12px_54px_12px] border border-[#d9e3ef] bg-white shadow-[0_28px_80px_rgba(30,49,75,.16)] sm:rounded-[54px_16px_72px_16px]">
+            <img src="/images/innovation-spotlight-bg.png" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-center brightness-110 saturate-110" />
 
             {/* INNER GRID */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              {/* Dynamic Spotlight Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-primary/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" />
-
-              {/* subtle grid background */}
-              <div className="absolute inset-0 bg-grid-primary/[0.03] bg-size-[50px_50px]"></div>
+            <div className="relative z-10 grid items-stretch gap-6 px-6 py-8 sm:px-9 sm:py-10 md:grid-cols-[1.15fr_.85fr] md:gap-8 md:px-12 md:py-12">
 
               {/* LEFT SIDE — PRISM STORY CARD */}
               <motion.div
-                whileHover={{ y: -6 }}
-                className="relative rounded-3xl p-6 
-                            bg-card
-                            border border-[#E6D3B5]
-                            shadow-[0_10px_30px_rgba(0,0,0,0.06)]
-                            transition-all duration-500 overflow-hidden">
-
-                {/* subtle glow */}
-                <div className="absolute inset-0 bg-primary/5 opacity-0 hover:opacity-100 transition-opacity duration-500" />
+                whileHover={{ y: -4 }}
+                className="relative p-1 sm:p-3">
 
                 <div className="relative z-10">
 
@@ -642,20 +625,18 @@ shadow-[0_25px_80px_rgba(0,0,0,0.6)]
                       alt="PRISM Logo"
                       className="w-12 h-12 object-contain"
                     />
-                    <h3 className="text-3xl font-bold text-foreground tracking-tight">
+                    <h3 className="text-2xl font-bold tracking-tight text-[#14233b] sm:text-3xl">
                       About PRISM
                     </h3>
                   </div>
 
                   {/* CONTENT */}
-                  <p className="text-primary leading-relaxed text-base md:text-lg lg:text-[17.28px] mt-8">
-                    PRISM is an end-to-end AI-powered regulatory intelligence platform designed to transform
-                    complex regulatory documentation into structured, executable, and fully auditable outputs.
-                    It automates formula extraction, interpretation, and COREP reporting with complete traceability—
-                    eliminating manual inefficiencies introduced by Basel 3.1 complexity. Built for financial institutions,
-                    compliance teams, and audit functions, PRISM enables organisations to move from manual execution
-                    to intelligent, scalable regulatory oversight.
+                  <p className="mt-6 text-sm leading-7 text-[#34445c] md:text-base md:leading-8">
+                    PRISM is an end-to-end <strong className="font-semibold text-[#24569a]">AI-powered regulatory intelligence</strong> platform designed to transform complex regulatory documentation into <strong className="font-semibold text-[#24569a]">structured, executable, and fully auditable</strong> outputs. It automates <strong className="font-semibold text-[#24569a]">formula extraction, interpretation, and COREP reporting</strong> with complete traceability—eliminating manual inefficiencies introduced by <strong className="font-semibold text-[#24569a]">Basel 3.1</strong> complexity. Built for financial institutions, compliance teams, and audit functions, PRISM enables organisations to move from manual execution to <strong className="font-semibold text-[#24569a]">intelligent, scalable regulatory oversight</strong>.
                   </p>
+                  <a href="https://innovation-prism.vercel.app/" className="group mt-5 inline-flex w-fit items-center gap-3 rounded-[5px_18px_5px_18px] border border-[#183b68] bg-[#183b68] py-1.5 pl-4 pr-1.5 text-sm font-bold text-white shadow-[0_8px_20px_rgba(24,59,104,.2)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#24569a]">
+                    <span>View Details</span><span className="grid h-7 w-7 place-items-center rounded-full bg-[#e8bd67] text-[#183b68] transition-transform group-hover:translate-x-0.5"><ArrowRight className="h-3.5 w-3.5" /></span>
+                  </a>
 
                 </div>
               </motion.div>
@@ -667,17 +648,17 @@ shadow-[0_25px_80px_rgba(0,0,0,0.6)]
                 {[
                   {
                     title: "Precision",
-                    desc: "Accurate insights you can trust.",
+                    desc: <>Accurate insights with <strong className="font-semibold text-[#24569a]">confidence and control.</strong></>,
                     icon: Shield
                   },
                   {
                     title: "Traceability",
-                    desc: "Full audit trail and explainability.",
+                    desc: <><strong className="font-semibold text-[#24569a]">Full audit trails</strong> and explainable outcomes.</>,
                     icon: Target
                   },
                   {
                     title: "Scalability",
-                    desc: "Built for enterprise-scale compliance.",
+                    desc: <>Ready for <strong className="font-semibold text-[#24569a]">enterprise-scale compliance.</strong></>,
                     icon: Zap
                   }
                 ].map((item, idx) => (
@@ -686,38 +667,21 @@ shadow-[0_25px_80px_rgba(0,0,0,0.6)]
                     whileHover={{ y: -6, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                    className="relative flex items-start gap-5 p-6 rounded-2xl
-      bg-card
-      border border-[#E6D3B5]
-      shadow-[0_8px_20px_rgba(0,0,0,0.05)]
-      hover:shadow-[0_15px_35px_rgba(0,0,0,0.1)]
-      transition-all duration-500 overflow-hidden group"
+                    className="group relative flex items-start gap-4 border-b border-[#6683a0]/25 py-5 transition-all duration-300 last:border-b-0 sm:py-6"
                   >
-
-                    {/* subtle hover glow */}
-                    <div className="absolute inset-0 bg-linear-to-r from-[#4A7FA8]/5 via-[#B8956A]/10 to-[#4A7FA8]/5 
-      opacity-0 group-hover:opacity-100 transition duration-500" />
-
-                    {/* left accent line */}
-                    <div className="absolute left-0 top-0 h-full w-0.75 
-      bg-linear-to-b from-[#4A7FA8] via-[#B8956A] to-[#4A7FA8] opacity-70 group-hover:opacity-100" />
-
                     {/* ICON */}
-                    <div className="relative z-10 p-3 rounded-xl 
-      bg-[#F5EFE6] text-[#B8956A] 
-      group-hover:scale-110 group-hover:bg-white 
-      transition-all duration-300 shadow-sm">
+                    <div className="relative z-10 rounded-xl border border-[#7393b6]/30 bg-white/45 p-3 text-[#315eab] transition-all duration-300 group-hover:scale-110 group-hover:bg-white/70">
 
                       <item.icon className="w-5 h-5" />
                     </div>
 
                     {/* TEXT */}
                     <div className="relative z-10">
-                      <h4 className="text-xl md:text-2xl font-semibold text-foreground tracking-tight">
+                      <h4 className="text-lg font-semibold tracking-tight text-[#17253d] md:text-xl">
                         {item.title}
                       </h4>
 
-                      <p className="text-primary text-base md:text-lg leading-[1.7] mt-2">
+                      <p className="mt-2 text-sm leading-7 text-[#43536a] md:text-base">
                         {item.desc}
                       </p>
                     </div>
@@ -729,23 +693,6 @@ shadow-[0_25px_80px_rgba(0,0,0,0.6)]
 
             </div>
 
-            {/* CTA */}
-            <div className="text-center mt-12">
-              <a
-                href="https://innovation-prism.vercel.app/"
-                className="group inline-flex items-center gap-2 text-primary font-semibold text-lg relative"
-              >
-                <span className="relative">
-                  View Details
-                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 text-primary bg-[#B8956A] transition-all duration-300 group-hover:w-full"></span>
-                </span>
-
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
-            </div>
-
           </div>
         </div>
 
@@ -753,101 +700,55 @@ shadow-[0_25px_80px_rgba(0,0,0,0.6)]
 
       {/* Why Choose Us */}
       <div className="h-px w-full bg-linear-to-r from-transparent via-blue-800/70 to-transparent"></div>
-      <section className="py-24 bg-[#0f0d0c]">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
-              <span className="text-white">
-                Why Choose Us
-              </span>
-            </h2>
-            <p className="text-2xl md:text-xl font-semibold text-[#d4af37] uppercase tracking-widest text-center max-w-4xl mx-auto leading-relaxed px-4 whitespace-normal">
-              Strategic cybersecurity and digital risk solutions designed for executive leadership and organisational resilience
-            </p>
-          </motion.div>
+      <section className="relative isolate overflow-hidden bg-[#0a1423] px-5 py-16 sm:px-8 md:py-20">
+        <div aria-hidden="true" className="pointer-events-none absolute -left-40 top-0 h-[480px] w-[480px] rounded-full bg-blue-500/10 blur-[130px]" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-40 bottom-0 h-[420px] w-[420px] rounded-full bg-amber-400/[0.07] blur-[120px]" />
+        <div className="relative mx-auto max-w-7xl">
+          <motion.header initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 text-center md:mb-10">
+            <h2 className="mb-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Why Choose Us</h2>
+            <p className="mx-auto max-w-4xl px-4 text-xs font-semibold uppercase leading-relaxed tracking-[0.18em] text-amber-300 md:text-sm">Strategic cybersecurity and digital risk solutions designed for executive leadership and organisational resilience</p>
+          </motion.header>
 
-          <div className="relative max-w-6xl xl:max-w-7xl mx-auto min-h-105 md:min-h-120 flex items-center justify-center">
-
-            {whyChooseUs.map((item, index) => {
-              const isActive = activeIndex === index;
+          <div className="grid gap-5 lg:grid-cols-[1.06fr_.94fr]">
+            {whyChooseUs.slice(0, 1).map((item) => {
               const Icon = item.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{
-                    opacity: isActive ? 1 : 0,
-                    scale: isActive ? 1 : 0.95
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className={`absolute w-full flex justify-center items-center ${isActive ? "z-10" : "z-0 pointer-events-none"
-                    }`}
-                >
-                  <div className="rounded-3xl overflow-hidden 
-bg-card 
-border border-[#E6D3B5]
-shadow-[0_25px_60px_rgba(0,0,0,0.08)]
-w-full max-w-3xl md:max-w-4xl mx-auto transition-all duration-500">
-
-                    {/* IMAGE */}
-                    <div className="relative h-64 md:h-72 overflow-hidden">
-                      <img
-                        src={item.image}
-                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent" />
-                    </div>
-
-                    {/* CONTENT */}
-                    <div className="p-8 md:p-10">
-
-                      {/* ICON + TITLE */}
-                      <div className="flex items-center gap-4 mb-4">
-                        <div
-  className="w-14 h-14 rounded-xl 
-  bg-linear-to-br from-[#4A7FA8] via-[#7A8299] to-[#B8956A]
-  p-3 shadow-lg flex items-center justify-center"
->
-  <Icon className="w-full h-full text-white" />
-</div>
-
-                        <h3 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight">
-                          {item.title}
-                        </h3>
-                      </div>
-
-                      {/* DESCRIPTION */}
-                      <p className="text-primary text-base md:text-lg leading-relaxed tracking-wide">
-                        {item.description}
-                      </p>
-
-                    </div>
-                  </div>
-                </motion.div>
-              );
+              return <motion.article key={item.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="group relative min-h-[420px] overflow-hidden rounded-[30px] border border-white/15 bg-slate-900 shadow-[0_24px_70px_rgba(0,0,0,.32)] sm:min-h-[480px]">
+                <img src={item.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07111f] via-[#07111f]/70 to-[#07111f]/10" />
+                <div className="absolute left-6 top-6 flex items-center gap-3 rounded-full border border-white/20 bg-slate-950/35 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-white backdrop-blur-md"><span className="text-amber-300">01</span><span className="h-4 w-px bg-white/30" />Our approach</div>
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-9">
+                  <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-200/30 bg-amber-300/10 text-amber-200 backdrop-blur"><Icon className="h-6 w-6" /></span>
+                  <h3 className="max-w-xl text-2xl font-bold leading-tight text-white sm:text-3xl">{item.title}</h3>
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-200 sm:text-base">{item.description}</p>
+                </div>
+              </motion.article>;
             })}
 
+            <div className="grid gap-4">
+              {whyChooseUs.slice(1).map((item, index) => {
+                const Icon = item.icon;
+                return <motion.article key={item.title} initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.42, delay: index * 0.08 }} className="group relative grid min-h-[164px] grid-cols-[104px_minmax(0,1fr)] overflow-hidden rounded-[24px] border border-white/12 bg-white/[0.055] backdrop-blur-md transition duration-300 hover:border-sky-200/35 hover:bg-white/[0.09] lg:min-h-[150px] lg:grid-cols-[124px_minmax(0,1fr)]">
+                  <div className="relative min-h-full overflow-hidden"><img src={item.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-[#081322]/45 to-transparent" /><span className="absolute left-3 top-3 font-mono text-[10px] font-bold tracking-[0.14em] text-white">0{index + 2}</span></div>
+                  <div className="flex flex-col justify-center p-4 sm:p-5 lg:p-5">
+                    <h3 className="flex items-start gap-2 text-base font-bold leading-snug text-white sm:text-lg"><Icon className="mt-0.5 h-4 w-4 shrink-0 text-amber-200" />{item.title}</h3>
+                    <p className="mt-2 text-xs leading-5 text-slate-300 sm:text-[13px]">{item.description}</p>
+                  </div>
+                </motion.article>;
+              })}
+            </div>
           </div>
+        </div>
+      </section>
 
-          {/* DOT NAVIGATION */}
-          <div className="flex justify-center mt-14 md:mt-16 gap-4 relative z-20">
-            {whyChooseUs.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveIndex(idx)}
-                className={`w-3.5 h-3.5 rounded-full transition-all duration-300 ${activeIndex === idx
-                    ? 'bg-[#da9e4a] scale-125 shadow-[0_0_10px_rgba(198,167,125,0.8)]'
-                    : 'bg-[#ffffff]/60 hover:bg-[#ffffff]'
-                  }`}
-              />
-            ))}
+      {/* Our Mentors */}
+      <section className="relative overflow-hidden bg-[#f4f7fb] px-5 py-10 sm:px-8 md:py-12">
+        <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-8 h-80 w-80 rounded-full bg-sky-200/40 blur-[110px]" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-amber-100/70 blur-[110px]" />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="mb-5">
+            <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-[#12213a] sm:text-3xl">Meet the Minds Behind <span className="font-serif font-medium italic text-[#315eab]">Digital Risk Labs</span></h2>
           </div>
-          
+          <AdvisorSlideshow compact theme="light" />
         </div>
       </section>
 

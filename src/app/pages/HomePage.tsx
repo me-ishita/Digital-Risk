@@ -752,15 +752,15 @@ function FlagshipCollaborationSection() {
                 </div>
               </div>
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.24em] text-orange-200">Young Innovators · London 2027</p>
-              <h2 className="text-4xl font-black uppercase leading-[0.92] tracking-[-0.045em] text-white sm:text-6xl lg:text-[4.25rem]">
-                <span className="block">AI for</span>
-                <span className="block">Generation <span className="logo-shine inline-block">Z</span></span>
+              <h2 className="text-2xl font-black italic leading-[0.98] tracking-[-0.04em] text-white sm:text-4xl lg:text-[3.25rem]">
+                <span className="block">Innovate, Build</span>
+                <span className="block whitespace-nowrap">&amp; Secure with <span className="text-orange-300">AI</span></span>
               </h2>
-              <p className="mt-4 text-lg font-semibold leading-snug text-orange-100 sm:text-xl">
-                Certification to <span className="font-bold text-orange-400">Build</span>, <span className="font-bold text-orange-400">Innovate</span> &amp; <span className="font-bold text-orange-400">Secure</span> with <span className="font-bold text-orange-400">AI</span>
+              <p className="mt-4 text-base font-semibold leading-snug text-orange-100 sm:text-lg">
+                <span className="font-bold text-orange-200">Designed for the next generation of innovators.</span>
               </p>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-200 sm:text-base">
-                An exceptional opportunity for young innovators to explore AI, develop practical skills and experience learning at the prestigious Imperial College London campus.
+                Explore emerging technologies through expert-led sessions, practical projects and an immersive learning experience at Imperial College London.
               </p>
               <Link
                 to="/programmes/ai-for-generation-z"
@@ -1097,12 +1097,12 @@ function FlagshipHomeTicker() {
   const items = [
     { text: "NEW", className: "text-orange-400" },
     { text: "FLAGSHIP PROGRAMME", className: "text-white" },
-    { text: "AI FOR GENERATION Z", className: "text-white" },
+    { text: "INNOVATE, BUILD & SECURE WITH AI", className: "text-white" },
     { text: "ENROLMENT NOW OPEN", className: "text-emerald-400" },
   ];
 
   return (
-    <div className="fixed left-0 right-0 top-[60px] z-40 overflow-hidden border-y border-sky-200/10 bg-blue-950/45 py-2.5 backdrop-blur-md sm:top-[76px] sm:py-3" aria-label="New flagship programme: AI for Generation Z. Enrolment now open.">
+    <div className="fixed left-0 right-0 top-[60px] z-40 overflow-hidden border-y border-sky-200/10 bg-blue-950/45 py-2.5 backdrop-blur-md sm:top-[76px] sm:py-3" aria-label="New flagship programme: Innovate, Build & Secure with AI. Enrolment now open.">
       <div className="collaboration-marquee flex w-max items-center" aria-hidden="true">
         {[0, 1].map((copy) => (
           <div key={copy} className="flex shrink-0 items-center">
@@ -1144,8 +1144,8 @@ function HomeFlagshipPromo() {
           Now Enrolling
         </span>
         <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-300">The Future Is Being Built. Are You Ready?</p>
-        <h2 className="mt-1 text-2xl font-black uppercase leading-[0.98] tracking-[-0.03em] text-orange-300 [text-shadow:0_0_18px_rgba(251,146,60,0.32)] sm:text-3xl">
-          AI for<br />Generation Z
+        <h2 className="mt-1 text-xl font-black italic leading-[0.98] tracking-[-0.03em] text-orange-300 [text-shadow:0_0_18px_rgba(251,146,60,0.32)] sm:text-2xl">
+          Innovate, Build<br />&amp; Secure with AI
         </h2>
 
         <div className="mt-2 border-t border-white/15 pt-2">

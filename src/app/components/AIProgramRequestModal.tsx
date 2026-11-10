@@ -295,7 +295,7 @@ export function AIProgramRequestModal({ mode, onClose }: AIProgramRequestModalPr
     if (mode === "brochure") {
       const downloadLink = document.createElement("a");
       downloadLink.href = "/images/generation-z/AI%20for%20Generation%20Z.pdf";
-      downloadLink.download = "AI-for-Generation-Z.pdf";
+      downloadLink.download = "Innovate-Build-Secure-with-AI.pdf";
       document.body.appendChild(downloadLink);
       downloadLink.click();
       downloadLink.remove();
@@ -341,7 +341,7 @@ export function AIProgramRequestModal({ mode, onClose }: AIProgramRequestModalPr
         <div className="relative overflow-hidden bg-[#102541] px-6 py-6 text-white sm:px-8">
           <div className="pointer-events-none absolute -right-12 -top-24 h-56 w-56 rounded-full border-[24px] border-white/5" />
           <button type="button" onClick={onClose} aria-label="Close form" className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20"><X className="h-4 w-4" /></button>
-          <p className="text-[10px] font-black uppercase tracking-[0.24em] text-orange-300">AI for Generation Z</p>
+          <p className="text-[10px] font-black uppercase tracking-[0.24em] text-orange-300">Innovate, Build &amp; Secure with AI</p>
           <h2 id="ai-request-title" className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">Submit your details</h2>
           <p className="mt-1.5 max-w-lg text-sm leading-relaxed text-blue-100">{mode === "register" ? "Share your details and our programme team will be in touch." : "Complete the form to unlock your programme brochure."}</p>
         </div>
@@ -354,7 +354,7 @@ export function AIProgramRequestModal({ mode, onClose }: AIProgramRequestModalPr
                 <h3 className="font-extrabold text-slate-950">{mode === "register" ? "Registration received" : "Brochure ready"}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-slate-700">{notice}</p>
                 {mode === "register" && <p className="mt-2 text-sm leading-relaxed text-slate-700">Have a query? <a className="font-bold text-emerald-800 underline decoration-emerald-300 underline-offset-2" href="https://wa.me/919971033924?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20AI%20programme." target="_blank" rel="noreferrer">Chat with us on WhatsApp</a>.</p>}
-                {mode === "brochure" && <a href="/images/generation-z/AI%20for%20Generation%20Z.pdf" download="AI-for-Generation-Z.pdf" className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-blue-800 underline underline-offset-4"><ArrowDownToLine className="h-4 w-4" />Download again</a>}
+                {mode === "brochure" && <a href="/images/generation-z/AI%20for%20Generation%20Z.pdf" download="Innovate-Build-Secure-with-AI.pdf" className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-blue-800 underline underline-offset-4"><ArrowDownToLine className="h-4 w-4" />Download again</a>}
               </div>
             </div>
             <button type="button" onClick={onClose} className="mt-6 w-full rounded-xl bg-[#102541] px-5 py-3 text-sm font-extrabold text-white transition hover:bg-blue-900">Done</button>

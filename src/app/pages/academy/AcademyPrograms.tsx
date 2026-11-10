@@ -274,12 +274,12 @@ export function AcademyPrograms() {
                   </div>
                 </div>
                 <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.24em] text-orange-200 sm:text-xs">Young Innovators · London 2027</p>
-                <h2 className="text-3xl font-black uppercase leading-[0.94] tracking-tight sm:text-5xl">AI for Generation <span className="logo-shine">Z</span></h2>
+                <h2 className="text-2xl font-black italic leading-[0.98] tracking-tight sm:text-3xl"><span className="block">Innovate, Build</span><span className="block whitespace-nowrap">&amp; Secure with <span className="text-orange-300">AI</span></span></h2>
                 <p className="mt-3 text-sm font-semibold leading-snug text-orange-100 sm:text-base">
-                  Certification to <span className="font-bold text-orange-400">Build</span>, <span className="font-bold text-orange-400">Innovate</span> &amp; <span className="font-bold text-orange-400">Secure</span> with <span className="font-bold text-orange-400">AI</span>
+                  <span className="font-bold text-orange-200">Designed for the next generation of innovators.</span>
                 </p>
                 <p className="mt-3 max-w-xl text-xs leading-relaxed text-slate-200 sm:text-sm">
-                  An exceptional opportunity for young innovators to explore AI, develop practical skills and experience learning at the prestigious Imperial College London campus.
+                  Explore emerging technologies through expert-led sessions, practical projects and an immersive learning experience at Imperial College London.
                 </p>
                 <Link
                   to="/programmes/ai-for-generation-z"
